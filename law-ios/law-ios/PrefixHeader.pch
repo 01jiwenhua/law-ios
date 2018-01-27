@@ -1,0 +1,21 @@
+//
+//  PrefixHeader.pch
+//  law-ios
+//
+//  Created by 刘磊 on 2018/1/27.
+//  Copyright © 2018年 app.demo. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#import "UIImage+getImage.h" //生成单色 image,切出圆角
+
+#define   WIDTH_  [UIScreen mainScreen].bounds.size.width
+#define   HEIGHT_  [UIScreen mainScreen].bounds.size.height
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+
+#define RGBColor(r,g,b) [UIColor colorWithRed:r / 255.0 green:g / 255.0 blue: b / 255.0 alpha:1]
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */

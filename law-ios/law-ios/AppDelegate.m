@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "HomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //初始化图片适配后缀
+    _window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    UINavigationController * navi =[[UINavigationController alloc] initWithRootViewController:[HomeViewController new]];
+    
+    //设置导航条背景图片
+    [navi.navigationBar setBackgroundImage:[UIImage getImageWithColor:RGBColor(65,162, 240) andSize:CGSizeMake(1, 1)] forBarMetrics:UIBarMetricsDefault];
+    
+    //设置导航条字体颜色
+    [navi.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    self.window.rootViewController = navi;
+    [_window makeKeyAndVisible];
+    //改变状态栏颜色
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+    
+    self.window.rootViewController = navi;
+    [_window makeKeyAndVisible];
+    
     return YES;
 }
 
