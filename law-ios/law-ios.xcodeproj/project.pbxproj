@@ -47,6 +47,8 @@
 		8FBA8292201C33C30056D8E8 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA8291201C33C30056D8E8 /* BaseTableViewCell.m */; };
 		8FBA8296201C34EF0056D8E8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA8295201C34EF0056D8E8 /* HomeViewController.m */; };
 		8FBA8299201C3A9A0056D8E8 /* HttpsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA8298201C3A9A0056D8E8 /* HttpsManager.m */; };
+		8FBA829C201C42CF0056D8E8 /* MyVi.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA829B201C42CF0056D8E8 /* MyVi.m */; };
+		8FBA829F201C42E90056D8E8 /* My.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA829E201C42E90056D8E8 /* My.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +147,10 @@
 		8FBA8295201C34EF0056D8E8 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		8FBA8297201C3A9A0056D8E8 /* HttpsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpsManager.h; sourceTree = "<group>"; };
 		8FBA8298201C3A9A0056D8E8 /* HttpsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpsManager.m; sourceTree = "<group>"; };
+		8FBA829A201C42CF0056D8E8 /* MyVi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyVi.h; sourceTree = "<group>"; };
+		8FBA829B201C42CF0056D8E8 /* MyVi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyVi.m; sourceTree = "<group>"; };
+		8FBA829D201C42E90056D8E8 /* My.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My.h; sourceTree = "<group>"; };
+		8FBA829E201C42E90056D8E8 /* My.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = My.m; sourceTree = "<group>"; };
 		A44F44D8565854D668CF80E1 /* libPods-law-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-law-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA54DE6D6643C91FB445DCE /* Pods-law-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-law-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-law-ios/Pods-law-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -206,7 +212,6 @@
 				8FBA8231201C31510056D8E8 /* Base */,
 				8FBA8234201C31510056D8E8 /* Controller */,
 				8FBA8235201C31510056D8E8 /* View */,
-				8FBA822F201C31510056D8E8 /* ViewModel */,
 				8FBA8233201C31510056D8E8 /* Model */,
 				8FBA8230201C31510056D8E8 /* Util */,
 				8FBA8232201C31510056D8E8 /* Image */,
@@ -245,13 +250,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8FBA822F201C31510056D8E8 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		8FBA8230201C31510056D8E8 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +285,8 @@
 		8FBA8233201C31510056D8E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8FBA829D201C42E90056D8E8 /* My.h */,
+				8FBA829E201C42E90056D8E8 /* My.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,6 +303,8 @@
 		8FBA8235201C31510056D8E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8FBA829A201C42CF0056D8E8 /* MyVi.h */,
+				8FBA829B201C42CF0056D8E8 /* MyVi.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -577,6 +579,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FBA829C201C42CF0056D8E8 /* MyVi.m in Sources */,
 				8FBA8292201C33C30056D8E8 /* BaseTableViewCell.m in Sources */,
 				8FBA8280201C32CF0056D8E8 /* UIImage+BlurredFrame.m in Sources */,
 				8FBA828A201C32CF0056D8E8 /* UIView+Screenshot.m in Sources */,
@@ -593,6 +596,7 @@
 				8FBA8274201C32CF0056D8E8 /* NSString+Analytics.m in Sources */,
 				8FBA8287201C32CF0056D8E8 /* UIView+findViewController.m in Sources */,
 				8FBA823C201C32970056D8E8 /* Toast.m in Sources */,
+				8FBA829F201C42E90056D8E8 /* My.m in Sources */,
 				8FBA8278201C32CF0056D8E8 /* NSString+Password.m in Sources */,
 				8FBA827D201C32CF0056D8E8 /* UIColor+Addtion.m in Sources */,
 				8FBA8279201C32CF0056D8E8 /* NSString+RemoveEmoji.m in Sources */,
