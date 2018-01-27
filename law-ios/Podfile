@@ -1,0 +1,15 @@
+platform :ios, ‘8.0’
+
+target 'law-ios' do
+  pod 'AFNetworking'
+  pod 'SDWebImage', '~>3'
+  pod 'SVProgressHUD'
+  pod 'YYModel'
+  pod 'MJRefresh'
+  pod 'XHImageViewer'
+  pod 'YYModel'
+  pod 'AFNetworking-RACRetryExtensions'
+  pod 'SDVersion'
+  pod 'FMDB','~>2.6.2'
+end
+
