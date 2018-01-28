@@ -34,6 +34,8 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
+  - SDCycleScrollView (1.65):
+    - SDWebImage (~> 3.7)
   - SDVersion (4.3.2)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
@@ -47,6 +49,7 @@ DEPENDENCIES:
   - AFNetworking-RACRetryExtensions
   - FMDB (~> 2.6.2)
   - MJRefresh
+  - SDCycleScrollView
   - SDVersion
   - SDWebImage (~> 3)
   - SVProgressHUD
@@ -59,12 +62,13 @@ SPEC CHECKSUMS:
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
   SDVersion: 18f32c835c1543611fcfae3c6accd9a04b90597e
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
   XHImageViewer: 7b275d2aa829e56761c30303b9d51cae086a90b9
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 94221bf929e17a85a58df428a634c6f0fa6d3313
+PODFILE CHECKSUM: a729f443b94fe6b1d2d3ce55b1b6944e9256aeab
 
 COCOAPODS: 1.4.0
