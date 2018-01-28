@@ -7,9 +7,12 @@
 //
 
 #import "HomeViewController.h"
+#import "ChemistryVC.h"
+
 #import "SDCycleScrollView.h"
 #import "LawsViewController.h"
 #import "SecurityViewController.h"
+
 
 @interface HomeViewController ()<SDCycleScrollViewDelegate>
 
@@ -23,6 +26,11 @@
 @end
 
 @implementation HomeViewController
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -59,7 +67,7 @@
 
     }];
     [[self.chemicalBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        
+        [ws.navigationController pushViewController:[ChemistryVC new] animated:YES];
     }];
     [[self.fireBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         

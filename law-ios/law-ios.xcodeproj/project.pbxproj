@@ -14,6 +14,9 @@
 		420491A8201B6ED6005D61B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 420491A7201B6ED6005D61B9 /* main.m */; };
 		420491B2201B6ED7005D61B9 /* law_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 420491B1201B6ED7005D61B9 /* law_iosTests.m */; };
 		420491BD201B6ED7005D61B9 /* law_iosUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 420491BC201B6ED7005D61B9 /* law_iosUITests.m */; };
+		4207CFB4201CCF60003650D3 /* TypeButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4207CFB3201CCF60003650D3 /* TypeButtonView.m */; };
+		4207CFB8201CD07C003650D3 /* ChemistryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4207CFB7201CD07C003650D3 /* ChemistryVC.m */; };
+		4207CFBB201CD96D003650D3 /* KeyboardToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4207CFBA201CD96D003650D3 /* KeyboardToolBar.m */; };
 		602F187FB8389405F53D9F70 /* libPods-law-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A44F44D8565854D668CF80E1 /* libPods-law-ios.a */; };
 		8FBA8239201C323E0056D8E8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA8238201C323D0056D8E8 /* BaseViewController.m */; };
 		8FBA823C201C32970056D8E8 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA823B201C32960056D8E8 /* Toast.m */; };
@@ -97,6 +100,19 @@
 		420491B8201B6ED7005D61B9 /* law-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "law-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		420491BC201B6ED7005D61B9 /* law_iosUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = law_iosUITests.m; sourceTree = "<group>"; };
 		420491BE201B6ED7005D61B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4207CFAB201CCD6B003650D3 /* UIView+ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
+		4207CFAC201CCD6B003650D3 /* NinaPagerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NinaPagerView.m; sourceTree = "<group>"; };
+		4207CFAD201CCD6B003650D3 /* NinaBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NinaBaseView.m; sourceTree = "<group>"; };
+		4207CFAE201CCD6B003650D3 /* UIView+ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewController.h"; sourceTree = "<group>"; };
+		4207CFAF201CCD6B003650D3 /* NinaPagerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NinaPagerView.h; sourceTree = "<group>"; };
+		4207CFB0201CCD6B003650D3 /* UIParameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIParameter.h; sourceTree = "<group>"; };
+		4207CFB1201CCD6B003650D3 /* NinaBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NinaBaseView.h; sourceTree = "<group>"; };
+		4207CFB2201CCF60003650D3 /* TypeButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeButtonView.h; sourceTree = "<group>"; };
+		4207CFB3201CCF60003650D3 /* TypeButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TypeButtonView.m; sourceTree = "<group>"; };
+		4207CFB6201CD07C003650D3 /* ChemistryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChemistryVC.h; sourceTree = "<group>"; };
+		4207CFB7201CD07C003650D3 /* ChemistryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChemistryVC.m; sourceTree = "<group>"; };
+		4207CFB9201CD96D003650D3 /* KeyboardToolBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyboardToolBar.h; sourceTree = "<group>"; };
+		4207CFBA201CD96D003650D3 /* KeyboardToolBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyboardToolBar.m; sourceTree = "<group>"; };
 		8449870E72FC7864B279328A /* Pods-law-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-law-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-law-ios/Pods-law-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		8FBA8236201C31A60056D8E8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8FBA8237201C323D0056D8E8 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -278,6 +294,29 @@
 			path = "law-iosUITests";
 			sourceTree = "<group>";
 		};
+		4207CFAA201CCD6B003650D3 /* NinaPagerView */ = {
+			isa = PBXGroup;
+			children = (
+				4207CFAB201CCD6B003650D3 /* UIView+ViewController.m */,
+				4207CFAC201CCD6B003650D3 /* NinaPagerView.m */,
+				4207CFAD201CCD6B003650D3 /* NinaBaseView.m */,
+				4207CFAE201CCD6B003650D3 /* UIView+ViewController.h */,
+				4207CFAF201CCD6B003650D3 /* NinaPagerView.h */,
+				4207CFB0201CCD6B003650D3 /* UIParameter.h */,
+				4207CFB1201CCD6B003650D3 /* NinaBaseView.h */,
+			);
+			path = NinaPagerView;
+			sourceTree = "<group>";
+		};
+		4207CFB5201CD054003650D3 /* Chemistry */ = {
+			isa = PBXGroup;
+			children = (
+				4207CFB6201CD07C003650D3 /* ChemistryVC.h */,
+				4207CFB7201CD07C003650D3 /* ChemistryVC.m */,
+			);
+			path = Chemistry;
+			sourceTree = "<group>";
+		};
 		7917D5B8FE8006CB18A8514A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +331,10 @@
 				8FBA82BE201D92870056D8E8 /* ZWMSegment */,
 				8FBA823A201C32960056D8E8 /* Toast.h */,
 				8FBA823B201C32960056D8E8 /* Toast.m */,
+				4207CFB2201CCF60003650D3 /* TypeButtonView.h */,
+				4207CFB3201CCF60003650D3 /* TypeButtonView.m */,
+				4207CFB9201CD96D003650D3 /* KeyboardToolBar.h */,
+				4207CFBA201CD96D003650D3 /* KeyboardToolBar.m */,
 				8FBA823D201C32CF0056D8E8 /* category */,
 				8FBA8297201C3A9A0056D8E8 /* HttpsManager.h */,
 				8FBA8298201C3A9A0056D8E8 /* HttpsManager.m */,
@@ -337,6 +380,7 @@
 		8FBA8234201C31510056D8E8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4207CFB5201CD054003650D3 /* Chemistry */,
 				8FBA8294201C34EF0056D8E8 /* HomeViewController.h */,
 				8FBA8295201C34EF0056D8E8 /* HomeViewController.m */,
 				8FBA82AE201D83180056D8E8 /* LawsViewController.h */,
@@ -354,8 +398,12 @@
 		8FBA8235201C31510056D8E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+
+				4207CFAA201CCD6B003650D3 /* NinaPagerView */,
+
 				8FBA82A3201D7A790056D8E8 /* GudePageVi.h */,
 				8FBA82A4201D7A790056D8E8 /* GudePageVi.m */,
+
 				8FBA829A201C42CF0056D8E8 /* MyVi.h */,
 				8FBA829B201C42CF0056D8E8 /* MyVi.m */,
 			);
@@ -657,6 +705,7 @@
 				8FBA8280201C32CF0056D8E8 /* UIImage+BlurredFrame.m in Sources */,
 				8FBA828A201C32CF0056D8E8 /* UIView+Screenshot.m in Sources */,
 				8FBA8284201C32CF0056D8E8 /* UINavigationBar+BackgroundColor.m in Sources */,
+				4207CFB8201CD07C003650D3 /* ChemistryVC.m in Sources */,
 				8FBA828B201C32CF0056D8E8 /* UIView+Shake.m in Sources */,
 				8FBA82BA201D8D380056D8E8 /* SearchViewController.m in Sources */,
 				8FBA827C201C32CF0056D8E8 /* UICollectionViewCell+ReuseIdentifier.m in Sources */,
@@ -678,7 +727,11 @@
 				8FBA8277201C32CF0056D8E8 /* NSString+InOrderSubstring.m in Sources */,
 				8FBA82B7201D86EA0056D8E8 /* SecurityViewController.m in Sources */,
 				8FBA827B201C32CF0056D8E8 /* UIBarButtonItem+Action.m in Sources */,
+
+				4207CFBB201CD96D003650D3 /* KeyboardToolBar.m in Sources */,
+
 				8FBA82C6201D92870056D8E8 /* ZWMSegmentController.m in Sources */,
+
 				8FBA8275201C32CF0056D8E8 /* NSString+Color.m in Sources */,
 				8FBA827A201C32CF0056D8E8 /* UIAlertView+Block.m in Sources */,
 				8FBA82B0201D83180056D8E8 /* LawsViewController.m in Sources */,
@@ -690,6 +743,7 @@
 				8FBA8276201C32CF0056D8E8 /* NSString+Extension.m in Sources */,
 				8FBA8283201C32CF0056D8E8 /* UIImage+Utility.m in Sources */,
 				8FBA8285201C32CF0056D8E8 /* UINavigationController+StackManager.m in Sources */,
+				4207CFB4201CCF60003650D3 /* TypeButtonView.m in Sources */,
 				8FBA8296201C34EF0056D8E8 /* HomeViewController.m in Sources */,
 				8FBA8286201C32CF0056D8E8 /* UITableViewCell+ReuseIdentifier.m in Sources */,
 				4204919A201B6ED6005D61B9 /* AppDelegate.m in Sources */,
@@ -859,6 +913,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/law-ios/PrefixHeader.pch";
 				INFOPLIST_FILE = "law-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.app.law-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -874,6 +929,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/law-ios/PrefixHeader.pch";
 				INFOPLIST_FILE = "law-ios/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.app.law-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
