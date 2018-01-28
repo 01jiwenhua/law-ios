@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HomeViewController.h"
+#import "GudePageVi.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
     //初始化图片适配后缀
     _window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
@@ -37,6 +39,16 @@
     self.window.rootViewController = navi;
     [_window makeKeyAndVisible];
     
+    
+    //引导页
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstOpenGudePageVi1"]) {
+        
+        NSUserDefaults * appdict = [NSUserDefaults standardUserDefaults];
+        [appdict setObject:@YES forKey:@"isFirstOpenGudePageVi"];
+        GudePageVi * vi = [GudePageVi new];
+        vi.frame = [UIScreen mainScreen].bounds;
+        [self.window addSubview:vi];
+    }
     return YES;
 }
 

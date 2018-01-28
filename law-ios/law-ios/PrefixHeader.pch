@@ -9,6 +9,7 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 #import "UIImage+getImage.h" //生成单色 image,切出圆角
+#import "UIView+Frame.h"
 
 #define   WIDTH_  [UIScreen mainScreen].bounds.size.width
 #define   HEIGHT_  [UIScreen mainScreen].bounds.size.height

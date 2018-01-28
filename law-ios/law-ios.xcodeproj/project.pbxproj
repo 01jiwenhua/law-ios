@@ -49,6 +49,20 @@
 		8FBA8299201C3A9A0056D8E8 /* HttpsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA8298201C3A9A0056D8E8 /* HttpsManager.m */; };
 		8FBA829C201C42CF0056D8E8 /* MyVi.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA829B201C42CF0056D8E8 /* MyVi.m */; };
 		8FBA829F201C42E90056D8E8 /* My.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA829E201C42E90056D8E8 /* My.m */; };
+		8FBA82A5201D7A790056D8E8 /* GudePageVi.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA82A4201D7A790056D8E8 /* GudePageVi.m */; };
+		8FBA82AA201D7BEB0056D8E8 /* GudePageVi_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA82A6201D7BEA0056D8E8 /* GudePageVi_0.png */; };
+		8FBA82AB201D7BEB0056D8E8 /* GudePageVi_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA82A7201D7BEB0056D8E8 /* GudePageVi_2.png */; };
+		8FBA82AC201D7BEB0056D8E8 /* GudePageVi_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA82A8201D7BEB0056D8E8 /* GudePageVi_1.png */; };
+		8FBA82AD201D7BEB0056D8E8 /* GudePageVi_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA82A9201D7BEB0056D8E8 /* GudePageVi_3.png */; };
+		8FBA82B0201D83180056D8E8 /* LawsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA82AF201D83180056D8E8 /* LawsViewController.m */; };
+		8FBA82B3201D850A0056D8E8 /* Back Chevron Copy 4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA82B1201D850A0056D8E8 /* Back Chevron Copy 4@2x.png */; };
+		8FBA82B4201D850A0056D8E8 /* Back Chevron Copy 4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA82B2201D850A0056D8E8 /* Back Chevron Copy 4@3x.png */; };
+		8FBA82B7201D86EA0056D8E8 /* SecurityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA82B6201D86EA0056D8E8 /* SecurityViewController.m */; };
+		8FBA82BA201D8D380056D8E8 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA82B9201D8D380056D8E8 /* SearchViewController.m */; };
+		8FBA82BD201D91CA0056D8E8 /* SearchTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA82BC201D91CA0056D8E8 /* SearchTypeViewController.m */; };
+		8FBA82C5201D92870056D8E8 /* UIView+ZWMBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA82C0201D92870056D8E8 /* UIView+ZWMBadge.m */; };
+		8FBA82C6201D92870056D8E8 /* ZWMSegmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA82C2201D92870056D8E8 /* ZWMSegmentController.m */; };
+		8FBA82C7201D92870056D8E8 /* ZWMSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA82C4201D92870056D8E8 /* ZWMSegmentView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +165,28 @@
 		8FBA829B201C42CF0056D8E8 /* MyVi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyVi.m; sourceTree = "<group>"; };
 		8FBA829D201C42E90056D8E8 /* My.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My.h; sourceTree = "<group>"; };
 		8FBA829E201C42E90056D8E8 /* My.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = My.m; sourceTree = "<group>"; };
+		8FBA82A3201D7A790056D8E8 /* GudePageVi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GudePageVi.h; sourceTree = "<group>"; };
+		8FBA82A4201D7A790056D8E8 /* GudePageVi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GudePageVi.m; sourceTree = "<group>"; };
+		8FBA82A6201D7BEA0056D8E8 /* GudePageVi_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GudePageVi_0.png; sourceTree = "<group>"; };
+		8FBA82A7201D7BEB0056D8E8 /* GudePageVi_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GudePageVi_2.png; sourceTree = "<group>"; };
+		8FBA82A8201D7BEB0056D8E8 /* GudePageVi_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GudePageVi_1.png; sourceTree = "<group>"; };
+		8FBA82A9201D7BEB0056D8E8 /* GudePageVi_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GudePageVi_3.png; sourceTree = "<group>"; };
+		8FBA82AE201D83180056D8E8 /* LawsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LawsViewController.h; sourceTree = "<group>"; };
+		8FBA82AF201D83180056D8E8 /* LawsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LawsViewController.m; sourceTree = "<group>"; };
+		8FBA82B1201D850A0056D8E8 /* Back Chevron Copy 4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Back Chevron Copy 4@2x.png"; sourceTree = "<group>"; };
+		8FBA82B2201D850A0056D8E8 /* Back Chevron Copy 4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Back Chevron Copy 4@3x.png"; sourceTree = "<group>"; };
+		8FBA82B5201D86EA0056D8E8 /* SecurityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecurityViewController.h; sourceTree = "<group>"; };
+		8FBA82B6201D86EA0056D8E8 /* SecurityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecurityViewController.m; sourceTree = "<group>"; };
+		8FBA82B8201D8D380056D8E8 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		8FBA82B9201D8D380056D8E8 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		8FBA82BB201D91CA0056D8E8 /* SearchTypeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTypeViewController.h; sourceTree = "<group>"; };
+		8FBA82BC201D91CA0056D8E8 /* SearchTypeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTypeViewController.m; sourceTree = "<group>"; };
+		8FBA82BF201D92870056D8E8 /* UIView+ZWMBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZWMBadge.h"; sourceTree = "<group>"; };
+		8FBA82C0201D92870056D8E8 /* UIView+ZWMBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZWMBadge.m"; sourceTree = "<group>"; };
+		8FBA82C1201D92870056D8E8 /* ZWMSegmentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWMSegmentController.h; sourceTree = "<group>"; };
+		8FBA82C2201D92870056D8E8 /* ZWMSegmentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWMSegmentController.m; sourceTree = "<group>"; };
+		8FBA82C3201D92870056D8E8 /* ZWMSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWMSegmentView.h; sourceTree = "<group>"; };
+		8FBA82C4201D92870056D8E8 /* ZWMSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWMSegmentView.m; sourceTree = "<group>"; };
 		A44F44D8565854D668CF80E1 /* libPods-law-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-law-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA54DE6D6643C91FB445DCE /* Pods-law-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-law-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-law-ios/Pods-law-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -253,6 +289,7 @@
 		8FBA8230201C31510056D8E8 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				8FBA82BE201D92870056D8E8 /* ZWMSegment */,
 				8FBA823A201C32960056D8E8 /* Toast.h */,
 				8FBA823B201C32960056D8E8 /* Toast.m */,
 				8FBA823D201C32CF0056D8E8 /* category */,
@@ -276,6 +313,12 @@
 		8FBA8232201C31510056D8E8 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				8FBA82B1201D850A0056D8E8 /* Back Chevron Copy 4@2x.png */,
+				8FBA82B2201D850A0056D8E8 /* Back Chevron Copy 4@3x.png */,
+				8FBA82A6201D7BEA0056D8E8 /* GudePageVi_0.png */,
+				8FBA82A8201D7BEB0056D8E8 /* GudePageVi_1.png */,
+				8FBA82A7201D7BEB0056D8E8 /* GudePageVi_2.png */,
+				8FBA82A9201D7BEB0056D8E8 /* GudePageVi_3.png */,
 				8FBA828D201C33870056D8E8 /* fnahui@2x.png */,
 				8FBA828C201C33870056D8E8 /* fnahui@3x.png */,
 			);
@@ -296,6 +339,14 @@
 			children = (
 				8FBA8294201C34EF0056D8E8 /* HomeViewController.h */,
 				8FBA8295201C34EF0056D8E8 /* HomeViewController.m */,
+				8FBA82AE201D83180056D8E8 /* LawsViewController.h */,
+				8FBA82AF201D83180056D8E8 /* LawsViewController.m */,
+				8FBA82B5201D86EA0056D8E8 /* SecurityViewController.h */,
+				8FBA82B6201D86EA0056D8E8 /* SecurityViewController.m */,
+				8FBA82B8201D8D380056D8E8 /* SearchViewController.h */,
+				8FBA82B9201D8D380056D8E8 /* SearchViewController.m */,
+				8FBA82BB201D91CA0056D8E8 /* SearchTypeViewController.h */,
+				8FBA82BC201D91CA0056D8E8 /* SearchTypeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -303,6 +354,8 @@
 		8FBA8235201C31510056D8E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8FBA82A3201D7A790056D8E8 /* GudePageVi.h */,
+				8FBA82A4201D7A790056D8E8 /* GudePageVi.m */,
 				8FBA829A201C42CF0056D8E8 /* MyVi.h */,
 				8FBA829B201C42CF0056D8E8 /* MyVi.m */,
 			);
@@ -364,6 +417,19 @@
 				8FBA8271201C32CF0056D8E8 /* UIView+Shake.m */,
 			);
 			path = category;
+			sourceTree = "<group>";
+		};
+		8FBA82BE201D92870056D8E8 /* ZWMSegment */ = {
+			isa = PBXGroup;
+			children = (
+				8FBA82BF201D92870056D8E8 /* UIView+ZWMBadge.h */,
+				8FBA82C0201D92870056D8E8 /* UIView+ZWMBadge.m */,
+				8FBA82C1201D92870056D8E8 /* ZWMSegmentController.h */,
+				8FBA82C2201D92870056D8E8 /* ZWMSegmentController.m */,
+				8FBA82C3201D92870056D8E8 /* ZWMSegmentView.h */,
+				8FBA82C4201D92870056D8E8 /* ZWMSegmentView.m */,
+			);
+			path = ZWMSegment;
 			sourceTree = "<group>";
 		};
 		AB1C6A4D5B8C8CE780AB0CA9 /* Pods */ = {
@@ -485,10 +551,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				420491A5201B6ED6005D61B9 /* LaunchScreen.storyboard in Resources */,
+				8FBA82AB201D7BEB0056D8E8 /* GudePageVi_2.png in Resources */,
 				420491A2201B6ED6005D61B9 /* Assets.xcassets in Resources */,
 				8FBA828E201C33870056D8E8 /* fnahui@3x.png in Resources */,
+				8FBA82B3201D850A0056D8E8 /* Back Chevron Copy 4@2x.png in Resources */,
+				8FBA82B4201D850A0056D8E8 /* Back Chevron Copy 4@3x.png in Resources */,
+				8FBA82AC201D7BEB0056D8E8 /* GudePageVi_1.png in Resources */,
+				8FBA82AD201D7BEB0056D8E8 /* GudePageVi_3.png in Resources */,
 				8FBA828F201C33870056D8E8 /* fnahui@2x.png in Resources */,
 				420491A0201B6ED6005D61B9 /* Main.storyboard in Resources */,
+				8FBA82AA201D7BEB0056D8E8 /* GudePageVi_0.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,11 +652,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FBA829C201C42CF0056D8E8 /* MyVi.m in Sources */,
+				8FBA82BD201D91CA0056D8E8 /* SearchTypeViewController.m in Sources */,
 				8FBA8292201C33C30056D8E8 /* BaseTableViewCell.m in Sources */,
 				8FBA8280201C32CF0056D8E8 /* UIImage+BlurredFrame.m in Sources */,
 				8FBA828A201C32CF0056D8E8 /* UIView+Screenshot.m in Sources */,
 				8FBA8284201C32CF0056D8E8 /* UINavigationBar+BackgroundColor.m in Sources */,
 				8FBA828B201C32CF0056D8E8 /* UIView+Shake.m in Sources */,
+				8FBA82BA201D8D380056D8E8 /* SearchViewController.m in Sources */,
 				8FBA827C201C32CF0056D8E8 /* UICollectionViewCell+ReuseIdentifier.m in Sources */,
 				8FBA8282201C32CF0056D8E8 /* UIImage+ImageEffects.m in Sources */,
 				8FBA827F201C32CF0056D8E8 /* UIImage+Addtion.m in Sources */,
@@ -594,6 +668,7 @@
 				8FBA827E201C32CF0056D8E8 /* UIColor+Random.m in Sources */,
 				8FBA8272201C32CF0056D8E8 /* NSObject+Runtime.m in Sources */,
 				8FBA8274201C32CF0056D8E8 /* NSString+Analytics.m in Sources */,
+				8FBA82C5201D92870056D8E8 /* UIView+ZWMBadge.m in Sources */,
 				8FBA8287201C32CF0056D8E8 /* UIView+findViewController.m in Sources */,
 				8FBA823C201C32970056D8E8 /* Toast.m in Sources */,
 				8FBA829F201C42E90056D8E8 /* My.m in Sources */,
@@ -601,11 +676,16 @@
 				8FBA827D201C32CF0056D8E8 /* UIColor+Addtion.m in Sources */,
 				8FBA8279201C32CF0056D8E8 /* NSString+RemoveEmoji.m in Sources */,
 				8FBA8277201C32CF0056D8E8 /* NSString+InOrderSubstring.m in Sources */,
+				8FBA82B7201D86EA0056D8E8 /* SecurityViewController.m in Sources */,
 				8FBA827B201C32CF0056D8E8 /* UIBarButtonItem+Action.m in Sources */,
+				8FBA82C6201D92870056D8E8 /* ZWMSegmentController.m in Sources */,
 				8FBA8275201C32CF0056D8E8 /* NSString+Color.m in Sources */,
 				8FBA827A201C32CF0056D8E8 /* UIAlertView+Block.m in Sources */,
+				8FBA82B0201D83180056D8E8 /* LawsViewController.m in Sources */,
 				8FBA8299201C3A9A0056D8E8 /* HttpsManager.m in Sources */,
 				8FBA8239201C323E0056D8E8 /* BaseViewController.m in Sources */,
+				8FBA82C7201D92870056D8E8 /* ZWMSegmentView.m in Sources */,
+				8FBA82A5201D7A790056D8E8 /* GudePageVi.m in Sources */,
 				8FBA8288201C32CF0056D8E8 /* UIView+Frame.m in Sources */,
 				8FBA8276201C32CF0056D8E8 /* NSString+Extension.m in Sources */,
 				8FBA8283201C32CF0056D8E8 /* UIImage+Utility.m in Sources */,
