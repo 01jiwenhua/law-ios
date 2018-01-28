@@ -35,6 +35,7 @@ static HttpsManager *_instance;
 
 - (void)POSTurl:(NSString *)urlString parameters:(id)paremeters success:(void (^)(id responseObject))success failure:(void (^)(id responseObject))failure{
     [_instance POST:urlString parameters:paremeters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        //http://60.210.40.196:25018/law-server//chemicals/getUnknowParams
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);

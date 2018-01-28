@@ -25,5 +25,9 @@
 #define BASE_URL @"http://60.210.40.196:25018/law-server"
 
 #define GET_LAWLIST [NSString stringWithFormat:@"%@/law/list",BASE_URL]
+#define GET_KNOWNLIST [NSString stringWithFormat:@"%@/chemicals/getKnownList",BASE_URL]
+#define GET_CHEMICALSDETAILS [NSString stringWithFormat:@"%@/chemicals/getChemicalsDetails",BASE_URL]
+#define GET_UNKNOWPARAMS [NSString stringWithFormat:@"%@/chemicals/getUnknowParams",BASE_URL]
+//GET_UNKNOWPARAMS="/chemicals/getUnknowParams"
 
 #endif /* PrefixHeader_pch */

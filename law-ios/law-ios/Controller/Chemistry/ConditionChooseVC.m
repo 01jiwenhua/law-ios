@@ -22,7 +22,7 @@
 
 - (void)bindView{
     self.title = @"条件筛选";
-    self.tvList = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH_, HEIGHT_)];
+    self.tvList = [[UITableView alloc]initWithFrame:CGRectMake(0, -30, WIDTH_, HEIGHT_)style:UITableViewStyleGrouped];
     self.tvList.delegate = self;
     self.tvList.dataSource = self;
     [self.view addSubview:self.tvList];
@@ -38,13 +38,10 @@
   */
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
     return 1;
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return self.arrConditions.count;
 }
 

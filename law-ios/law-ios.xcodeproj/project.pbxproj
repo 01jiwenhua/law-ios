@@ -307,9 +307,9 @@
 				8FBA8230201C31510056D8E8 /* Util */,
 				8FBA8232201C31510056D8E8 /* Image */,
 				4204919E201B6ED6005D61B9 /* Main.storyboard */,
+				420491A6201B6ED6005D61B9 /* Info.plist */,
 				420491A1201B6ED6005D61B9 /* Assets.xcassets */,
 				420491A3201B6ED6005D61B9 /* LaunchScreen.storyboard */,
-				420491A6201B6ED6005D61B9 /* Info.plist */,
 				420491A7201B6ED6005D61B9 /* main.m */,
 			);
 			path = "law-ios";

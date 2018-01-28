@@ -113,10 +113,22 @@
 }
 
 - (void)POSTurl:(NSString *)urlString parameters:(id)paremeters success:(void (^)(id responseObject))success failure:(void (^)(id responseObject))failure{
-    [[HttpsManager shareManager] POSTurl:urlString parameters:paremeters success:success failure:failure];
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    mgr.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [mgr POST:urlString parameters:paremeters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
 }
 - (void)GETurl:(NSString *)urlString parameters:(id)paremeters success:(void (^)(id responseObject))success failure:(void (^)(id responseObject))failure {
-    [[HttpsManager shareManager] GETurl:urlString parameters:paremeters success:success failure:failure];
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    mgr.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [mgr GET:urlString parameters:paremeters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
 
 }
 @end
