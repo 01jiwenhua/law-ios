@@ -17,6 +17,7 @@
 		4207CFB4201CCF60003650D3 /* TypeButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4207CFB3201CCF60003650D3 /* TypeButtonView.m */; };
 		4207CFB8201CD07C003650D3 /* ChemistryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4207CFB7201CD07C003650D3 /* ChemistryVC.m */; };
 		4207CFBB201CD96D003650D3 /* KeyboardToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4207CFBA201CD96D003650D3 /* KeyboardToolBar.m */; };
+		4207CFBE201DA115003650D3 /* ConditionChooseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4207CFBD201DA115003650D3 /* ConditionChooseVC.m */; };
 		602F187FB8389405F53D9F70 /* libPods-law-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A44F44D8565854D668CF80E1 /* libPods-law-ios.a */; };
 		8FBA8239201C323E0056D8E8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA8238201C323D0056D8E8 /* BaseViewController.m */; };
 		8FBA823C201C32970056D8E8 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA823B201C32960056D8E8 /* Toast.m */; };
@@ -113,6 +114,8 @@
 		4207CFB7201CD07C003650D3 /* ChemistryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChemistryVC.m; sourceTree = "<group>"; };
 		4207CFB9201CD96D003650D3 /* KeyboardToolBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyboardToolBar.h; sourceTree = "<group>"; };
 		4207CFBA201CD96D003650D3 /* KeyboardToolBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyboardToolBar.m; sourceTree = "<group>"; };
+		4207CFBC201DA115003650D3 /* ConditionChooseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConditionChooseVC.h; sourceTree = "<group>"; };
+		4207CFBD201DA115003650D3 /* ConditionChooseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConditionChooseVC.m; sourceTree = "<group>"; };
 		8449870E72FC7864B279328A /* Pods-law-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-law-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-law-ios/Pods-law-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		8FBA8236201C31A60056D8E8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8FBA8237201C323D0056D8E8 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -313,6 +316,8 @@
 			children = (
 				4207CFB6201CD07C003650D3 /* ChemistryVC.h */,
 				4207CFB7201CD07C003650D3 /* ChemistryVC.m */,
+				4207CFBC201DA115003650D3 /* ConditionChooseVC.h */,
+				4207CFBD201DA115003650D3 /* ConditionChooseVC.m */,
 			);
 			path = Chemistry;
 			sourceTree = "<group>";
@@ -398,12 +403,9 @@
 		8FBA8235201C31510056D8E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-
 				4207CFAA201CCD6B003650D3 /* NinaPagerView */,
-
 				8FBA82A3201D7A790056D8E8 /* GudePageVi.h */,
 				8FBA82A4201D7A790056D8E8 /* GudePageVi.m */,
-
 				8FBA829A201C42CF0056D8E8 /* MyVi.h */,
 				8FBA829B201C42CF0056D8E8 /* MyVi.m */,
 			);
@@ -722,16 +724,14 @@
 				8FBA823C201C32970056D8E8 /* Toast.m in Sources */,
 				8FBA829F201C42E90056D8E8 /* My.m in Sources */,
 				8FBA8278201C32CF0056D8E8 /* NSString+Password.m in Sources */,
+				4207CFBE201DA115003650D3 /* ConditionChooseVC.m in Sources */,
 				8FBA827D201C32CF0056D8E8 /* UIColor+Addtion.m in Sources */,
 				8FBA8279201C32CF0056D8E8 /* NSString+RemoveEmoji.m in Sources */,
 				8FBA8277201C32CF0056D8E8 /* NSString+InOrderSubstring.m in Sources */,
 				8FBA82B7201D86EA0056D8E8 /* SecurityViewController.m in Sources */,
 				8FBA827B201C32CF0056D8E8 /* UIBarButtonItem+Action.m in Sources */,
-
 				4207CFBB201CD96D003650D3 /* KeyboardToolBar.m in Sources */,
-
 				8FBA82C6201D92870056D8E8 /* ZWMSegmentController.m in Sources */,
-
 				8FBA8275201C32CF0056D8E8 /* NSString+Color.m in Sources */,
 				8FBA827A201C32CF0056D8E8 /* UIAlertView+Block.m in Sources */,
 				8FBA82B0201D83180056D8E8 /* LawsViewController.m in Sources */,

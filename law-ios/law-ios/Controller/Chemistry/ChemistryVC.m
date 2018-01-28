@@ -8,8 +8,9 @@
 
 #import "ChemistryVC.h"
 #import "TypeButtonView.h"
+#import "ConditionChooseVC.h"
 
-@interface ChemistryVC ()<TypeButtonActionDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface ChemistryVC ()<TypeButtonActionDelegate,UITableViewDelegate,UITableViewDataSource,SelectedDelegate>
 @property (nonatomic, strong ) UIView *viKnow;
 @property (nonatomic, strong ) UIView *viUnKnow;
 @property (nonatomic, strong ) UITextField *tfName;
@@ -98,6 +99,7 @@
         btn.frame = CGRectMake(x, y,WIDTH_/3 - 2, WIDTH_/8);
         btn.backgroundColor = [UIColor whiteColor];
         [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(chooseAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.viUnKnow addSubview:btn];
         x = ([_arrPorCPro indexOfObject:st]+1)%3 *WIDTH_/3;
         if (([_arrPorCPro indexOfObject:st]+1)%3 == 0) {
@@ -123,6 +125,7 @@
         btn.frame = CGRectMake(x, y,WIDTH_/3 - 2, WIDTH_/8);
         btn.backgroundColor = [UIColor whiteColor];
         [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(chooseAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.viUnKnow addSubview:btn];
         x = ([_arrDanHealth indexOfObject:st]+1)%3 *WIDTH_/3;
         if (([_arrDanHealth indexOfObject:st]+1)%3 == 0) {
@@ -146,15 +149,19 @@
     }
 }
 
+-(void)chooseAction:(UIButton *)btn {
+    ConditionChooseVC *vc = [ConditionChooseVC new];
+    vc.delegate = self;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 /**
  *  UITableViewDelegate
  *
  */
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
     return 1;
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -175,5 +182,9 @@
     return 50;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+}
+
+-(void)select:(NSString *)st{
+    
 }
 @end
