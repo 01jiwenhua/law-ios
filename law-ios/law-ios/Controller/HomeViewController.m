@@ -27,8 +27,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
 }
+
 -(void)bindView {
     self.bgScr.frame = CGRectMake(0, 0, WIDTH_, HEIGHT_);
     [self.view addSubview:self.bgScr];
