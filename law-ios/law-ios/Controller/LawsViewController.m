@@ -32,21 +32,26 @@
     
     [self.view addSubview:self.cycleScrollView];
     
-    NSArray * titles = @[@"法律",@"法规",@"标准"];
+    NSArray * titles = @[@" 法律",@" 法规",@" 标准"];
+    NSArray * imgArr = @[@"ic_fl",@"ic_fg",@"ic_bz"];
     UIButton * btn;
     UIImageView * igv;
     UIView * line;
     for (int i = 0; i < 3; i ++) {
-        btn = [[UIButton alloc]initWithFrame:CGRectMake(0, self.cycleScrollView.bottom+ 44 *i, WIDTH_, 44)];
-        [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        btn = [[UIButton alloc]initWithFrame:CGRectMake(13, self.cycleScrollView.bottom+ 44 *i, WIDTH_, 44)];
+        [btn setTitleColor:TEXT forState:UIControlStateNormal];
         [btn setTitle:titles[i] forState:UIControlStateNormal];
+        btn.titleLabel.font = [UIFont systemFontOfSize:14.f];
+        [btn setImage:[UIImage imageNamed:imgArr[i]] forState:UIControlStateNormal];
+        btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [self.bgScr addSubview:btn];
         
-        igv = [[UIImageView alloc]initWithFrame:CGRectMake(WIDTH_ - 16, 15, 7, 13)];
+        igv = [[UIImageView alloc]initWithFrame:CGRectMake(WIDTH_ - 30, 15, 7, 13)];
         igv.image = [UIImage imageNamed:@"Back Chevron Copy 4"];
         [btn addSubview:igv];
         
-        line = [[UIView alloc]initWithFrame:CGRectMake(13, 43, WIDTH_, 0.5)];
+        line = [[UIView alloc]initWithFrame:CGRectMake(0, 43, WIDTH_, 0.5)];
+        line.backgroundColor = LINE;
         [btn addSubview:line];
         
         WS(ws);
@@ -56,6 +61,10 @@
     }
 }
 
+-(void)bindModel {
+    self.cycleScrollView.localizationImageNamesGroup = @[@"img_banner1",@"img_banner2",@"img_banner3"];
+
+}
 
 -(UIScrollView *)bgScr {
     if (!_bgScr) {
@@ -69,7 +78,7 @@
 
 -(SDCycleScrollView *)cycleScrollView {
     if (!_cycleScrollView) {
-        SDCycleScrollView * sdc = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, WIDTH_, 120) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        SDCycleScrollView * sdc = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, WIDTH_, 150) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
         
         _cycleScrollView = sdc;
     }

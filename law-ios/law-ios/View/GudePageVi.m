@@ -57,7 +57,7 @@
             [scr addSubview:igv];
         }
         
-        self.removeBtn.frame = CGRectMake(WIDTH_ * 4 - 60, 40, 40, 30);
+        self.removeBtn.frame = CGRectMake(WIDTH_ * 4 - 80, 50, 60, 25);
         [scr addSubview:self.removeBtn];
         _scrollVi = scr;
     }
@@ -69,8 +69,12 @@
     if (!_removeBtn) {
         UIButton * btn = [UIButton new];
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [btn setTitle:@"主页" forState:UIControlStateNormal];
+        [btn setTitle:@"首页" forState:UIControlStateNormal];
+        btn.titleLabel.font = [UIFont systemFontOfSize:14.f];
+        [btn setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3]];
         [btn addTarget:self action:@selector(removeFromSuperview) forControlEvents:UIControlEventTouchDown];
+        [btn.layer setMasksToBounds:YES];
+        [btn.layer setCornerRadius:12];//设置矩形四个圆角半
         _removeBtn = btn;
     }
     return _removeBtn;

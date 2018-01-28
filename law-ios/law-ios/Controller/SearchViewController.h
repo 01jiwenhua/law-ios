@@ -10,4 +10,5 @@
 
 @interface SearchViewController : BaseViewController
 
+@property (nonatomic,copy)NSString * name;
 @end
