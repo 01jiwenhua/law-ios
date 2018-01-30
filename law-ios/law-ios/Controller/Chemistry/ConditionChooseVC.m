@@ -29,9 +29,25 @@
 }
 
 -(void)bindModel{
-    self.arrConditions = @[@"无气味",@"杏仁味",@"氨气味",@"无气味",@"杏仁味",@"氨气味",@"无气味",@"杏仁味",@"氨气味"];
+    self.arrConditions = [NSArray new];
 }
 
+-(void)getData{
+    WS(ws);
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    NSMutableDictionary * mdict = [NSMutableDictionary new];
+    
+    [mdict setValue:self.code forKey:@"code"];
+    [self POSTurl:GET_UNKNOWPARAMS_DETAILS parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
+        NSString *st = responseObject[@"data"][@"list"];
+        ws.arrConditions = [self arrayWithJsonString:st];
+        [ws.tvList reloadData];
+        [SVProgressHUD dismiss];
+    } failure:^(id responseObject) {
+        [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+        [SVProgressHUD dismiss];
+    }];
+}
 /**
   *  UITableViewDelegate
   *
@@ -50,7 +66,7 @@
     if(cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
-    cell.textLabel.text = self.arrConditions[indexPath.row];
+    cell.textLabel.text = self.arrConditions[indexPath.row][@"name"];
     return cell;
 }
 

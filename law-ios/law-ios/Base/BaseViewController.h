@@ -14,6 +14,7 @@
 #import "MJRefresh.h"
 #import "SVProgressHUD.h"
 #import "HttpsManager.h"
+#import "YYModel.h"
 
 @interface BaseViewController : UIViewController
 
@@ -29,4 +30,6 @@
 
 - (void)POSTurl:(NSString *)urlString parameters:(id)paremeters success:(void (^)(id responseObject))success failure:(void (^)(id responseObject))failure;
 - (void)GETurl:(NSString *)urlString parameters:(id)paremeters success:(void (^)(id responseObject))success failure:(void (^)(id responseObject))failure;
+- (NSString*)dictionaryToJson:(NSDictionary *)dic;
+- (id)arrayWithJsonString:(NSString *)jsonString;
 @end
