@@ -9,6 +9,7 @@
 #import "ChemistryVC.h"
 #import "TypeButtonView.h"
 #import "ConditionChooseVC.h"
+#import "ChemistryModel.h"
 
 @interface ChemistryVC ()<TypeButtonActionDelegate,UITableViewDelegate,UITableViewDataSource,SelectedDelegate>
 @property (nonatomic, strong ) UIView *viKnow;
@@ -18,6 +19,10 @@
 @property (nonatomic, strong ) UITableView *tvList;
 @property (nonatomic, strong ) NSArray *arrPorCPro;
 @property (nonatomic, strong ) NSArray *arrDanHealth;
+@property (nonatomic, strong ) NSMutableArray *arrKnow;
+@property (nonatomic, strong ) MJRefreshNormalHeader *refreshHeader;
+@property (nonatomic, strong) MJRefreshBackNormalFooter * refreshFooter;
+@property (nonatomic, assign) int currentPage;
 @end
 
 @implementation ChemistryVC
@@ -33,8 +38,9 @@
 }
 
 -(void)bindModel {
-    self.arrPorCPro = @[@"状态",@"颜色",@"气味",@"味道",@"比重(水=1)",@"比重(空气=1)",@"PH值",@"透明度"];
-    self.arrDanHealth = @[@"味道",@"神经系统",@"眼",@"耳",@"嘴/喉咙",@"心血管",@"呼吸系统",@"胃/泌尿系统",@"皮肤"];
+    self.arrPorCPro = [NSArray new];
+    self.arrDanHealth = [NSArray new];
+    self.arrKnow = [NSMutableArray array];
 }
 
 -(void)bindView{
@@ -66,6 +72,45 @@
     }];
 }
 
+-(void)getData{
+    WS(ws);
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    NSMutableDictionary * mdict = [NSMutableDictionary new];
+    [mdict setValue:[NSString stringWithFormat:@"%i",self.currentPage + 1] forKey:@"page"];
+    [mdict setValue:@"10" forKey:@"pageSize"];
+//    [mdict setValue:@"3" forKey:@"name"];
+    [mdict setValue:@"固体" forKey:@"status"];
+  
+    [self POSTurl:GET_KNOWNLIST parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
+        NSString *st = responseObject[@"data"][@"chemicalsList"];
+        NSArray *arr = [self arrayWithJsonString:st];
+        if (ws.currentPage == 0) {
+            [ws.arrKnow removeAllObjects];
+        }
+        for (NSDictionary *dic in arr) {
+            ChemistryModel *model = [ChemistryModel yy_modelWithJSON:dic];
+            [ws.arrKnow addObject:model];
+        }
+        [ws.tvList reloadData];
+        [ws.tvList.mj_header endRefreshing];
+        [ws.tvList.mj_footer endRefreshing];
+        [SVProgressHUD dismiss];
+    } failure:^(id responseObject) {
+        [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+        [SVProgressHUD dismiss];
+    }];
+    
+    [self POSTurl:GET_UNKNOWPARAMS parameters:@{} success:^(id responseObject) {
+        ws.arrPorCPro = responseObject[@"data"][@"lhList"];
+        ws.arrDanHealth = responseObject[@"data"][@"jkwhList"];
+        [self setViKonw];
+        [self setViUnKonw];
+        [SVProgressHUD dismiss];
+    } failure:^(id responseObject) {
+        [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+        [SVProgressHUD dismiss];
+    }];
+}
 
 -(void)setViKonw{
     self.tfName = [UITextField new];
@@ -82,6 +127,8 @@
     self.tvList = [[UITableView alloc]initWithFrame:CGRectMake(0, self.tfName.bottom + 5, WIDTH_, self.viKnow.height - self.tfName.bottom - 5)];
     self.tvList.delegate = self;
     self.tvList.dataSource = self;
+    self.tvList.mj_header = self.refreshHeader;
+    self.tvList.mj_footer = self.refreshFooter;
     [self.viKnow addSubview:self.tvList];
 }
 
@@ -93,20 +140,22 @@
     [self.viUnKnow addSubview:lb1];
     CGFloat y = lb1.bottom +5;
     CGFloat x = 0;
-    for (NSString *st in _arrPorCPro) {
+    for (int i = 0 ; i<_arrPorCPro.count; i++) {
+        NSDictionary *dic = _arrPorCPro[i];
         UIButton *btn = [UIButton new];
-        [btn setTitle:st forState:UIControlStateNormal];
+        btn.tag = i;
+        [btn setTitle:dic[@"categoryName"] forState:UIControlStateNormal];
         btn.frame = CGRectMake(x, y,WIDTH_/3 - 2, WIDTH_/8);
         btn.backgroundColor = [UIColor whiteColor];
         [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(chooseAction:) forControlEvents:UIControlEventTouchUpInside];
+        [btn addTarget:self action:@selector(chooseLHAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.viUnKnow addSubview:btn];
-        x = ([_arrPorCPro indexOfObject:st]+1)%3 *WIDTH_/3;
-        if (([_arrPorCPro indexOfObject:st]+1)%3 == 0) {
+        x = ([_arrPorCPro indexOfObject:dic]+1)%3 *WIDTH_/3;
+        if (([_arrPorCPro indexOfObject:dic]+1)%3 == 0) {
             y = btn.bottom + 2;
         }
         
-        if ([_arrPorCPro indexOfObject:st]+1 == _arrPorCPro.count) {
+        if ([_arrPorCPro indexOfObject:dic]+1 == _arrPorCPro.count) {
             y = btn.bottom + 2;
         }
     }
@@ -119,16 +168,18 @@
     y = lb2.bottom + 5;
     x= 0;
     
-    for (NSString *st in _arrDanHealth) {
+    for (int i = 0 ; i<_arrDanHealth.count; i++) {
+        NSDictionary *dic = _arrDanHealth[i];
         UIButton *btn = [UIButton new];
-        [btn setTitle:st forState:UIControlStateNormal];
+        btn.tag = i;
+        [btn setTitle:dic[@"categoryName"] forState:UIControlStateNormal];
         btn.frame = CGRectMake(x, y,WIDTH_/3 - 2, WIDTH_/8);
         btn.backgroundColor = [UIColor whiteColor];
         [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(chooseAction:) forControlEvents:UIControlEventTouchUpInside];
+        [btn addTarget:self action:@selector(chooseHDAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.viUnKnow addSubview:btn];
-        x = ([_arrDanHealth indexOfObject:st]+1)%3 *WIDTH_/3;
-        if (([_arrDanHealth indexOfObject:st]+1)%3 == 0) {
+        x = ([_arrDanHealth indexOfObject:dic]+1)%3 *WIDTH_/3;
+        if (([_arrDanHealth indexOfObject:dic]+1)%3 == 0) {
             y = btn.bottom + 2;
         }
     }
@@ -149,9 +200,19 @@
     }
 }
 
--(void)chooseAction:(UIButton *)btn {
+-(void)chooseHDAction:(UIButton *)btn {
     ConditionChooseVC *vc = [ConditionChooseVC new];
     vc.delegate = self;
+    NSDictionary *dic= _arrDanHealth[btn.tag];
+    vc.code = dic[@"categoryCode"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(void)chooseLHAction:(UIButton *)btn {
+    ConditionChooseVC *vc = [ConditionChooseVC new];
+    vc.delegate = self;
+    NSDictionary *dic= _arrPorCPro[btn.tag];
+    vc.code = dic[@"categoryCode"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -166,7 +227,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return self.arrKnow.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    static NSString *CellIdentifier = @"Cell";
@@ -174,7 +235,8 @@
     if(cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
-    cell.textLabel.text = @"sss";
+    ChemistryModel *model = _arrKnow[indexPath.row];
+    cell.textLabel.text = model.nameCn;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
@@ -187,4 +249,29 @@
 -(void)select:(NSString *)st{
     
 }
+
+
+-(MJRefreshNormalHeader *)refreshHeader {
+    if (!_refreshHeader) {
+        WS(ws);
+        _refreshHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            ws.currentPage = 0;
+            [self getData];
+        }];
+        _refreshHeader.lastUpdatedTimeLabel.hidden = YES;
+    }
+    return _refreshHeader;
+}
+
+-(MJRefreshBackNormalFooter *)refreshFooter {
+    if (!_refreshFooter){
+        WS(ws);
+        _refreshFooter = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+            ws.currentPage ++;
+            [self getData];
+        }];
+    }
+    return _refreshFooter;
+}
+
 @end

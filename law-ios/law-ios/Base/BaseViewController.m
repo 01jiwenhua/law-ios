@@ -113,10 +113,50 @@
 }
 
 - (void)POSTurl:(NSString *)urlString parameters:(id)paremeters success:(void (^)(id responseObject))success failure:(void (^)(id responseObject))failure{
-    [[HttpsManager shareManager] POSTurl:urlString parameters:paremeters success:success failure:failure];
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    mgr.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [mgr POST:urlString parameters:paremeters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
 }
 - (void)GETurl:(NSString *)urlString parameters:(id)paremeters success:(void (^)(id responseObject))success failure:(void (^)(id responseObject))failure {
-    [[HttpsManager shareManager] GETurl:urlString parameters:paremeters success:success failure:failure];
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    mgr.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [mgr GET:urlString parameters:paremeters success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error);
+    }];
 
+}
+
+//字典转换为字符串
+
+- (NSString*)dictionaryToJson:(NSDictionary *)dic {
+    NSError *parseError = nil;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&parseError];
+    
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+}
+
+- (id)arrayWithJsonString:(NSString *)jsonString {
+    if (jsonString == nil) {
+        return nil;
+    }
+    
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    id array = [NSJSONSerialization JSONObjectWithData:jsonData
+                                             options:NSJSONReadingMutableContainers
+                                               error:&err];
+    if(err) {
+        NSLog(@"json解析失败：%@",err);
+        return nil;
+    }
+    return array;
 }
 @end

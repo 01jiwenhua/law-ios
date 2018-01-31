@@ -15,5 +15,5 @@
 @interface ConditionChooseVC : BaseViewController
 
 @property (weak, nonatomic) id <SelectedDelegate> delegate;
-
+@property (nonatomic, strong ) NSString *code;
 @end

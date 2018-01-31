@@ -22,29 +22,42 @@
 
 - (void)bindView{
     self.title = @"条件筛选";
-    self.tvList = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH_, HEIGHT_)];
+    self.tvList = [[UITableView alloc]initWithFrame:CGRectMake(0, -30, WIDTH_, HEIGHT_)style:UITableViewStyleGrouped];
     self.tvList.delegate = self;
     self.tvList.dataSource = self;
     [self.view addSubview:self.tvList];
 }
 
 -(void)bindModel{
-    self.arrConditions = @[@"无气味",@"杏仁味",@"氨气味",@"无气味",@"杏仁味",@"氨气味",@"无气味",@"杏仁味",@"氨气味"];
+    self.arrConditions = [NSArray new];
 }
 
+-(void)getData{
+    WS(ws);
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    NSMutableDictionary * mdict = [NSMutableDictionary new];
+    
+    [mdict setValue:self.code forKey:@"code"];
+    [self POSTurl:GET_UNKNOWPARAMS_DETAILS parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
+        NSString *st = responseObject[@"data"][@"list"];
+        ws.arrConditions = [self arrayWithJsonString:st];
+        [ws.tvList reloadData];
+        [SVProgressHUD dismiss];
+    } failure:^(id responseObject) {
+        [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+        [SVProgressHUD dismiss];
+    }];
+}
 /**
   *  UITableViewDelegate
   *
   */
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
     return 1;
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return self.arrConditions.count;
 }
 
@@ -53,7 +66,7 @@
     if(cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
-    cell.textLabel.text = self.arrConditions[indexPath.row];
+    cell.textLabel.text = self.arrConditions[indexPath.row][@"name"];
     return cell;
 }
 
