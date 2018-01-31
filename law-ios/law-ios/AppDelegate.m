@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "HomeViewController.h"
+#import "TabBarViewController.h"
 #import "GudePageVi.h"
 
 @interface AppDelegate ()
@@ -23,7 +23,7 @@
     //初始化图片适配后缀
     _window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    UINavigationController * navi =[[UINavigationController alloc] initWithRootViewController:[HomeViewController new]];
+    UINavigationController * navi =[[UINavigationController alloc] initWithRootViewController:[TabBarViewController new]];
     
     //设置导航条背景图片
     [navi.navigationBar setBackgroundImage:[UIImage getImageWithColor:RGBColor(65,162, 240) andSize:CGSizeMake(1, 1)] forBarMetrics:UIBarMetricsDefault];
