@@ -19,6 +19,12 @@
 		4207CFBB201CD96D003650D3 /* KeyboardToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4207CFBA201CD96D003650D3 /* KeyboardToolBar.m */; };
 		4207CFBE201DA115003650D3 /* ConditionChooseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4207CFBD201DA115003650D3 /* ConditionChooseVC.m */; };
 		4220D74F2020B260001B9A7A /* ChemistryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4220D74E2020B260001B9A7A /* ChemistryModel.m */; };
+		4222E1F920221EC400CB8C6C /* ChemistySelectData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4222E1F820221EC300CB8C6C /* ChemistySelectData.m */; };
+		4222E1FF2022290500CB8C6C /* MyHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4222E1FD2022290500CB8C6C /* MyHeadCell.m */; };
+		4222E2002022290500CB8C6C /* MyHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4222E1FE2022290500CB8C6C /* MyHeadCell.xib */; };
+		4222E2042022291800CB8C6C /* MyInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4222E2022022291800CB8C6C /* MyInfoCell.m */; };
+		4222E2052022291800CB8C6C /* MyInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4222E2032022291800CB8C6C /* MyInfoCell.xib */; };
+		4222E20920222A3D00CB8C6C /* UserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4222E20820222A3D00CB8C6C /* UserVC.m */; };
 		602F187FB8389405F53D9F70 /* libPods-law-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A44F44D8565854D668CF80E1 /* libPods-law-ios.a */; };
 		8F2080DA20220CCE0035528C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080D120220CCE0035528C /* HomeViewController.m */; };
 		8F2080DB20220CCE0035528C /* LawsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080D320220CCE0035528C /* LawsViewController.m */; };
@@ -48,7 +54,7 @@
 		8F20813120220DF20035528C /* 关于我们@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F2080F620220DF20035528C /* 关于我们@2x.png */; };
 		8F20813220220DF20035528C /* 删除图片icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F2080F720220DF20035528C /* 删除图片icon@2x.png */; };
 		8F20813320220DF20035528C /* 前往@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F2080F820220DF20035528C /* 前往@2x.png */; };
-		8F20813420220DF20035528C /* 常见问题@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F2080F920220DF20035528C /* 常见问题@2x.png */; };
+		8F20813420220DF20035528C /* 常见问题与帮助@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F2080F920220DF20035528C /* 常见问题与帮助@2x.png */; };
 		8F20813520220DF20035528C /* 检查更新@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F2080FA20220DF20035528C /* 检查更新@2x.png */; };
 		8F20813620220DF20035528C /* 消息通知@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F2080FB20220DF20035528C /* 消息通知@2x.png */; };
 		8F20813720220DF20035528C /* 设置@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F2080FC20220DF20035528C /* 设置@2x.png */; };
@@ -77,7 +83,7 @@
 		8F20814E20220DF20035528C /* 关于我们@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F20811420220DF20035528C /* 关于我们@3x.png */; };
 		8F20814F20220DF20035528C /* 删除图片icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F20811520220DF20035528C /* 删除图片icon@3x.png */; };
 		8F20815020220DF20035528C /* 前往@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F20811620220DF20035528C /* 前往@3x.png */; };
-		8F20815120220DF20035528C /* 常见问题@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F20811720220DF20035528C /* 常见问题@3x.png */; };
+		8F20815120220DF20035528C /* 常见问题与帮助@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F20811720220DF20035528C /* 常见问题与帮助@3x.png */; };
 		8F20815220220DF20035528C /* 检查更新@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F20811820220DF20035528C /* 检查更新@3x.png */; };
 		8F20815320220DF20035528C /* 消息通知@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F20811920220DF20035528C /* 消息通知@3x.png */; };
 		8F20815420220DF20035528C /* 设置@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F20811A20220DF20035528C /* 设置@3x.png */; };
@@ -196,6 +202,16 @@
 		4207CFBD201DA115003650D3 /* ConditionChooseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConditionChooseVC.m; sourceTree = "<group>"; };
 		4220D74D2020B260001B9A7A /* ChemistryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChemistryModel.h; sourceTree = "<group>"; };
 		4220D74E2020B260001B9A7A /* ChemistryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChemistryModel.m; sourceTree = "<group>"; };
+		4222E1F720221EC300CB8C6C /* ChemistySelectData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChemistySelectData.h; sourceTree = "<group>"; };
+		4222E1F820221EC300CB8C6C /* ChemistySelectData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChemistySelectData.m; sourceTree = "<group>"; };
+		4222E1FC2022290500CB8C6C /* MyHeadCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyHeadCell.h; sourceTree = "<group>"; };
+		4222E1FD2022290500CB8C6C /* MyHeadCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyHeadCell.m; sourceTree = "<group>"; };
+		4222E1FE2022290500CB8C6C /* MyHeadCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyHeadCell.xib; sourceTree = "<group>"; };
+		4222E2012022291800CB8C6C /* MyInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyInfoCell.h; sourceTree = "<group>"; };
+		4222E2022022291800CB8C6C /* MyInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyInfoCell.m; sourceTree = "<group>"; };
+		4222E2032022291800CB8C6C /* MyInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyInfoCell.xib; sourceTree = "<group>"; };
+		4222E20720222A3D00CB8C6C /* UserVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserVC.h; sourceTree = "<group>"; };
+		4222E20820222A3D00CB8C6C /* UserVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserVC.m; sourceTree = "<group>"; };
 		8449870E72FC7864B279328A /* Pods-law-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-law-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-law-ios/Pods-law-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		8F2080D020220CCE0035528C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		8F2080D120220CCE0035528C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -231,7 +247,7 @@
 		8F2080F620220DF20035528C /* 关于我们@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关于我们@2x.png"; sourceTree = "<group>"; };
 		8F2080F720220DF20035528C /* 删除图片icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除图片icon@2x.png"; sourceTree = "<group>"; };
 		8F2080F820220DF20035528C /* 前往@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "前往@2x.png"; sourceTree = "<group>"; };
-		8F2080F920220DF20035528C /* 常见问题@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "常见问题@2x.png"; sourceTree = "<group>"; };
+		8F2080F920220DF20035528C /* 常见问题与帮助@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "常见问题与帮助@2x.png"; sourceTree = "<group>"; };
 		8F2080FA20220DF20035528C /* 检查更新@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "检查更新@2x.png"; sourceTree = "<group>"; };
 		8F2080FB20220DF20035528C /* 消息通知@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息通知@2x.png"; sourceTree = "<group>"; };
 		8F2080FC20220DF20035528C /* 设置@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置@2x.png"; sourceTree = "<group>"; };
@@ -260,7 +276,7 @@
 		8F20811420220DF20035528C /* 关于我们@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关于我们@3x.png"; sourceTree = "<group>"; };
 		8F20811520220DF20035528C /* 删除图片icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除图片icon@3x.png"; sourceTree = "<group>"; };
 		8F20811620220DF20035528C /* 前往@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "前往@3x.png"; sourceTree = "<group>"; };
-		8F20811720220DF20035528C /* 常见问题@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "常见问题@3x.png"; sourceTree = "<group>"; };
+		8F20811720220DF20035528C /* 常见问题与帮助@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "常见问题与帮助@3x.png"; sourceTree = "<group>"; };
 		8F20811820220DF20035528C /* 检查更新@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "检查更新@3x.png"; sourceTree = "<group>"; };
 		8F20811920220DF20035528C /* 消息通知@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息通知@3x.png"; sourceTree = "<group>"; };
 		8F20811A20220DF20035528C /* 设置@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置@3x.png"; sourceTree = "<group>"; };
@@ -476,8 +492,19 @@
 				4207CFB7201CD07C003650D3 /* ChemistryVC.m */,
 				4207CFBC201DA115003650D3 /* ConditionChooseVC.h */,
 				4207CFBD201DA115003650D3 /* ConditionChooseVC.m */,
+				4222E1F720221EC300CB8C6C /* ChemistySelectData.h */,
+				4222E1F820221EC300CB8C6C /* ChemistySelectData.m */,
 			);
 			path = Chemistry;
+			sourceTree = "<group>";
+		};
+		4222E20620222A0F00CB8C6C /* User */ = {
+			isa = PBXGroup;
+			children = (
+				4222E20720222A3D00CB8C6C /* UserVC.h */,
+				4222E20820222A3D00CB8C6C /* UserVC.m */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		7917D5B8FE8006CB18A8514A /* Frameworks */ = {
@@ -530,7 +557,7 @@
 				8F2080F620220DF20035528C /* 关于我们@2x.png */,
 				8F2080F720220DF20035528C /* 删除图片icon@2x.png */,
 				8F2080F820220DF20035528C /* 前往@2x.png */,
-				8F2080F920220DF20035528C /* 常见问题@2x.png */,
+				8F2080F920220DF20035528C /* 常见问题与帮助@2x.png */,
 				8F2080FA20220DF20035528C /* 检查更新@2x.png */,
 				8F2080FB20220DF20035528C /* 消息通知@2x.png */,
 				8F2080FC20220DF20035528C /* 设置@2x.png */,
@@ -566,7 +593,7 @@
 				8F20811420220DF20035528C /* 关于我们@3x.png */,
 				8F20811520220DF20035528C /* 删除图片icon@3x.png */,
 				8F20811620220DF20035528C /* 前往@3x.png */,
-				8F20811720220DF20035528C /* 常见问题@3x.png */,
+				8F20811720220DF20035528C /* 常见问题与帮助@3x.png */,
 				8F20811820220DF20035528C /* 检查更新@3x.png */,
 				8F20811920220DF20035528C /* 消息通知@3x.png */,
 				8F20811A20220DF20035528C /* 设置@3x.png */,
@@ -656,6 +683,7 @@
 			children = (
 				8F2080DF20220D090035528C /* TabBarViewController.h */,
 				8F2080E020220D090035528C /* TabBarViewController.m */,
+				4222E20620222A0F00CB8C6C /* User */,
 				8F2080CF20220CCE0035528C /* Home */,
 				4207CFB5201CD054003650D3 /* Chemistry */,
 			);
@@ -670,6 +698,12 @@
 				8FBA82A4201D7A790056D8E8 /* GudePageVi.m */,
 				8FBA829A201C42CF0056D8E8 /* MyVi.h */,
 				8FBA829B201C42CF0056D8E8 /* MyVi.m */,
+				4222E1FC2022290500CB8C6C /* MyHeadCell.h */,
+				4222E1FD2022290500CB8C6C /* MyHeadCell.m */,
+				4222E1FE2022290500CB8C6C /* MyHeadCell.xib */,
+				4222E2012022291800CB8C6C /* MyInfoCell.h */,
+				4222E2022022291800CB8C6C /* MyInfoCell.m */,
+				4222E2032022291800CB8C6C /* MyInfoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -870,7 +904,7 @@
 				8FBA82D5201DE51C0056D8E8 /* img_banner1.png in Resources */,
 				8F20814E20220DF20035528C /* 关于我们@3x.png in Resources */,
 				8F20815620220DF20035528C /* 默认头像_大@3x.png in Resources */,
-				8F20815120220DF20035528C /* 常见问题@3x.png in Resources */,
+				8F20815120220DF20035528C /* 常见问题与帮助@3x.png in Resources */,
 				8FBA82AB201D7BEB0056D8E8 /* GudePageVi_2.png in Resources */,
 				8FBA82EB201DF5A00056D8E8 /* ic_search.png in Resources */,
 				8F20813120220DF20035528C /* 关于我们@2x.png in Resources */,
@@ -925,6 +959,7 @@
 				8FBA82E5201DEF150056D8E8 /* img_select_divder.png in Resources */,
 				8F20812F20220DF20035528C /* tab_me_sel@2x.png in Resources */,
 				8F20813C20220DF20035528C /* home-btn@3x.png in Resources */,
+				4222E2002022290500CB8C6C /* MyHeadCell.xib in Resources */,
 				8F20812220220DF20035528C /* home_btn_icon_政策查询@2x.png in Resources */,
 				8FBA82E1201DEB260056D8E8 /* ic_bz.png in Resources */,
 				8F20813A20220DF20035528C /* 默认头像_小@2x.png in Resources */,
@@ -941,6 +976,7 @@
 				8FBA82E2201DEB260056D8E8 /* ic_fg.png in Resources */,
 				8FBA82AA201D7BEB0056D8E8 /* GudePageVi_0.png in Resources */,
 				8F20812B20220DF20035528C /* tab_collect_sel@2x.png in Resources */,
+				4222E2052022291800CB8C6C /* MyInfoCell.xib in Resources */,
 				8FBA82DB201DE6540056D8E8 /* ic_wh.png in Resources */,
 				8F20812C20220DF20035528C /* tab_home_normal@2x.png in Resources */,
 				8FBA82CD201DDDC30056D8E8 /* img_cr.png in Resources */,
@@ -948,7 +984,7 @@
 				8F20813620220DF20035528C /* 消息通知@2x.png in Resources */,
 				8F20814A20220DF20035528C /* tab_home_sel@3x.png in Resources */,
 				8F20814020220DF20035528C /* home_btn_icon_标准查询@3x.png in Resources */,
-				8F20813420220DF20035528C /* 常见问题@2x.png in Resources */,
+				8F20813420220DF20035528C /* 常见问题与帮助@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1047,6 +1083,7 @@
 				4207CFB8201CD07C003650D3 /* ChemistryVC.m in Sources */,
 				8FBA828B201C32CF0056D8E8 /* UIView+Shake.m in Sources */,
 				8FBA827C201C32CF0056D8E8 /* UICollectionViewCell+ReuseIdentifier.m in Sources */,
+				4222E1F920221EC400CB8C6C /* ChemistySelectData.m in Sources */,
 				8FBA8282201C32CF0056D8E8 /* UIImage+ImageEffects.m in Sources */,
 				8FBA827F201C32CF0056D8E8 /* UIImage+Addtion.m in Sources */,
 				8F2080DC20220CCE0035528C /* SearchTypeViewController.m in Sources */,
@@ -1054,6 +1091,7 @@
 				8FBA8289201C32CF0056D8E8 /* UIView+KeyboardAnimation.m in Sources */,
 				8FBA8281201C32CF0056D8E8 /* UIImage+getImage.m in Sources */,
 				8FBA827E201C32CF0056D8E8 /* UIColor+Random.m in Sources */,
+				4222E2042022291800CB8C6C /* MyInfoCell.m in Sources */,
 				8F2080DA20220CCE0035528C /* HomeViewController.m in Sources */,
 				8FBA8272201C32CF0056D8E8 /* NSObject+Runtime.m in Sources */,
 				8FBA8274201C32CF0056D8E8 /* NSString+Analytics.m in Sources */,
@@ -1068,9 +1106,11 @@
 				8FBA8279201C32CF0056D8E8 /* NSString+RemoveEmoji.m in Sources */,
 				8FBA8277201C32CF0056D8E8 /* NSString+InOrderSubstring.m in Sources */,
 				8F2080E120220D090035528C /* TabBarViewController.m in Sources */,
+				4222E20920222A3D00CB8C6C /* UserVC.m in Sources */,
 				8FBA827B201C32CF0056D8E8 /* UIBarButtonItem+Action.m in Sources */,
 				4207CFBB201CD96D003650D3 /* KeyboardToolBar.m in Sources */,
 				8FBA82C6201D92870056D8E8 /* ZWMSegmentController.m in Sources */,
+				4222E1FF2022290500CB8C6C /* MyHeadCell.m in Sources */,
 				8FBA8275201C32CF0056D8E8 /* NSString+Color.m in Sources */,
 				8FBA827A201C32CF0056D8E8 /* UIAlertView+Block.m in Sources */,
 				8FBA8299201C3A9A0056D8E8 /* HttpsManager.m in Sources */,

@@ -10,6 +10,7 @@
 #import "TypeButtonView.h"
 #import "ConditionChooseVC.h"
 #import "ChemistryModel.h"
+#import "ChemistySelectData.h"
 
 @interface ChemistryVC ()<TypeButtonActionDelegate,UITableViewDelegate,UITableViewDataSource,SelectedDelegate>
 @property (nonatomic, strong ) UIView *viKnow;
@@ -23,6 +24,8 @@
 @property (nonatomic, strong ) MJRefreshNormalHeader *refreshHeader;
 @property (nonatomic, strong) MJRefreshBackNormalFooter * refreshFooter;
 @property (nonatomic, assign) int currentPage;
+@property (nonatomic, strong )NSMutableDictionary *dicRequest;
+@property (nonatomic, strong )UIButton *btnCurrent;
 @end
 
 @implementation ChemistryVC
@@ -41,6 +44,7 @@
     self.arrPorCPro = [NSArray new];
     self.arrDanHealth = [NSArray new];
     self.arrKnow = [NSMutableArray array];
+    self.dicRequest = [NSMutableDictionary dictionary];
 }
 
 -(void)bindView{
@@ -61,15 +65,8 @@
     self.viKnow.frame = CGRectMake(0, typeBtnView.bottom, WIDTH_, HEIGHT_ - typeBtnView.bottom);
     [self.view addSubview:self.viKnow];
     [self setViKonw];
-    [self setViUnKonw];
+//    [self setViUnKonw];
     
-}
-
--(void)bindAction {
-    WS(ws);
-    [[self.btnSelect rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-//        [ws.navigationController pushViewController:[ChemistryVC new] animated:YES];
-    }];
 }
 
 -(void)getData{
@@ -78,8 +75,8 @@
     NSMutableDictionary * mdict = [NSMutableDictionary new];
     [mdict setValue:[NSString stringWithFormat:@"%i",self.currentPage + 1] forKey:@"page"];
     [mdict setValue:@"10" forKey:@"pageSize"];
-//    [mdict setValue:@"3" forKey:@"name"];
-    [mdict setValue:@"固体" forKey:@"status"];
+    [mdict setValue:self.tfName.text forKey:@"name"];
+
   
     [self POSTurl:GET_KNOWNLIST parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
         NSString *st = responseObject[@"data"][@"chemicalsList"];
@@ -113,23 +110,37 @@
 }
 
 -(void)setViKonw{
-    self.tfName = [UITextField new];
+    if (!self.tfName) {
+         self.tfName = [UITextField new];
+    }
     self.tfName.frame = CGRectMake(10, 10, WIDTH_ - 60, 30);
     self.tfName.placeholder = @" 请输入危化品名称进行搜索";
     self.tfName.layer.borderWidth = 0.5;
     self.tfName.layer.borderColor = [UIColor darkGrayColor].CGColor;
     [self.viKnow addSubview:self.tfName];
     
-    self.btnSelect = [UIButton new];
-    self.btnSelect.frame = CGRectMake(self.tfName.right, 10, WIDTH_ - self.tfName.right, 30);
+    if (!self.btnSelect) {
+        self.btnSelect = [UIButton new];
+    }
+    self.btnSelect.frame = CGRectMake(self.tfName.right + 5, 10, 30, 30);
+    [self.btnSelect setImage:[UIImage imageNamed:@"ic_search"] forState:UIControlStateNormal];
+    [self.btnSelect addTarget:self action:@selector(selectWithName) forControlEvents:UIControlEventTouchUpInside];
     [self.viKnow addSubview:self.btnSelect];
     
-    self.tvList = [[UITableView alloc]initWithFrame:CGRectMake(0, self.tfName.bottom + 5, WIDTH_, self.viKnow.height - self.tfName.bottom - 5)];
+    if (!self.tvList) {
+        self.tvList = [[UITableView alloc]initWithFrame:CGRectMake(0, self.tfName.bottom + 5, WIDTH_, self.viKnow.height - self.tfName.bottom - 5)];
+    }
     self.tvList.delegate = self;
     self.tvList.dataSource = self;
     self.tvList.mj_header = self.refreshHeader;
     self.tvList.mj_footer = self.refreshFooter;
     [self.viKnow addSubview:self.tvList];
+}
+
+-(void)selectWithName{
+    self.currentPage = 0;
+    [self getData];
+    [self.tfName resignFirstResponder];
 }
 
 -(void)setViUnKonw{
@@ -184,6 +195,13 @@
         }
     }
     
+    UIButton *btnSelectData = [UIButton new];
+    btnSelectData.frame = CGRectMake(20, y+ 20, WIDTH_ - 40, 40);
+    [btnSelectData setBackgroundColor:BLUE];
+    [btnSelectData setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btnSelectData addTarget:self action:@selector(selectAction) forControlEvents:UIControlEventTouchUpInside];
+    [btnSelectData setTitle:@"查询" forState:UIControlStateNormal];
+    [self.viUnKnow addSubview:btnSelectData];
 }
 
 
@@ -201,18 +219,27 @@
 }
 
 -(void)chooseHDAction:(UIButton *)btn {
+    self.btnCurrent = btn;
     ConditionChooseVC *vc = [ConditionChooseVC new];
     vc.delegate = self;
     NSDictionary *dic= _arrDanHealth[btn.tag];
     vc.code = dic[@"categoryCode"];
     [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 -(void)chooseLHAction:(UIButton *)btn {
+    self.btnCurrent = btn;
     ConditionChooseVC *vc = [ConditionChooseVC new];
     vc.delegate = self;
     NSDictionary *dic= _arrPorCPro[btn.tag];
     vc.code = dic[@"categoryCode"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(void)selectAction{
+    ChemistySelectData *vc = [ChemistySelectData new];
+    vc.dic = self.dicRequest;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -246,8 +273,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 
--(void)select:(NSString *)st{
-    
+-(void)select:(NSDictionary *)dic{
+    [self.dicRequest addEntriesFromDictionary:dic];
+    [self.btnCurrent setTitleColor:BLUE forState:UIControlStateNormal];
+    [self.btnCurrent setTitle:dic.allValues[0] forState:UIControlStateNormal];
 }
 
 

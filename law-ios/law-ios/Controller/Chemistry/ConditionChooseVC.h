@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 
 @protocol SelectedDelegate<NSObject>
--(void)select:(NSString *)st;
+-(void)select:(NSDictionary *)dic;
 @end
 
 @interface ConditionChooseVC : BaseViewController
