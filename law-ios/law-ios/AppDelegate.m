@@ -26,7 +26,7 @@
     UINavigationController * navi =[[UINavigationController alloc] initWithRootViewController:[TabBarViewController new]];
     
     //设置导航条背景图片
-    [navi.navigationBar setBackgroundImage:[UIImage getImageWithColor:RGBColor(65,162, 240) andSize:CGSizeMake(1, 1)] forBarMetrics:UIBarMetricsDefault];
+    [navi.navigationBar setBackgroundImage:[UIImage getImageWithColor:BLUE andSize:CGSizeMake(1, 1)] forBarMetrics:UIBarMetricsDefault];
     
     //设置导航条字体颜色
     [navi.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];

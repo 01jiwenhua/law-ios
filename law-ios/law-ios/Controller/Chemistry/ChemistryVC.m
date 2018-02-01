@@ -10,6 +10,7 @@
 #import "TypeButtonView.h"
 #import "ConditionChooseVC.h"
 #import "ChemistryModel.h"
+#import "ChemistySelectData.h"
 
 @interface ChemistryVC ()<TypeButtonActionDelegate,UITableViewDelegate,UITableViewDataSource,SelectedDelegate>
 @property (nonatomic, strong ) UIView *viKnow;
@@ -17,12 +18,15 @@
 @property (nonatomic, strong ) UITextField *tfName;
 @property (nonatomic, strong ) UIButton *btnSelect;
 @property (nonatomic, strong ) UITableView *tvList;
+@property (nonatomic, strong ) UITableView *tvListUnKnow;
 @property (nonatomic, strong ) NSArray *arrPorCPro;
 @property (nonatomic, strong ) NSArray *arrDanHealth;
 @property (nonatomic, strong ) NSMutableArray *arrKnow;
 @property (nonatomic, strong ) MJRefreshNormalHeader *refreshHeader;
 @property (nonatomic, strong) MJRefreshBackNormalFooter * refreshFooter;
 @property (nonatomic, assign) int currentPage;
+@property (nonatomic, strong )NSMutableDictionary *dicRequest;
+@property (nonatomic, strong )UITableViewCell *cellCurrent;
 @end
 
 @implementation ChemistryVC
@@ -41,6 +45,7 @@
     self.arrPorCPro = [NSArray new];
     self.arrDanHealth = [NSArray new];
     self.arrKnow = [NSMutableArray array];
+    self.dicRequest = [NSMutableDictionary dictionary];
 }
 
 -(void)bindView{
@@ -61,15 +66,8 @@
     self.viKnow.frame = CGRectMake(0, typeBtnView.bottom, WIDTH_, HEIGHT_ - typeBtnView.bottom);
     [self.view addSubview:self.viKnow];
     [self setViKonw];
-    [self setViUnKonw];
+//    [self setViUnKonw];
     
-}
-
--(void)bindAction {
-    WS(ws);
-    [[self.btnSelect rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-//        [ws.navigationController pushViewController:[ChemistryVC new] animated:YES];
-    }];
 }
 
 -(void)getData{
@@ -78,8 +76,8 @@
     NSMutableDictionary * mdict = [NSMutableDictionary new];
     [mdict setValue:[NSString stringWithFormat:@"%i",self.currentPage + 1] forKey:@"page"];
     [mdict setValue:@"10" forKey:@"pageSize"];
-//    [mdict setValue:@"3" forKey:@"name"];
-    [mdict setValue:@"固体" forKey:@"status"];
+    [mdict setValue:self.tfName.text forKey:@"name"];
+
   
     [self POSTurl:GET_KNOWNLIST parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
         NSString *st = responseObject[@"data"][@"chemicalsList"];
@@ -113,18 +111,26 @@
 }
 
 -(void)setViKonw{
-    self.tfName = [UITextField new];
+    if (!self.tfName) {
+         self.tfName = [UITextField new];
+    }
     self.tfName.frame = CGRectMake(10, 10, WIDTH_ - 60, 30);
     self.tfName.placeholder = @" 请输入危化品名称进行搜索";
     self.tfName.layer.borderWidth = 0.5;
     self.tfName.layer.borderColor = [UIColor darkGrayColor].CGColor;
     [self.viKnow addSubview:self.tfName];
     
-    self.btnSelect = [UIButton new];
-    self.btnSelect.frame = CGRectMake(self.tfName.right, 10, WIDTH_ - self.tfName.right, 30);
+    if (!self.btnSelect) {
+        self.btnSelect = [UIButton new];
+    }
+    self.btnSelect.frame = CGRectMake(self.tfName.right + 5, 10, 30, 30);
+    [self.btnSelect setImage:[UIImage imageNamed:@"ic_search"] forState:UIControlStateNormal];
+    [self.btnSelect addTarget:self action:@selector(selectWithName) forControlEvents:UIControlEventTouchUpInside];
     [self.viKnow addSubview:self.btnSelect];
     
-    self.tvList = [[UITableView alloc]initWithFrame:CGRectMake(0, self.tfName.bottom + 5, WIDTH_, self.viKnow.height - self.tfName.bottom - 5)];
+    if (!self.tvList) {
+        self.tvList = [[UITableView alloc]initWithFrame:CGRectMake(0, self.tfName.bottom + 5, WIDTH_, self.viKnow.height - self.tfName.bottom - 5)];
+    }
     self.tvList.delegate = self;
     self.tvList.dataSource = self;
     self.tvList.mj_header = self.refreshHeader;
@@ -132,58 +138,27 @@
     [self.viKnow addSubview:self.tvList];
 }
 
+-(void)selectWithName{
+    self.currentPage = 0;
+    [self getData];
+    [self.tfName resignFirstResponder];
+}
+
 -(void)setViUnKonw{
-    UILabel *lb1 = [UILabel new];
-    lb1.frame = CGRectMake(10, 0, 200, 30);
-    lb1.text  = @"理化特征";
-    lb1.textColor = [UIColor darkGrayColor];
-    [self.viUnKnow addSubview:lb1];
-    CGFloat y = lb1.bottom +5;
-    CGFloat x = 0;
-    for (int i = 0 ; i<_arrPorCPro.count; i++) {
-        NSDictionary *dic = _arrPorCPro[i];
-        UIButton *btn = [UIButton new];
-        btn.tag = i;
-        [btn setTitle:dic[@"categoryName"] forState:UIControlStateNormal];
-        btn.frame = CGRectMake(x, y,WIDTH_/3 - 2, WIDTH_/8);
-        btn.backgroundColor = [UIColor whiteColor];
-        [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(chooseLHAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.viUnKnow addSubview:btn];
-        x = ([_arrPorCPro indexOfObject:dic]+1)%3 *WIDTH_/3;
-        if (([_arrPorCPro indexOfObject:dic]+1)%3 == 0) {
-            y = btn.bottom + 2;
-        }
-        
-        if ([_arrPorCPro indexOfObject:dic]+1 == _arrPorCPro.count) {
-            y = btn.bottom + 2;
-        }
+    if (!self.tvListUnKnow) {
+        self.tvListUnKnow = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH_, HEIGHT_ - 200)style:UITableViewStyleGrouped];
     }
-    
-    UILabel *lb2 = [UILabel new];
-    lb2.frame = CGRectMake(10, y, 200, 30);
-    lb2.text  = @"健康危害";
-    lb2.textColor = [UIColor darkGrayColor];
-    [self.viUnKnow addSubview:lb2];
-    y = lb2.bottom + 5;
-    x= 0;
-    
-    for (int i = 0 ; i<_arrDanHealth.count; i++) {
-        NSDictionary *dic = _arrDanHealth[i];
-        UIButton *btn = [UIButton new];
-        btn.tag = i;
-        [btn setTitle:dic[@"categoryName"] forState:UIControlStateNormal];
-        btn.frame = CGRectMake(x, y,WIDTH_/3 - 2, WIDTH_/8);
-        btn.backgroundColor = [UIColor whiteColor];
-        [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(chooseHDAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.viUnKnow addSubview:btn];
-        x = ([_arrDanHealth indexOfObject:dic]+1)%3 *WIDTH_/3;
-        if (([_arrDanHealth indexOfObject:dic]+1)%3 == 0) {
-            y = btn.bottom + 2;
-        }
-    }
-    
+    self.tvListUnKnow.delegate = self;
+    self.tvListUnKnow.dataSource = self;
+    [self.viUnKnow addSubview:self.tvListUnKnow];
+   
+    UIButton *btnSelectData = [UIButton new];
+    btnSelectData.frame = CGRectMake(20, self.tvListUnKnow.bottom + 20, WIDTH_ - 40, 40);
+    [btnSelectData setBackgroundColor:BLUE];
+    [btnSelectData setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btnSelectData addTarget:self action:@selector(selectAction) forControlEvents:UIControlEventTouchUpInside];
+    [btnSelectData setTitle:@"查询" forState:UIControlStateNormal];
+    [self.viUnKnow addSubview:btnSelectData];
 }
 
 
@@ -200,19 +175,11 @@
     }
 }
 
--(void)chooseHDAction:(UIButton *)btn {
-    ConditionChooseVC *vc = [ConditionChooseVC new];
-    vc.delegate = self;
-    NSDictionary *dic= _arrDanHealth[btn.tag];
-    vc.code = dic[@"categoryCode"];
-    [self.navigationController pushViewController:vc animated:YES];
-}
 
--(void)chooseLHAction:(UIButton *)btn {
-    ConditionChooseVC *vc = [ConditionChooseVC new];
-    vc.delegate = self;
-    NSDictionary *dic= _arrPorCPro[btn.tag];
-    vc.code = dic[@"categoryCode"];
+
+-(void)selectAction{
+    ChemistySelectData *vc = [ChemistySelectData new];
+    vc.dic = self.dicRequest;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -222,32 +189,100 @@
  */
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if ([tableView isEqual:self.tvListUnKnow]) {
+        return 2;
+    }
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
+    if ([tableView isEqual:self.tvListUnKnow]) {
+        if (section == 0) {
+            return self.arrPorCPro.count;
+        }else {
+            return self.arrDanHealth.count;
+        }
+    }
     return self.arrKnow.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    static NSString *CellIdentifier = @"Cell";
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *CellIdentifier = [NSString stringWithFormat:@"%li-%li",(long)indexPath.section,(long)indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
+     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    if ([tableView isEqual:self.tvListUnKnow]) {
+        cell.textLabel.textColor = [UIColor lightGrayColor];
+        if (indexPath.section == 0) {
+            cell.textLabel.text = self.arrPorCPro[indexPath.row][@"categoryName"];
+        }else{
+            cell.textLabel.text = self.arrDanHealth[indexPath.row][@"categoryName"];
+        }
+        cell.detailTextLabel.textColor = [UIColor darkGrayColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
     ChemistryModel *model = _arrKnow[indexPath.row];
     cell.textLabel.text = model.nameCn;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+   
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    self.cellCurrent = cell;
+    if ([tableView isEqual:self.tvListUnKnow]) {
+        ConditionChooseVC *vc = [ConditionChooseVC new];
+        vc.delegate = self;
+        NSDictionary *dic;
+        if (indexPath.section == 0) {
+            dic= _arrPorCPro[indexPath.row];
+        }else{
+            dic= _arrDanHealth[indexPath.row];
+        }
+        vc.code = dic[@"categoryCode"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
--(void)select:(NSString *)st{
-    
+//section头部高度
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if ([tableView isEqual:self.tvListUnKnow]) {
+        return 60 ;
+    }
+    return 4;
+}
+
+//section头部高度
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 4 ;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if ([tableView isEqual:self.tvListUnKnow]) {
+        UILabel *lb = [UILabel new];
+        lb.text = @"  理化特征";
+        if (section == 1) {
+            lb.text = @"  健康危害";
+        }
+        lb.backgroundColor = [UIColor whiteColor];
+        return lb;
+    }
+    return [UIView new];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return [UIView new];
+}
+
+-(void)select:(NSDictionary *)dic{
+    [self.dicRequest addEntriesFromDictionary:dic];
+    self.cellCurrent.detailTextLabel.text =dic.allValues[0];
 }
 
 
