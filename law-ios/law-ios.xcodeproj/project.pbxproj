@@ -90,6 +90,9 @@
 		8F20815520220DF20035528C /* 通用btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F20811B20220DF20035528C /* 通用btn@3x.png */; };
 		8F20815620220DF20035528C /* 默认头像_大@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F20811C20220DF20035528C /* 默认头像_大@3x.png */; };
 		8F20815720220DF20035528C /* 默认头像_小@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F20811D20220DF20035528C /* 默认头像_小@3x.png */; };
+		8F513544202356A5002517D7 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F513543202356A5002517D7 /* ListViewController.m */; };
+		8F5135472023577C002517D7 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5135462023577C002517D7 /* ListTableViewCell.m */; };
+		8F51354B20235F3B002517D7 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51354A20235F3B002517D7 /* CollectionViewController.m */; };
 		8FBA8239201C323E0056D8E8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA8238201C323D0056D8E8 /* BaseViewController.m */; };
 		8FBA823C201C32970056D8E8 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA823B201C32960056D8E8 /* Toast.m */; };
 		8FBA8272201C32CF0056D8E8 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA823F201C32CF0056D8E8 /* NSObject+Runtime.m */; };
@@ -283,6 +286,12 @@
 		8F20811B20220DF20035528C /* 通用btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "通用btn@3x.png"; sourceTree = "<group>"; };
 		8F20811C20220DF20035528C /* 默认头像_大@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "默认头像_大@3x.png"; sourceTree = "<group>"; };
 		8F20811D20220DF20035528C /* 默认头像_小@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "默认头像_小@3x.png"; sourceTree = "<group>"; };
+		8F513542202356A5002517D7 /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		8F513543202356A5002517D7 /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		8F5135452023577C002517D7 /* ListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListTableViewCell.h; sourceTree = "<group>"; };
+		8F5135462023577C002517D7 /* ListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListTableViewCell.m; sourceTree = "<group>"; };
+		8F51354920235F3B002517D7 /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		8F51354A20235F3B002517D7 /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		8FBA8236201C31A60056D8E8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8FBA8237201C323D0056D8E8 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		8FBA8238201C323D0056D8E8 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
@@ -528,6 +537,8 @@
 				8F2080D720220CCE0035528C /* SearchViewController.m */,
 				8F2080D820220CCE0035528C /* SecurityViewController.h */,
 				8F2080D920220CCE0035528C /* SecurityViewController.m */,
+				8F513542202356A5002517D7 /* ListViewController.h */,
+				8F513543202356A5002517D7 /* ListViewController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -602,6 +613,15 @@
 				8F20811D20220DF20035528C /* 默认头像_小@3x.png */,
 			);
 			path = 3x;
+			sourceTree = "<group>";
+		};
+		8F51354820235F17002517D7 /* collection */ = {
+			isa = PBXGroup;
+			children = (
+				8F51354920235F3B002517D7 /* CollectionViewController.h */,
+				8F51354A20235F3B002517D7 /* CollectionViewController.m */,
+			);
+			path = collection;
 			sourceTree = "<group>";
 		};
 		8FBA8230201C31510056D8E8 /* Util */ = {
@@ -683,6 +703,7 @@
 			children = (
 				8F2080DF20220D090035528C /* TabBarViewController.h */,
 				8F2080E020220D090035528C /* TabBarViewController.m */,
+				8F51354820235F17002517D7 /* collection */,
 				4222E20620222A0F00CB8C6C /* User */,
 				8F2080CF20220CCE0035528C /* Home */,
 				4207CFB5201CD054003650D3 /* Chemistry */,
@@ -704,6 +725,8 @@
 				4222E2012022291800CB8C6C /* MyInfoCell.h */,
 				4222E2022022291800CB8C6C /* MyInfoCell.m */,
 				4222E2032022291800CB8C6C /* MyInfoCell.xib */,
+				8F5135452023577C002517D7 /* ListTableViewCell.h */,
+				8F5135462023577C002517D7 /* ListTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1090,6 +1113,7 @@
 				420491A8201B6ED6005D61B9 /* main.m in Sources */,
 				8FBA8289201C32CF0056D8E8 /* UIView+KeyboardAnimation.m in Sources */,
 				8FBA8281201C32CF0056D8E8 /* UIImage+getImage.m in Sources */,
+				8F513544202356A5002517D7 /* ListViewController.m in Sources */,
 				8FBA827E201C32CF0056D8E8 /* UIColor+Random.m in Sources */,
 				4222E2042022291800CB8C6C /* MyInfoCell.m in Sources */,
 				8F2080DA20220CCE0035528C /* HomeViewController.m in Sources */,
@@ -1101,6 +1125,7 @@
 				8FBA829F201C42E90056D8E8 /* My.m in Sources */,
 				8F2080DD20220CCE0035528C /* SearchViewController.m in Sources */,
 				8FBA8278201C32CF0056D8E8 /* NSString+Password.m in Sources */,
+				8F5135472023577C002517D7 /* ListTableViewCell.m in Sources */,
 				4207CFBE201DA115003650D3 /* ConditionChooseVC.m in Sources */,
 				8FBA827D201C32CF0056D8E8 /* UIColor+Addtion.m in Sources */,
 				8FBA8279201C32CF0056D8E8 /* NSString+RemoveEmoji.m in Sources */,
@@ -1126,6 +1151,7 @@
 				4207CFB4201CCF60003650D3 /* TypeButtonView.m in Sources */,
 				8F2080DE20220CCE0035528C /* SecurityViewController.m in Sources */,
 				8FBA8286201C32CF0056D8E8 /* UITableViewCell+ReuseIdentifier.m in Sources */,
+				8F51354B20235F3B002517D7 /* CollectionViewController.m in Sources */,
 				4204919A201B6ED6005D61B9 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

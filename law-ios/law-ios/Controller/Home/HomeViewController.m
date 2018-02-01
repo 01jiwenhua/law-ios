@@ -12,6 +12,7 @@
 #import "SDCycleScrollView.h"
 #import "LawsViewController.h"
 #import "SecurityViewController.h"
+#import "SearchTypeViewController.h"
 
 
 @interface HomeViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
@@ -105,12 +106,20 @@
 
 -(void)bindAction {
     WS(ws);
+    [[self.guifanBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        SearchTypeViewController * vc = [SearchTypeViewController new];
+        vc.title = @"标准规范";
+        [ws.navigationController pushViewController:vc animated:YES];
+    }];
     [[self.lawsBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        [ws.navigationController pushViewController:[LawsViewController new] animated:YES];
+        SearchTypeViewController * vc = [SearchTypeViewController new];
+        vc.title = @"法律法规";
+        [ws.navigationController pushViewController:vc animated:YES];
     }];
     [[self.securityBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        [ws.navigationController pushViewController:[SecurityViewController new] animated:YES];
-        
+        SearchTypeViewController * vc = [SearchTypeViewController new];
+        vc.title = @"政策文件";
+        [ws.navigationController pushViewController:vc animated:YES];
     }];
     [[self.chemicalBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         [ws.navigationController pushViewController:[ChemistryVC new] animated:YES];

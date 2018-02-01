@@ -19,7 +19,7 @@
     self = [super init];
     if (self)
     {
-        NSArray * classStrings = @[@"HomeViewController",@"UIViewController",@"UIViewController"];
+        NSArray * classStrings = @[@"HomeViewController",@"CollectionViewController",@"UserVC"];
         NSArray * titles = @[@"首页",@"收藏",@"我的"];
         NSArray * images = @[@"tab_home_normal",@"tab_collect_normal",@"tab_me_normal"];
         NSArray * selectedImages = @[@"tab_home_sel",@"tab_collect_sel",@"tab_me_sel"];

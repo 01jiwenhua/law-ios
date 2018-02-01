@@ -8,7 +8,7 @@
 
 #import "SearchTypeViewController.h"
 #import "ZWMSegmentController.h"
-#import "SearchViewController.h"
+#import "ListViewController.h"
 
 @interface SearchTypeViewController ()
 @property (nonatomic, strong) ZWMSegmentController *segmentVC;
@@ -16,16 +16,23 @@
 @end
 
 @implementation SearchTypeViewController
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"查询";
     
-    NSArray * arr = @[@"安全",@"安全标准",@"部门规章",@"地方法规",@"国家标准",@"安全",@"安全标准",@"部门规章",@"地方法规",@"国家标准"];
+    NSArray * arr = @[@"国家法律",@"行政法规",@"部门规章",@"地方法规"];
     NSMutableArray * array = [NSMutableArray new];
+    ListViewController * listVC;
     for (id obj in arr) {
-        [array addObject:[SearchViewController new]];
+        listVC = [ListViewController new];
+        listVC.level = obj;
+        [array addObject:listVC];
     }
     
     

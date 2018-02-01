@@ -26,10 +26,10 @@
     UINavigationController * navi =[[UINavigationController alloc] initWithRootViewController:[TabBarViewController new]];
     
     //设置导航条背景图片
-    [navi.navigationBar setBackgroundImage:[UIImage getImageWithColor:BLUE andSize:CGSizeMake(1, 1)] forBarMetrics:UIBarMetricsDefault];
+    [navi.navigationBar setBackgroundImage:[UIImage getImageWithColor:[UIColor whiteColor] andSize:CGSizeMake(1, 1)] forBarMetrics:UIBarMetricsDefault];
     
     //设置导航条字体颜色
-    [navi.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [navi.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:RGBColor(47, 47, 47)}];
     self.window.rootViewController = navi;
     [_window makeKeyAndVisible];
     //改变状态栏颜色

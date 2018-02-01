@@ -65,7 +65,7 @@
     [_btnLeft setFrame:CGRectMake(0, 0, 26, 20)];
     [_btnLeft addTarget:self action:@selector(onBackAction) forControlEvents:UIControlEventTouchUpInside];
 
-    [_btnLeft setImage:[UIImage imageNamed:@"fnahui"] forState:UIControlStateNormal];
+    [_btnLeft setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     _btnLeft.highlighted = NO;
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc]initWithCustomView:_btnLeft];
     self.navigationItem.leftBarButtonItem = backItem;
