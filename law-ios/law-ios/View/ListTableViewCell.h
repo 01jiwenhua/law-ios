@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseTableViewCell.h"
 
-@interface ListTableViewCell : UITableViewCell
+@interface ListTableViewCell : BaseTableViewCell
 
 @property (nonatomic,strong)UILabel * TitlrLab;
 @property (nonatomic,strong)UILabel * timeLab;

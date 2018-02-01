@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4204919A201B6ED6005D61B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42049199201B6ED6005D61B9 /* AppDelegate.m */; };
-		420491A0201B6ED6005D61B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4204919E201B6ED6005D61B9 /* Main.storyboard */; };
 		420491A2201B6ED6005D61B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 420491A1201B6ED6005D61B9 /* Assets.xcassets */; };
 		420491A5201B6ED6005D61B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 420491A3201B6ED6005D61B9 /* LaunchScreen.storyboard */; };
 		420491A8201B6ED6005D61B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 420491A7201B6ED6005D61B9 /* main.m */; };
@@ -113,6 +112,7 @@
 		8F513544202356A5002517D7 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F513543202356A5002517D7 /* ListViewController.m */; };
 		8F5135472023577C002517D7 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5135462023577C002517D7 /* ListTableViewCell.m */; };
 		8F51354B20235F3B002517D7 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51354A20235F3B002517D7 /* CollectionViewController.m */; };
+		8F5135DE2023705D002517D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F5135DD2023705D002517D7 /* Main.storyboard */; };
 		8FBA8239201C323E0056D8E8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA8238201C323D0056D8E8 /* BaseViewController.m */; };
 		8FBA823C201C32970056D8E8 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA823B201C32960056D8E8 /* Toast.m */; };
 		8FBA8272201C32CF0056D8E8 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA823F201C32CF0056D8E8 /* NSObject+Runtime.m */; };
@@ -197,7 +197,6 @@
 		42049195201B6ED6005D61B9 /* law-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "law-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42049198201B6ED6005D61B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		42049199201B6ED6005D61B9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4204919F201B6ED6005D61B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		420491A1201B6ED6005D61B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		420491A4201B6ED6005D61B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		420491A6201B6ED6005D61B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -335,6 +334,7 @@
 		8F5135462023577C002517D7 /* ListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListTableViewCell.m; sourceTree = "<group>"; };
 		8F51354920235F3B002517D7 /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		8F51354A20235F3B002517D7 /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		8F5135DD2023705D002517D7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8FBA8236201C31A60056D8E8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8FBA8237201C323D0056D8E8 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		8FBA8238201C323D0056D8E8 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
@@ -496,10 +496,10 @@
 				8FBA8233201C31510056D8E8 /* Model */,
 				8FBA8230201C31510056D8E8 /* Util */,
 				8FBA8232201C31510056D8E8 /* Image */,
-				4204919E201B6ED6005D61B9 /* Main.storyboard */,
 				420491A6201B6ED6005D61B9 /* Info.plist */,
 				420491A1201B6ED6005D61B9 /* Assets.xcassets */,
 				420491A3201B6ED6005D61B9 /* LaunchScreen.storyboard */,
+				8F5135DD2023705D002517D7 /* Main.storyboard */,
 				420491A7201B6ED6005D61B9 /* main.m */,
 			);
 			path = "law-ios";
@@ -967,6 +967,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 4204918C201B6ED6005D61B9;
 			productRefGroup = 42049196201B6ED6005D61B9 /* Products */;
@@ -1033,6 +1035,7 @@
 				8FBA82D3201DE51C0056D8E8 /* img_banner2.png in Resources */,
 				8F20812720220DF20035528C /* home_Search Bar@2x.png in Resources */,
 				8FBA82E9201DF04C0056D8E8 /* img_yh.png in Resources */,
+				8F5135DE2023705D002517D7 /* Main.storyboard in Resources */,
 				8F20812820220DF20035528C /* nav_无消息通知@2x.png in Resources */,
 				8F20815220220DF20035528C /* 检查更新@3x.png in Resources */,
 				8F20812320220DF20035528C /* home_btn_icon_标准查询@2x.png in Resources */,
@@ -1070,7 +1073,6 @@
 				8F20812220220DF20035528C /* home_btn_icon_政策查询@2x.png in Resources */,
 				8FBA82E1201DEB260056D8E8 /* ic_bz.png in Resources */,
 				8F20813A20220DF20035528C /* 默认头像_小@2x.png in Resources */,
-				420491A0201B6ED6005D61B9 /* Main.storyboard in Resources */,
 				8F20813720220DF20035528C /* 设置@2x.png in Resources */,
 				8F20814120220DF20035528C /* home_btn_icon_法律法规查询@3x.png in Resources */,
 				8F20814820220DF20035528C /* tab_collect_sel@3x.png in Resources */,
@@ -1119,6 +1121,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-law-ios/Pods-law-ios-resources.sh",
+				"${PODS_ROOT}/AXIndicatorView/AXIndicatorView/Classes/AXIndicatorView.bundle",
+				"${PODS_ROOT}/AXPracticalHUD/AXPracticalHUD/AXPracticalHUD/AXPracticalHUD.bundle",
+				"${PODS_ROOT}/AXWebViewController/AXWebViewController/AXWebViewController/AXWebViewController.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/XHImageViewer/Source/Resources/1_1280x800-1.jpeg",
@@ -1129,6 +1134,9 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AXIndicatorView.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AXPracticalHUD.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AXWebViewController.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/1_1280x800-1.jpeg",
@@ -1274,14 +1282,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4204919E201B6ED6005D61B9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4204919F201B6ED6005D61B9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		420491A3201B6ED6005D61B9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1403,6 +1403,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y6W892798M;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/law-ios/PrefixHeader.pch";
 				INFOPLIST_FILE = "law-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1419,6 +1420,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y6W892798M;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/law-ios/PrefixHeader.pch";
 				INFOPLIST_FILE = "law-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

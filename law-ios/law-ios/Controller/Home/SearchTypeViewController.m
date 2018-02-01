@@ -32,6 +32,7 @@
     for (id obj in arr) {
         listVC = [ListViewController new];
         listVC.level = obj;
+        listVC.typeCode = self.title;
         [array addObject:listVC];
     }
     

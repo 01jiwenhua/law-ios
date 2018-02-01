@@ -12,5 +12,6 @@ target 'law-ios' do
   pod 'SDVersion'
   pod 'FMDB','~>2.6.2'
   pod ‘SDCycleScrollView’
+pod ‘AXWebViewController’
 end
 

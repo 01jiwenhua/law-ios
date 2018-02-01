@@ -10,6 +10,6 @@
 
 @interface ListViewController : BaseViewController
 
-@property (nonatomic, copy)NSString * name;
+@property (nonatomic, copy)NSString * typeCode;
 @property (nonatomic, copy)NSString * level;
 @end
