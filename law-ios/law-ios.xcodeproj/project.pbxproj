@@ -25,6 +25,26 @@
 		4222E2042022291800CB8C6C /* MyInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4222E2022022291800CB8C6C /* MyInfoCell.m */; };
 		4222E2052022291800CB8C6C /* MyInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4222E2032022291800CB8C6C /* MyInfoCell.xib */; };
 		4222E20920222A3D00CB8C6C /* UserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4222E20820222A3D00CB8C6C /* UserVC.m */; };
+		42FCAEB420235EF40044545D /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FCAEB120235EF30044545D /* LoginVC.m */; };
+		42FCAEC720235F480044545D /* 登录注册手机号icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEB620235F200044545D /* 登录注册手机号icon@2x.png */; };
+		42FCAEC820235F480044545D /* 登录注册验证码icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEBD20235F220044545D /* 登录注册验证码icon@2x.png */; };
+		42FCAEC920235F480044545D /* 文章收藏icon_未收藏@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEB920235F210044545D /* 文章收藏icon_未收藏@2x.png */; };
+		42FCAECA20235F480044545D /* 文章收藏icon_已收藏@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEB520235F200044545D /* 文章收藏icon_已收藏@2x.png */; };
+		42FCAECB20235F480044545D /* 验证码btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEB820235F210044545D /* 验证码btn@2x.png */; };
+		42FCAECC20235F480044545D /* 注册审核审核icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEBB20235F220044545D /* 注册审核审核icon@2x.png */; };
+		42FCAECD20235F480044545D /* 注册审核btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEBA20235F210044545D /* 注册审核btn@2x.png */; };
+		42FCAECE20235F480044545D /* 注册btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEBC20235F220044545D /* 注册btn@2x.png */; };
+		42FCAECF20235F480044545D /* app logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEB720235F210044545D /* app logo@2x.png */; };
+		42FCAED020235F480044545D /* 登录注册手机号icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEBE20235F300044545D /* 登录注册手机号icon@3x.png */; };
+		42FCAED120235F480044545D /* 登录注册验证码icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEBF20235F300044545D /* 登录注册验证码icon@3x.png */; };
+		42FCAED220235F480044545D /* 文章收藏icon_未收藏@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEC020235F310044545D /* 文章收藏icon_未收藏@3x.png */; };
+		42FCAED320235F480044545D /* 文章收藏icon_已收藏@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEC320235F310044545D /* 文章收藏icon_已收藏@3x.png */; };
+		42FCAED420235F480044545D /* 验证码btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEC220235F310044545D /* 验证码btn@3x.png */; };
+		42FCAED520235F480044545D /* 注册审核审核icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEC120235F310044545D /* 注册审核审核icon@3x.png */; };
+		42FCAED620235F480044545D /* 注册审核btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEC420235F310044545D /* 注册审核btn@3x.png */; };
+		42FCAED720235F480044545D /* 注册btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEC520235F310044545D /* 注册btn@3x.png */; };
+		42FCAED820235F480044545D /* app logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEC620235F320044545D /* app logo@3x.png */; };
+		42FCAEDB20235F8B0044545D /* ChemistryDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FCAEDA20235F8A0044545D /* ChemistryDetailVC.m */; };
 		602F187FB8389405F53D9F70 /* libPods-law-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A44F44D8565854D668CF80E1 /* libPods-law-ios.a */; };
 		8F2080DA20220CCE0035528C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080D120220CCE0035528C /* HomeViewController.m */; };
 		8F2080DB20220CCE0035528C /* LawsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080D320220CCE0035528C /* LawsViewController.m */; };
@@ -215,6 +235,29 @@
 		4222E2032022291800CB8C6C /* MyInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyInfoCell.xib; sourceTree = "<group>"; };
 		4222E20720222A3D00CB8C6C /* UserVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserVC.h; sourceTree = "<group>"; };
 		4222E20820222A3D00CB8C6C /* UserVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserVC.m; sourceTree = "<group>"; };
+		42FCAEB120235EF30044545D /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		42FCAEB220235EF30044545D /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		42FCAEB320235EF40044545D /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		42FCAEB520235F200044545D /* 文章收藏icon_已收藏@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "文章收藏icon_已收藏@2x.png"; sourceTree = "<group>"; };
+		42FCAEB620235F200044545D /* 登录注册手机号icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录注册手机号icon@2x.png"; sourceTree = "<group>"; };
+		42FCAEB720235F210044545D /* app logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app logo@2x.png"; sourceTree = "<group>"; };
+		42FCAEB820235F210044545D /* 验证码btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "验证码btn@2x.png"; sourceTree = "<group>"; };
+		42FCAEB920235F210044545D /* 文章收藏icon_未收藏@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "文章收藏icon_未收藏@2x.png"; sourceTree = "<group>"; };
+		42FCAEBA20235F210044545D /* 注册审核btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "注册审核btn@2x.png"; sourceTree = "<group>"; };
+		42FCAEBB20235F220044545D /* 注册审核审核icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "注册审核审核icon@2x.png"; sourceTree = "<group>"; };
+		42FCAEBC20235F220044545D /* 注册btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "注册btn@2x.png"; sourceTree = "<group>"; };
+		42FCAEBD20235F220044545D /* 登录注册验证码icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录注册验证码icon@2x.png"; sourceTree = "<group>"; };
+		42FCAEBE20235F300044545D /* 登录注册手机号icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录注册手机号icon@3x.png"; sourceTree = "<group>"; };
+		42FCAEBF20235F300044545D /* 登录注册验证码icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录注册验证码icon@3x.png"; sourceTree = "<group>"; };
+		42FCAEC020235F310044545D /* 文章收藏icon_未收藏@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "文章收藏icon_未收藏@3x.png"; sourceTree = "<group>"; };
+		42FCAEC120235F310044545D /* 注册审核审核icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "注册审核审核icon@3x.png"; sourceTree = "<group>"; };
+		42FCAEC220235F310044545D /* 验证码btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "验证码btn@3x.png"; sourceTree = "<group>"; };
+		42FCAEC320235F310044545D /* 文章收藏icon_已收藏@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "文章收藏icon_已收藏@3x.png"; sourceTree = "<group>"; };
+		42FCAEC420235F310044545D /* 注册审核btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "注册审核btn@3x.png"; sourceTree = "<group>"; };
+		42FCAEC520235F310044545D /* 注册btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "注册btn@3x.png"; sourceTree = "<group>"; };
+		42FCAEC620235F320044545D /* app logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app logo@3x.png"; sourceTree = "<group>"; };
+		42FCAED920235F8A0044545D /* ChemistryDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChemistryDetailVC.h; sourceTree = "<group>"; };
+		42FCAEDA20235F8A0044545D /* ChemistryDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChemistryDetailVC.m; sourceTree = "<group>"; };
 		8449870E72FC7864B279328A /* Pods-law-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-law-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-law-ios/Pods-law-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		8F2080D020220CCE0035528C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		8F2080D120220CCE0035528C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -503,6 +546,8 @@
 				4207CFBD201DA115003650D3 /* ConditionChooseVC.m */,
 				4222E1F720221EC300CB8C6C /* ChemistySelectData.h */,
 				4222E1F820221EC300CB8C6C /* ChemistySelectData.m */,
+				42FCAED920235F8A0044545D /* ChemistryDetailVC.h */,
+				42FCAEDA20235F8A0044545D /* ChemistryDetailVC.m */,
 			);
 			path = Chemistry;
 			sourceTree = "<group>";
@@ -510,6 +555,9 @@
 		4222E20620222A0F00CB8C6C /* User */ = {
 			isa = PBXGroup;
 			children = (
+				42FCAEB220235EF30044545D /* LoginVC.h */,
+				42FCAEB120235EF30044545D /* LoginVC.m */,
+				42FCAEB320235EF40044545D /* LoginVC.xib */,
 				4222E20720222A3D00CB8C6C /* UserVC.h */,
 				4222E20820222A3D00CB8C6C /* UserVC.m */,
 			);
@@ -546,6 +594,15 @@
 		8F2080E220220DF20035528C /* 2x */ = {
 			isa = PBXGroup;
 			children = (
+				42FCAEB620235F200044545D /* 登录注册手机号icon@2x.png */,
+				42FCAEBD20235F220044545D /* 登录注册验证码icon@2x.png */,
+				42FCAEB920235F210044545D /* 文章收藏icon_未收藏@2x.png */,
+				42FCAEB520235F200044545D /* 文章收藏icon_已收藏@2x.png */,
+				42FCAEB820235F210044545D /* 验证码btn@2x.png */,
+				42FCAEBB20235F220044545D /* 注册审核审核icon@2x.png */,
+				42FCAEBA20235F210044545D /* 注册审核btn@2x.png */,
+				42FCAEBC20235F220044545D /* 注册btn@2x.png */,
+				42FCAEB720235F210044545D /* app logo@2x.png */,
 				8F2080E320220DF20035528C /* back@2x.png */,
 				8F2080E420220DF20035528C /* home-btn@2x.png */,
 				8F2080E520220DF20035528C /* home_btn_disabled@2x.png */,
@@ -582,6 +639,15 @@
 		8F20810020220DF20035528C /* 3x */ = {
 			isa = PBXGroup;
 			children = (
+				42FCAEBE20235F300044545D /* 登录注册手机号icon@3x.png */,
+				42FCAEBF20235F300044545D /* 登录注册验证码icon@3x.png */,
+				42FCAEC020235F310044545D /* 文章收藏icon_未收藏@3x.png */,
+				42FCAEC320235F310044545D /* 文章收藏icon_已收藏@3x.png */,
+				42FCAEC220235F310044545D /* 验证码btn@3x.png */,
+				42FCAEC120235F310044545D /* 注册审核审核icon@3x.png */,
+				42FCAEC420235F310044545D /* 注册审核btn@3x.png */,
+				42FCAEC520235F310044545D /* 注册btn@3x.png */,
+				42FCAEC620235F320044545D /* app logo@3x.png */,
 				8F20810120220DF20035528C /* back@3x.png */,
 				8F20810220220DF20035528C /* home-btn@3x.png */,
 				8F20810320220DF20035528C /* home_btn_disabled@3x.png */,
@@ -919,6 +985,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42FCAEC720235F480044545D /* 登录注册手机号icon@2x.png in Resources */,
+				42FCAEC820235F480044545D /* 登录注册验证码icon@2x.png in Resources */,
+				42FCAEC920235F480044545D /* 文章收藏icon_未收藏@2x.png in Resources */,
+				42FCAECA20235F480044545D /* 文章收藏icon_已收藏@2x.png in Resources */,
+				42FCAECB20235F480044545D /* 验证码btn@2x.png in Resources */,
+				42FCAECC20235F480044545D /* 注册审核审核icon@2x.png in Resources */,
+				42FCAECD20235F480044545D /* 注册审核btn@2x.png in Resources */,
+				42FCAECE20235F480044545D /* 注册btn@2x.png in Resources */,
+				42FCAECF20235F480044545D /* app logo@2x.png in Resources */,
+				42FCAED020235F480044545D /* 登录注册手机号icon@3x.png in Resources */,
+				42FCAED120235F480044545D /* 登录注册验证码icon@3x.png in Resources */,
+				42FCAED220235F480044545D /* 文章收藏icon_未收藏@3x.png in Resources */,
+				42FCAED320235F480044545D /* 文章收藏icon_已收藏@3x.png in Resources */,
+				42FCAED420235F480044545D /* 验证码btn@3x.png in Resources */,
+				42FCAED520235F480044545D /* 注册审核审核icon@3x.png in Resources */,
+				42FCAED620235F480044545D /* 注册审核btn@3x.png in Resources */,
+				42FCAED720235F480044545D /* 注册btn@3x.png in Resources */,
+				42FCAED820235F480044545D /* app logo@3x.png in Resources */,
 				8F20815720220DF20035528C /* 默认头像_小@3x.png in Resources */,
 				8F20812A20220DF20035528C /* tab_collect_normal@2x.png in Resources */,
 				8F20812D20220DF20035528C /* tab_home_sel@2x.png in Resources */,
@@ -1117,6 +1201,7 @@
 				8FBA827E201C32CF0056D8E8 /* UIColor+Random.m in Sources */,
 				4222E2042022291800CB8C6C /* MyInfoCell.m in Sources */,
 				8F2080DA20220CCE0035528C /* HomeViewController.m in Sources */,
+				42FCAEB420235EF40044545D /* LoginVC.m in Sources */,
 				8FBA8272201C32CF0056D8E8 /* NSObject+Runtime.m in Sources */,
 				8FBA8274201C32CF0056D8E8 /* NSString+Analytics.m in Sources */,
 				8FBA82C5201D92870056D8E8 /* UIView+ZWMBadge.m in Sources */,
@@ -1131,6 +1216,7 @@
 				8FBA8279201C32CF0056D8E8 /* NSString+RemoveEmoji.m in Sources */,
 				8FBA8277201C32CF0056D8E8 /* NSString+InOrderSubstring.m in Sources */,
 				8F2080E120220D090035528C /* TabBarViewController.m in Sources */,
+				42FCAEDB20235F8B0044545D /* ChemistryDetailVC.m in Sources */,
 				4222E20920222A3D00CB8C6C /* UserVC.m in Sources */,
 				8FBA827B201C32CF0056D8E8 /* UIBarButtonItem+Action.m in Sources */,
 				4207CFBB201CD96D003650D3 /* KeyboardToolBar.m in Sources */,
