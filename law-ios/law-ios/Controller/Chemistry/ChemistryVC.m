@@ -18,6 +18,7 @@
 @property (nonatomic, strong ) UITextField *tfName;
 @property (nonatomic, strong ) UIButton *btnSelect;
 @property (nonatomic, strong ) UITableView *tvList;
+@property (nonatomic, strong ) UITableView *tvListUnKnow;
 @property (nonatomic, strong ) NSArray *arrPorCPro;
 @property (nonatomic, strong ) NSArray *arrDanHealth;
 @property (nonatomic, strong ) NSMutableArray *arrKnow;
@@ -25,7 +26,7 @@
 @property (nonatomic, strong) MJRefreshBackNormalFooter * refreshFooter;
 @property (nonatomic, assign) int currentPage;
 @property (nonatomic, strong )NSMutableDictionary *dicRequest;
-@property (nonatomic, strong )UIButton *btnCurrent;
+@property (nonatomic, strong )UITableViewCell *cellCurrent;
 @end
 
 @implementation ChemistryVC
@@ -144,59 +145,15 @@
 }
 
 -(void)setViUnKonw{
-    UILabel *lb1 = [UILabel new];
-    lb1.frame = CGRectMake(10, 0, 200, 30);
-    lb1.text  = @"理化特征";
-    lb1.textColor = [UIColor darkGrayColor];
-    [self.viUnKnow addSubview:lb1];
-    CGFloat y = lb1.bottom +5;
-    CGFloat x = 0;
-    for (int i = 0 ; i<_arrPorCPro.count; i++) {
-        NSDictionary *dic = _arrPorCPro[i];
-        UIButton *btn = [UIButton new];
-        btn.tag = i;
-        [btn setTitle:dic[@"categoryName"] forState:UIControlStateNormal];
-        btn.frame = CGRectMake(x, y,WIDTH_/3 - 2, WIDTH_/8);
-        btn.backgroundColor = [UIColor whiteColor];
-        [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(chooseLHAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.viUnKnow addSubview:btn];
-        x = ([_arrPorCPro indexOfObject:dic]+1)%3 *WIDTH_/3;
-        if (([_arrPorCPro indexOfObject:dic]+1)%3 == 0) {
-            y = btn.bottom + 2;
-        }
-        
-        if ([_arrPorCPro indexOfObject:dic]+1 == _arrPorCPro.count) {
-            y = btn.bottom + 2;
-        }
+    if (!self.tvListUnKnow) {
+        self.tvListUnKnow = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH_, HEIGHT_ - 200)style:UITableViewStyleGrouped];
     }
-    
-    UILabel *lb2 = [UILabel new];
-    lb2.frame = CGRectMake(10, y, 200, 30);
-    lb2.text  = @"健康危害";
-    lb2.textColor = [UIColor darkGrayColor];
-    [self.viUnKnow addSubview:lb2];
-    y = lb2.bottom + 5;
-    x= 0;
-    
-    for (int i = 0 ; i<_arrDanHealth.count; i++) {
-        NSDictionary *dic = _arrDanHealth[i];
-        UIButton *btn = [UIButton new];
-        btn.tag = i;
-        [btn setTitle:dic[@"categoryName"] forState:UIControlStateNormal];
-        btn.frame = CGRectMake(x, y,WIDTH_/3 - 2, WIDTH_/8);
-        btn.backgroundColor = [UIColor whiteColor];
-        [btn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        [btn addTarget:self action:@selector(chooseHDAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.viUnKnow addSubview:btn];
-        x = ([_arrDanHealth indexOfObject:dic]+1)%3 *WIDTH_/3;
-        if (([_arrDanHealth indexOfObject:dic]+1)%3 == 0) {
-            y = btn.bottom + 2;
-        }
-    }
-    
+    self.tvListUnKnow.delegate = self;
+    self.tvListUnKnow.dataSource = self;
+    [self.viUnKnow addSubview:self.tvListUnKnow];
+   
     UIButton *btnSelectData = [UIButton new];
-    btnSelectData.frame = CGRectMake(20, y+ 20, WIDTH_ - 40, 40);
+    btnSelectData.frame = CGRectMake(20, self.tvListUnKnow.bottom + 20, WIDTH_ - 40, 40);
     [btnSelectData setBackgroundColor:BLUE];
     [btnSelectData setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btnSelectData addTarget:self action:@selector(selectAction) forControlEvents:UIControlEventTouchUpInside];
@@ -218,24 +175,7 @@
     }
 }
 
--(void)chooseHDAction:(UIButton *)btn {
-    self.btnCurrent = btn;
-    ConditionChooseVC *vc = [ConditionChooseVC new];
-    vc.delegate = self;
-    NSDictionary *dic= _arrDanHealth[btn.tag];
-    vc.code = dic[@"categoryCode"];
-    [self.navigationController pushViewController:vc animated:YES];
-    
-}
 
--(void)chooseLHAction:(UIButton *)btn {
-    self.btnCurrent = btn;
-    ConditionChooseVC *vc = [ConditionChooseVC new];
-    vc.delegate = self;
-    NSDictionary *dic= _arrPorCPro[btn.tag];
-    vc.code = dic[@"categoryCode"];
-    [self.navigationController pushViewController:vc animated:YES];
-}
 
 -(void)selectAction{
     ChemistySelectData *vc = [ChemistySelectData new];
@@ -249,34 +189,100 @@
  */
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if ([tableView isEqual:self.tvListUnKnow]) {
+        return 2;
+    }
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
+    if ([tableView isEqual:self.tvListUnKnow]) {
+        if (section == 0) {
+            return self.arrPorCPro.count;
+        }else {
+            return self.arrDanHealth.count;
+        }
+    }
     return self.arrKnow.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    static NSString *CellIdentifier = @"Cell";
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *CellIdentifier = [NSString stringWithFormat:@"%li-%li",(long)indexPath.section,(long)indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
+     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    if ([tableView isEqual:self.tvListUnKnow]) {
+        cell.textLabel.textColor = [UIColor lightGrayColor];
+        if (indexPath.section == 0) {
+            cell.textLabel.text = self.arrPorCPro[indexPath.row][@"categoryName"];
+        }else{
+            cell.textLabel.text = self.arrDanHealth[indexPath.row][@"categoryName"];
+        }
+        cell.detailTextLabel.textColor = [UIColor darkGrayColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
     ChemistryModel *model = _arrKnow[indexPath.row];
     cell.textLabel.text = model.nameCn;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+   
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    self.cellCurrent = cell;
+    if ([tableView isEqual:self.tvListUnKnow]) {
+        ConditionChooseVC *vc = [ConditionChooseVC new];
+        vc.delegate = self;
+        NSDictionary *dic;
+        if (indexPath.section == 0) {
+            dic= _arrPorCPro[indexPath.row];
+        }else{
+            dic= _arrDanHealth[indexPath.row];
+        }
+        vc.code = dic[@"categoryCode"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
+//section头部高度
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if ([tableView isEqual:self.tvListUnKnow]) {
+        return 60 ;
+    }
+    return 4;
+}
+
+//section头部高度
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 4 ;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if ([tableView isEqual:self.tvListUnKnow]) {
+        UILabel *lb = [UILabel new];
+        lb.text = @"  理化特征";
+        if (section == 1) {
+            lb.text = @"  健康危害";
+        }
+        lb.backgroundColor = [UIColor whiteColor];
+        return lb;
+    }
+    return [UIView new];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return [UIView new];
 }
 
 -(void)select:(NSDictionary *)dic{
     [self.dicRequest addEntriesFromDictionary:dic];
-    [self.btnCurrent setTitleColor:BLUE forState:UIControlStateNormal];
-    [self.btnCurrent setTitle:dic.allValues[0] forState:UIControlStateNormal];
+    self.cellCurrent.detailTextLabel.text =dic.allValues[0];
 }
 
 
