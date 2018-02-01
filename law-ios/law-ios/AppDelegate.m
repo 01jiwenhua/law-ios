@@ -41,7 +41,7 @@
     
     
     //引导页
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstOpenGudePageVi"]) {
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstOpenGudePageVi1"]) {
         
         NSUserDefaults * appdict = [NSUserDefaults standardUserDefaults];
         [appdict setObject:@YES forKey:@"isFirstOpenGudePageVi"];
