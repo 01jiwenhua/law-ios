@@ -11,6 +11,7 @@
 #import "ConditionChooseVC.h"
 #import "ChemistryModel.h"
 #import "ChemistySelectData.h"
+#import "ChemistryDetailVC.h"
 
 @interface ChemistryVC ()<TypeButtonActionDelegate,UITableViewDelegate,UITableViewDataSource,SelectedDelegate>
 @property (nonatomic, strong ) UIView *viKnow;
@@ -226,7 +227,7 @@
     }
     ChemistryModel *model = _arrKnow[indexPath.row];
     cell.textLabel.text = model.nameCn;
-   
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -246,6 +247,12 @@
             dic= _arrDanHealth[indexPath.row];
         }
         vc.code = dic[@"categoryCode"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        ChemistryModel *model = _arrKnow[indexPath.row];
+        ChemistryDetailVC *vc =[ChemistryDetailVC new];
+        vc.ID = model.id;
+        vc.name = model.nameCn;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
