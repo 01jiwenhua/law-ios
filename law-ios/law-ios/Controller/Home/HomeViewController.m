@@ -13,6 +13,7 @@
 #import "LawsViewController.h"
 #import "SecurityViewController.h"
 #import "SearchTypeViewController.h"
+#import "LoginVC.h"
 
 
 @interface HomeViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
