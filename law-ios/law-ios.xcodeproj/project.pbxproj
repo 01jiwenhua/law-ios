@@ -24,7 +24,6 @@
 		4222E2042022291800CB8C6C /* MyInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4222E2022022291800CB8C6C /* MyInfoCell.m */; };
 		4222E2052022291800CB8C6C /* MyInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4222E2032022291800CB8C6C /* MyInfoCell.xib */; };
 		4222E20920222A3D00CB8C6C /* UserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4222E20820222A3D00CB8C6C /* UserVC.m */; };
-		42FCAEB420235EF40044545D /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FCAEB120235EF30044545D /* LoginVC.m */; };
 		42FCAEC720235F480044545D /* 登录注册手机号icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEB620235F200044545D /* 登录注册手机号icon@2x.png */; };
 		42FCAEC820235F480044545D /* 登录注册验证码icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEBD20235F220044545D /* 登录注册验证码icon@2x.png */; };
 		42FCAEC920235F480044545D /* 文章收藏icon_未收藏@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEB920235F210044545D /* 文章收藏icon_未收藏@2x.png */; };
@@ -44,6 +43,10 @@
 		42FCAED720235F480044545D /* 注册btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEC520235F310044545D /* 注册btn@3x.png */; };
 		42FCAED820235F480044545D /* app logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEC620235F320044545D /* app logo@3x.png */; };
 		42FCAEDB20235F8B0044545D /* ChemistryDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FCAEDA20235F8A0044545D /* ChemistryDetailVC.m */; };
+		42FCAEE42024C3340044545D /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FCAEE12024C3340044545D /* LoginVC.m */; };
+		42FCAEE52024C3450044545D /* LoginVC.h in Sources */ = {isa = PBXBuildFile; fileRef = 42FCAEE22024C3340044545D /* LoginVC.h */; };
+		42FCAEE62024C3450044545D /* LoginVC.xib in Sources */ = {isa = PBXBuildFile; fileRef = 42FCAEE32024C3340044545D /* LoginVC.xib */; };
+		42FCAEE72024C3450044545D /* UserVC.h in Sources */ = {isa = PBXBuildFile; fileRef = 4222E20720222A3D00CB8C6C /* UserVC.h */; };
 		602F187FB8389405F53D9F70 /* libPods-law-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A44F44D8565854D668CF80E1 /* libPods-law-ios.a */; };
 		8F2080DA20220CCE0035528C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080D120220CCE0035528C /* HomeViewController.m */; };
 		8F2080DB20220CCE0035528C /* LawsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080D320220CCE0035528C /* LawsViewController.m */; };
@@ -235,9 +238,6 @@
 		4222E2032022291800CB8C6C /* MyInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyInfoCell.xib; sourceTree = "<group>"; };
 		4222E20720222A3D00CB8C6C /* UserVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserVC.h; sourceTree = "<group>"; };
 		4222E20820222A3D00CB8C6C /* UserVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserVC.m; sourceTree = "<group>"; };
-		42FCAEB120235EF30044545D /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
-		42FCAEB220235EF30044545D /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
-		42FCAEB320235EF40044545D /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		42FCAEB520235F200044545D /* 文章收藏icon_已收藏@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "文章收藏icon_已收藏@2x.png"; sourceTree = "<group>"; };
 		42FCAEB620235F200044545D /* 登录注册手机号icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录注册手机号icon@2x.png"; sourceTree = "<group>"; };
 		42FCAEB720235F210044545D /* app logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app logo@2x.png"; sourceTree = "<group>"; };
@@ -258,6 +258,9 @@
 		42FCAEC620235F320044545D /* app logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app logo@3x.png"; sourceTree = "<group>"; };
 		42FCAED920235F8A0044545D /* ChemistryDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChemistryDetailVC.h; sourceTree = "<group>"; };
 		42FCAEDA20235F8A0044545D /* ChemistryDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChemistryDetailVC.m; sourceTree = "<group>"; };
+		42FCAEE12024C3340044545D /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		42FCAEE22024C3340044545D /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		42FCAEE32024C3340044545D /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		8449870E72FC7864B279328A /* Pods-law-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-law-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-law-ios/Pods-law-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		8F2080D020220CCE0035528C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		8F2080D120220CCE0035528C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -558,9 +561,9 @@
 		4222E20620222A0F00CB8C6C /* User */ = {
 			isa = PBXGroup;
 			children = (
-				42FCAEB220235EF30044545D /* LoginVC.h */,
-				42FCAEB120235EF30044545D /* LoginVC.m */,
-				42FCAEB320235EF40044545D /* LoginVC.xib */,
+				42FCAEE22024C3340044545D /* LoginVC.h */,
+				42FCAEE12024C3340044545D /* LoginVC.m */,
+				42FCAEE32024C3340044545D /* LoginVC.xib */,
 				4222E20720222A3D00CB8C6C /* UserVC.h */,
 				4222E20820222A3D00CB8C6C /* UserVC.m */,
 			);
@@ -1195,6 +1198,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42FCAEE52024C3450044545D /* LoginVC.h in Sources */,
+				42FCAEE62024C3450044545D /* LoginVC.xib in Sources */,
+				42FCAEE72024C3450044545D /* UserVC.h in Sources */,
 				8FBA829C201C42CF0056D8E8 /* MyVi.m in Sources */,
 				8FBA8292201C33C30056D8E8 /* BaseTableViewCell.m in Sources */,
 				8FBA8280201C32CF0056D8E8 /* UIImage+BlurredFrame.m in Sources */,
@@ -1209,12 +1215,12 @@
 				8F2080DC20220CCE0035528C /* SearchTypeViewController.m in Sources */,
 				420491A8201B6ED6005D61B9 /* main.m in Sources */,
 				8FBA8289201C32CF0056D8E8 /* UIView+KeyboardAnimation.m in Sources */,
+				42FCAEE42024C3340044545D /* LoginVC.m in Sources */,
 				8FBA8281201C32CF0056D8E8 /* UIImage+getImage.m in Sources */,
 				8F513544202356A5002517D7 /* ListViewController.m in Sources */,
 				8FBA827E201C32CF0056D8E8 /* UIColor+Random.m in Sources */,
 				4222E2042022291800CB8C6C /* MyInfoCell.m in Sources */,
 				8F2080DA20220CCE0035528C /* HomeViewController.m in Sources */,
-				42FCAEB420235EF40044545D /* LoginVC.m in Sources */,
 				8FBA8272201C32CF0056D8E8 /* NSObject+Runtime.m in Sources */,
 				8FBA8274201C32CF0056D8E8 /* NSString+Analytics.m in Sources */,
 				8FBA82C5201D92870056D8E8 /* UIView+ZWMBadge.m in Sources */,

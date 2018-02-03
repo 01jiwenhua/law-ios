@@ -72,6 +72,7 @@
     cell.textLabel.text = [NSString stringWithFormat:@"%@:",dic[@"key"]];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.detailTextLabel.text =dic[@"value"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
