@@ -47,6 +47,8 @@
 		42FCAEE52024C3450044545D /* LoginVC.h in Sources */ = {isa = PBXBuildFile; fileRef = 42FCAEE22024C3340044545D /* LoginVC.h */; };
 		42FCAEE62024C3450044545D /* LoginVC.xib in Sources */ = {isa = PBXBuildFile; fileRef = 42FCAEE32024C3340044545D /* LoginVC.xib */; };
 		42FCAEE72024C3450044545D /* UserVC.h in Sources */ = {isa = PBXBuildFile; fileRef = 4222E20720222A3D00CB8C6C /* UserVC.h */; };
+		42FCAEEB20257CEE0044545D /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FCAEE920257CEE0044545D /* RegisterVC.m */; };
+		42FCAEEC20257CEE0044545D /* RegisterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEEA20257CEE0044545D /* RegisterVC.xib */; };
 		602F187FB8389405F53D9F70 /* libPods-law-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A44F44D8565854D668CF80E1 /* libPods-law-ios.a */; };
 		8F2080DA20220CCE0035528C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080D120220CCE0035528C /* HomeViewController.m */; };
 		8F2080DB20220CCE0035528C /* LawsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2080D320220CCE0035528C /* LawsViewController.m */; };
@@ -260,6 +262,9 @@
 		42FCAEE12024C3340044545D /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		42FCAEE22024C3340044545D /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		42FCAEE32024C3340044545D /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		42FCAEE820257CEE0044545D /* RegisterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterVC.h; sourceTree = "<group>"; };
+		42FCAEE920257CEE0044545D /* RegisterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterVC.m; sourceTree = "<group>"; };
+		42FCAEEA20257CEE0044545D /* RegisterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterVC.xib; sourceTree = "<group>"; };
 		8449870E72FC7864B279328A /* Pods-law-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-law-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-law-ios/Pods-law-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		8F2080D020220CCE0035528C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		8F2080D120220CCE0035528C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -563,6 +568,9 @@
 				42FCAEE32024C3340044545D /* LoginVC.xib */,
 				4222E20720222A3D00CB8C6C /* UserVC.h */,
 				4222E20820222A3D00CB8C6C /* UserVC.m */,
+				42FCAEE820257CEE0044545D /* RegisterVC.h */,
+				42FCAEE920257CEE0044545D /* RegisterVC.m */,
+				42FCAEEA20257CEE0044545D /* RegisterVC.xib */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1083,6 +1091,7 @@
 				8F20815320220DF20035528C /* 消息通知@3x.png in Resources */,
 				8F20813820220DF20035528C /* 通用btn@2x.png in Resources */,
 				8F20814920220DF20035528C /* tab_home_normal@3x.png in Resources */,
+				42FCAEEC20257CEE0044545D /* RegisterVC.xib in Resources */,
 				8F20815020220DF20035528C /* 前往@3x.png in Resources */,
 				8F20813B20220DF20035528C /* back@3x.png in Resources */,
 				8FBA82E2201DEB260056D8E8 /* ic_fg.png in Resources */,
@@ -1202,6 +1211,7 @@
 				8FBA828A201C32CF0056D8E8 /* UIView+Screenshot.m in Sources */,
 				8FBA8284201C32CF0056D8E8 /* UINavigationBar+BackgroundColor.m in Sources */,
 				4207CFB8201CD07C003650D3 /* ChemistryVC.m in Sources */,
+				42FCAEEB20257CEE0044545D /* RegisterVC.m in Sources */,
 				8FBA828B201C32CF0056D8E8 /* UIView+Shake.m in Sources */,
 				8FBA827C201C32CF0056D8E8 /* UICollectionViewCell+ReuseIdentifier.m in Sources */,
 				4222E1F920221EC400CB8C6C /* ChemistySelectData.m in Sources */,
