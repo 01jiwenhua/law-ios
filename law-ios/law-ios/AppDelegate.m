@@ -35,10 +35,8 @@
     //改变状态栏颜色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
-    
     self.window.rootViewController = navi;
     [_window makeKeyAndVisible];
-    
     
     //引导页
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstOpenGudePageVi1"]) {

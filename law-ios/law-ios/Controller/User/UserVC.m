@@ -9,6 +9,8 @@
 #import "UserVC.h"
 #import "MyHeadCell.h"
 #import "MyInfoCell.h"
+#import "LoginTableViewCell.h"
+#import "LoginVC.h"
 
 @interface UserVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong )UITableView *tvList;
@@ -32,6 +34,8 @@
     self.tvList.delegate = self;
     self.tvList.dataSource = self;
     self.tvList.frame = CGRectMake(0, 0,WIDTH_ ,HEIGHT_);
+    [self.tvList registerClass:[LoginTableViewCell class] forCellReuseIdentifier:NSStringFromClass([LoginTableViewCell class])];
+
     [self.view addSubview:self.tvList];
 }
 
@@ -55,13 +59,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Celled";
     if (indexPath.section == 0) {
-        MyHeadCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"MyHeadCell" owner:self options:nil];
-        cell = [array objectAtIndex:0];
-        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        cell.lbName.text = @"哈哈哈";
-        cell.lbShow.text = @"局长";
-        return cell;
+        
+        if ([[NSUserDefaults standardUserDefaults] valueForKey:@"login"]) {
+            MyHeadCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"MyHeadCell" owner:self options:nil];
+            cell = [array objectAtIndex:0];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            cell.lbName.text = @"哈哈哈";
+            cell.lbShow.text = @"局长";
+            return cell;
+        }else {
+            LoginTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoginTableViewCell" forIndexPath:indexPath];
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            return cell;
+        }
     }
     
     MyInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -82,6 +93,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.section == 0) {
+        if (![[NSUserDefaults standardUserDefaults] valueForKey:@"login"]) {
+            [self.navigationController pushViewController:[LoginVC new] animated:YES];
+        }
+    }
 }
 
 //section头部高度

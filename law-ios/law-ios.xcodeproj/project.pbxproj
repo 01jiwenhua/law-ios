@@ -113,6 +113,7 @@
 		8F5135472023577C002517D7 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5135462023577C002517D7 /* ListTableViewCell.m */; };
 		8F51354B20235F3B002517D7 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51354A20235F3B002517D7 /* CollectionViewController.m */; };
 		8F5135DE2023705D002517D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F5135DD2023705D002517D7 /* Main.storyboard */; };
+		8F5135E12024BBD8002517D7 /* LoginTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5135E02024BBD8002517D7 /* LoginTableViewCell.m */; };
 		8FBA8239201C323E0056D8E8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA8238201C323D0056D8E8 /* BaseViewController.m */; };
 		8FBA823C201C32970056D8E8 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA823B201C32960056D8E8 /* Toast.m */; };
 		8FBA8272201C32CF0056D8E8 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA823F201C32CF0056D8E8 /* NSObject+Runtime.m */; };
@@ -335,6 +336,8 @@
 		8F51354920235F3B002517D7 /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		8F51354A20235F3B002517D7 /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		8F5135DD2023705D002517D7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8F5135DF2024BBD8002517D7 /* LoginTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginTableViewCell.h; sourceTree = "<group>"; };
+		8F5135E02024BBD8002517D7 /* LoginTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewCell.m; sourceTree = "<group>"; };
 		8FBA8236201C31A60056D8E8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8FBA8237201C323D0056D8E8 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		8FBA8238201C323D0056D8E8 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
@@ -793,6 +796,8 @@
 				4222E2032022291800CB8C6C /* MyInfoCell.xib */,
 				8F5135452023577C002517D7 /* ListTableViewCell.h */,
 				8F5135462023577C002517D7 /* ListTableViewCell.m */,
+				8F5135DF2024BBD8002517D7 /* LoginTableViewCell.h */,
+				8F5135E02024BBD8002517D7 /* LoginTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1229,6 +1234,7 @@
 				8FBA827B201C32CF0056D8E8 /* UIBarButtonItem+Action.m in Sources */,
 				4207CFBB201CD96D003650D3 /* KeyboardToolBar.m in Sources */,
 				8FBA82C6201D92870056D8E8 /* ZWMSegmentController.m in Sources */,
+				8F5135E12024BBD8002517D7 /* LoginTableViewCell.m in Sources */,
 				4222E1FF2022290500CB8C6C /* MyHeadCell.m in Sources */,
 				8FBA8275201C32CF0056D8E8 /* NSString+Color.m in Sources */,
 				8FBA827A201C32CF0056D8E8 /* UIAlertView+Block.m in Sources */,
