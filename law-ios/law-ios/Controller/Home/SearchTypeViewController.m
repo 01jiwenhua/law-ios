@@ -27,12 +27,23 @@
     // Do any additional setup after loading the view.
     
     NSArray * arr = @[@"国家法律",@"行政法规",@"部门规章",@"地方法规"];
+//    NSArray * arrP = @[@"gjfl",@"xzfg",@"bmgz",@"dffg"];
     NSMutableArray * array = [NSMutableArray new];
     ListViewController * listVC;
     for (id obj in arr) {
         listVC = [ListViewController new];
         listVC.level = obj;
-        listVC.typeCode = self.title;
+        if([self.title isEqualToString:@"标准规范"]) {
+            listVC.typeCode = @"bzgf";
+        }
+        
+        if([self.title isEqualToString:@"法律法规"]) {
+            listVC.typeCode = @"flfg";
+        }
+        
+        if([self.title isEqualToString:@"政策文件"]) {
+            listVC.typeCode = @"zcwj";
+        }
         [array addObject:listVC];
     }
     
