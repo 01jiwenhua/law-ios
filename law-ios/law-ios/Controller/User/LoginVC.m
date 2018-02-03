@@ -7,6 +7,7 @@
 //
 
 #import "LoginVC.h"
+#import "RegisterVC.h"
 
 @interface LoginVC ()
 

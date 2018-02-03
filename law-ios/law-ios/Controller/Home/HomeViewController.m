@@ -13,7 +13,7 @@
 #import "LawsViewController.h"
 #import "SecurityViewController.h"
 #import "SearchTypeViewController.h"
-#import "LoginVC.h"
+#import "perfectUserVC.h"
 
 
 @interface HomeViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
@@ -123,7 +123,7 @@
         [ws.navigationController pushViewController:vc animated:YES];
     }];
     [[self.chemicalBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        [ws.navigationController pushViewController:[ChemistryVC new] animated:YES];
+        [ws.navigationController pushViewController:[perfectUserVC new] animated:YES];
     }];
     [[self.fireBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
 
