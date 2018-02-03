@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnLogin;
 @property (weak, nonatomic) IBOutlet UIButton *btnRegist;
 @property (weak, nonatomic) IBOutlet UIButton *findPhone;
+@property (weak, nonatomic) IBOutlet UIButton *codeBtn;
 
 @end
