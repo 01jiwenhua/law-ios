@@ -40,7 +40,7 @@
     [_window makeKeyAndVisible];
     
     //引导页
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstOpenGudePageVi1"]) {
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstOpenGudePageVi"]) {
         
         NSUserDefaults * appdict = [NSUserDefaults standardUserDefaults];
         [appdict setObject:@YES forKey:@"isFirstOpenGudePageVi"];
@@ -77,6 +77,5 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
 
 @end

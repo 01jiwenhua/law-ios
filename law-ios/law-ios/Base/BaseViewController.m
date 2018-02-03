@@ -52,7 +52,7 @@
 - (void)navigationSet{
     
     self.btnRight = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_btnRight setFrame:CGRectMake(0, 0, 26, 20)];
+    [_btnRight setFrame:CGRectMake(0, 0, 44, 30)];
     [_btnRight addTarget:self action:@selector(onRightAction) forControlEvents:UIControlEventTouchUpInside];
 
     _btnRight.titleLabel.textAlignment = NSTextAlignmentRight;
@@ -62,7 +62,7 @@
     self.btnRight.hidden = YES;
     
     self.btnLeft = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_btnLeft setFrame:CGRectMake(0, 0, 26, 20)];
+    [_btnLeft setFrame:CGRectMake(0, 0, 44, 30)];
     [_btnLeft addTarget:self action:@selector(onBackAction) forControlEvents:UIControlEventTouchUpInside];
 
     [_btnLeft setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
@@ -121,6 +121,7 @@
         failure(error);
     }];
 }
+
 - (void)GETurl:(NSString *)urlString parameters:(id)paremeters success:(void (^)(id responseObject))success failure:(void (^)(id responseObject))failure {
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     mgr.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
@@ -133,21 +134,18 @@
 }
 
 //字典转换为字符串
-
 - (NSString*)dictionaryToJson:(NSDictionary *)dic {
     NSError *parseError = nil;
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&parseError];
     
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    
 }
 
 - (id)arrayWithJsonString:(NSString *)jsonString {
     if (jsonString == nil) {
         return nil;
     }
-    
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSError *err;
     id array = [NSJSONSerialization JSONObjectWithData:jsonData

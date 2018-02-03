@@ -119,6 +119,7 @@
 		8F20815520220DF20035528C /* 通用btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F20811B20220DF20035528C /* 通用btn@3x.png */; };
 		8F20815620220DF20035528C /* 默认头像_大@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F20811C20220DF20035528C /* 默认头像_大@3x.png */; };
 		8F20815720220DF20035528C /* 默认头像_小@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F20811D20220DF20035528C /* 默认头像_小@3x.png */; };
+		8F3F15C62025F09B0041D18B /* banner@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F3F15C52025F09B0041D18B /* banner@3x.png */; };
 		8F513544202356A5002517D7 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F513543202356A5002517D7 /* ListViewController.m */; };
 		8F5135472023577C002517D7 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5135462023577C002517D7 /* ListTableViewCell.m */; };
 		8F51354B20235F3B002517D7 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51354A20235F3B002517D7 /* CollectionViewController.m */; };
@@ -350,6 +351,7 @@
 		8F20811B20220DF20035528C /* 通用btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "通用btn@3x.png"; sourceTree = "<group>"; };
 		8F20811C20220DF20035528C /* 默认头像_大@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "默认头像_大@3x.png"; sourceTree = "<group>"; };
 		8F20811D20220DF20035528C /* 默认头像_小@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "默认头像_小@3x.png"; sourceTree = "<group>"; };
+		8F3F15C52025F09B0041D18B /* banner@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner@3x.png"; sourceTree = "<group>"; };
 		8F513542202356A5002517D7 /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		8F513543202356A5002517D7 /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		8F5135452023577C002517D7 /* ListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListTableViewCell.h; sourceTree = "<group>"; };
@@ -750,6 +752,7 @@
 		8FBA8232201C31510056D8E8 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				8F3F15C52025F09B0041D18B /* banner@3x.png */,
 				8F2080E220220DF20035528C /* 2x */,
 				8F20810020220DF20035528C /* 3x */,
 				8FBA82EA201DF59F0056D8E8 /* ic_search.png */,
@@ -983,7 +986,7 @@
 				TargetAttributes = {
 					42049194201B6ED6005D61B9 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					420491AC201B6ED7005D61B9 = {
 						CreatedOnToolsVersion = 9.0;
@@ -1041,6 +1044,7 @@
 				42FCAED520235F480044545D /* 注册审核审核icon@3x.png in Resources */,
 				42FCAED620235F480044545D /* 注册审核btn@3x.png in Resources */,
 				42FCAED720235F480044545D /* 注册btn@3x.png in Resources */,
+				8F3F15C62025F09B0041D18B /* banner@3x.png in Resources */,
 				42FCAED820235F480044545D /* app logo@3x.png in Resources */,
 				8F20815720220DF20035528C /* 默认头像_小@3x.png in Resources */,
 				8F20812A20220DF20035528C /* tab_collect_normal@2x.png in Resources */,
@@ -1450,14 +1454,16 @@
 			baseConfigurationReference = 8449870E72FC7864B279328A /* Pods-law-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y6W892798M;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/law-ios/PrefixHeader.pch";
 				INFOPLIST_FILE = "law-ios/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.app.law-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1467,14 +1473,18 @@
 			baseConfigurationReference = DDA54DE6D6643C91FB445DCE /* Pods-law-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Y6W892798M;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/law-ios/PrefixHeader.pch";
 				INFOPLIST_FILE = "law-ios/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.app.law-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7eb35670-bcfb-4dd8-9583-966f90c801a9";
+				PROVISIONING_PROFILE_SPECIFIER = Low;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

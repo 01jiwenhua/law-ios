@@ -25,41 +25,60 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    NSArray * arr = @[@"国家法律",@"行政法规",@"部门规章",@"地方法规"];
-    NSArray * arrP = @[@"gjfl",@"xzfg",@"bmgz",@"dffg"];
-    NSMutableArray * array = [NSMutableArray new];
-    ListViewController * listVC;
-    for (id obj in arrP) {
-        listVC = [ListViewController new];
-        listVC.level = obj;
-        if([self.title isEqualToString:@"标准规范"]) {
-            listVC.typeCode = @"bzgf";
-        }
-        
-        if([self.title isEqualToString:@"法律法规"]) {
-            listVC.typeCode = @"flfg";
-        }
-        
-        if([self.title isEqualToString:@"政策文件"]) {
-            listVC.typeCode = @"zcwj";
-        }
-        [array addObject:listVC];
-    }
-    
-    
-    self.segmentVC = [[ZWMSegmentController alloc] initWithFrame:self.view.bounds titles:arr];
-    self.segmentVC.segmentView.showSeparateLine = YES;
-    self.segmentVC.segmentView.segmentTintColor = RGBColor(65,162, 240);
-    self.segmentVC.viewControllers = [array copy];
-    if (array.count==1) {
-        self.segmentVC.segmentView.style=ZWMSegmentStyleDefault;
-    } else {
-        self.segmentVC.segmentView.style=ZWMSegmentStyleFlush;
-    }
-    [self addSegmentController:self.segmentVC];
-    [self.segmentVC  setSelectedAtIndex:0];
 }
 
+-(void)bindAction {
+    
+}
+
+
+-(void)getData {
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    NSMutableDictionary * mdict = [NSMutableDictionary new];
+    NSString * typeCode;
+    if([self.title isEqualToString:@"标准规范"])
+        typeCode = @"bzgf";
+    if([self.title isEqualToString:@"法律法规"])
+        typeCode = @"flfg";
+    if([self.title isEqualToString:@"政策文件"])
+        typeCode = @"zcwj";
+    [mdict setValue:typeCode forKey:@"typeCode"];
+
+    WS(ws);
+    [self POSTurl:GET_LEVELLIST parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
+        if (responseObject[@"data"][@"levelList"]) {
+            
+            NSMutableArray * arr  = [NSMutableArray new];
+            NSMutableArray * array = [NSMutableArray new];
+            NSArray * dataArr = [ws arrayWithJsonString:responseObject[@"data"][@"levelList"]];
+            ListViewController * listVC;
+            for (id obj in dataArr) {
+
+                [arr addObject:[NSString stringWithFormat:@"%@",obj[@"name"]]];
+                listVC = [ListViewController new];
+                listVC.level = [NSString stringWithFormat:@"%@",obj[@"code"]];
+                listVC.typeCode = typeCode;
+                [array addObject:listVC];
+            }
+            ws.segmentVC = [[ZWMSegmentController alloc] initWithFrame:ws.view.bounds titles:arr];
+            ws.segmentVC.segmentView.showSeparateLine = YES;
+            ws.segmentVC.segmentView.segmentTintColor = RGBColor(65,162, 240);
+            ws.segmentVC.viewControllers = [array copy];
+            if (array.count==1) {
+                ws.segmentVC.segmentView.style=ZWMSegmentStyleDefault;
+            } else {
+                ws.segmentVC.segmentView.style=ZWMSegmentStyleFlush;
+            }
+            [ws addSegmentController:ws.segmentVC];
+            [ws.segmentVC  setSelectedAtIndex:0];
+
+        }
+        
+        [SVProgressHUD dismiss];
+    } failure:^(id responseObject) {
+        [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+        [SVProgressHUD dismiss];
+    }];
+}
 
 @end

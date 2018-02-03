@@ -12,4 +12,6 @@
 
 @property (nonatomic, copy)NSString * typeCode;
 @property (nonatomic, copy)NSString * level;
+
+@property (nonatomic,copy)NSString * searchStr;
 @end

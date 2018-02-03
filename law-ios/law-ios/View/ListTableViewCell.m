@@ -18,13 +18,13 @@
     [self addSubview:self.TitlrLab];
     
     self.timeLab = [UILabel new];
-    self.timeLab.frame = CGRectMake(20, 42, WIDTH_ - 40, 18);
+    self.timeLab.frame = CGRectMake(20, 91, WIDTH_ - 40, 18);
     self.timeLab.font = [UIFont systemFontOfSize:14];
     self.timeLab.textColor = RGBColor(168, 168, 168);
     [self addSubview:self.timeLab];
     
     self.DLab = [UILabel new];
-    self.DLab.frame = CGRectMake(20, 60, WIDTH_ - 40, 40);
+    self.DLab.frame = CGRectMake(20, 40, WIDTH_ - 40, 40);
     self.DLab.font = [UIFont systemFontOfSize:14];
     self.DLab.textColor = RGBColor(103, 103, 103);
     self.DLab.numberOfLines = 0;

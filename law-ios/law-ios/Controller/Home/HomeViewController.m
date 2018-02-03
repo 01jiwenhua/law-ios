@@ -68,21 +68,20 @@
     
     [self.headerVi addSubview:self.cycleScrollView];
     
-    
-    CGFloat f = (WIDTH_ - 315) / 4;
-    self.guifanBtn.frame = CGRectMake(f, self.cycleScrollView.bottom + 20 ,105, 105);
+    CGFloat f = (WIDTH_ - 285) / 4;
+    self.guifanBtn.frame = CGRectMake(f, self.cycleScrollView.bottom + 20 ,95, 95);
     [self.headerVi addSubview:self.guifanBtn];
-    self.lawsBtn.frame = CGRectMake(self.guifanBtn.right + f, self.cycleScrollView.bottom + 20 ,105, 105);
+    self.lawsBtn.frame = CGRectMake(self.guifanBtn.right + f, self.cycleScrollView.bottom + 20 ,95, 95);
     [self.headerVi addSubview:self.lawsBtn];
-    self.securityBtn.frame = CGRectMake(self.lawsBtn.right + f, self.cycleScrollView.bottom + 20,105, 105);
+    self.securityBtn.frame = CGRectMake(self.lawsBtn.right + f, self.cycleScrollView.bottom + 20,95, 95);
     [self.headerVi addSubview:self.securityBtn];
     
     
-    self.chemicalBtn.frame = CGRectMake(f, self.lawsBtn.bottom + 20,105, 105);
+    self.chemicalBtn.frame = CGRectMake(f, self.lawsBtn.bottom + 20,95, 95);
     [self.headerVi addSubview:self.chemicalBtn];
-    self.fireBtn.frame = CGRectMake(f + self.chemicalBtn.right, self.lawsBtn.bottom + 20,105, 105);
+    self.fireBtn.frame = CGRectMake(f + self.chemicalBtn.right, self.lawsBtn.bottom + 20,95, 95);
     [self.headerVi addSubview:self.fireBtn];
-    self.moreBtn.frame = CGRectMake(f + self.fireBtn.right, self.lawsBtn.bottom + 20,105, 105);
+    self.moreBtn.frame = CGRectMake(f + self.fireBtn.right - 5, self.lawsBtn.bottom + 20 - 5,105, 105);
     [self.headerVi addSubview:self.moreBtn];
     
     [self makeButton:self.securityBtn];
@@ -102,7 +101,7 @@
 }
 
 -(void)bindModel {
-    self.cycleScrollView.localizationImageNamesGroup = @[@"img_banner1",@"img_banner2",@"img_banner3"];
+    self.cycleScrollView.localizationImageNamesGroup = @[@"banner"];
 }
 
 -(void)bindAction {
@@ -123,10 +122,12 @@
         [ws.navigationController pushViewController:vc animated:YES];
     }];
     [[self.chemicalBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        [ws.navigationController pushViewController:[perfectUserVC new] animated:YES];
+        [ws.navigationController pushViewController:[ChemistryVC new] animated:YES];
+
+    
     }];
     [[self.fireBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-
+        
     }];
 }
 
@@ -298,7 +299,7 @@
 
 -(void)makeButton:(UIButton *)btn {
     btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    [btn setTitleEdgeInsets:UIEdgeInsetsMake(btn.imageView.frame.size.height  + 30,-btn.imageView.frame.size.width, 0.0,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
-    [btn setImageEdgeInsets:UIEdgeInsetsMake(- 10.0, 0.0,0.0, -btn.titleLabel.bounds.size.width)];//图片距离右边框距离减少图片的宽度，其它不边
+    [btn setTitleEdgeInsets:UIEdgeInsetsMake(btn.imageView.frame.size.height  + 25,-btn.imageView.frame.size.width, 5,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
+    [btn setImageEdgeInsets:UIEdgeInsetsMake(- 10.0, 0.0,10.0, -btn.titleLabel.bounds.size.width)];//图片距离右边框距离减少图片的宽度，其它不边
 }
 @end

@@ -10,11 +10,14 @@
 #import "ListTableViewCell.h"
 #import "AXWebViewController.h"
 
-@interface ListViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface ListViewController ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 @property (nonatomic,strong)UITableView * tbv;
 @property (nonatomic,strong)NSMutableArray * dataArr;
 
 @property (nonatomic,assign)int page;
+
+@property (nonatomic, strong)UISearchBar * search;
+
 @end
 
 @implementation ListViewController
@@ -24,8 +27,20 @@
     // Do any additional setup after loading the view.
     
     self.page = 0;
+    UIView * line1 = [UIView new];
+    line1.backgroundColor = RGBColor(233, 233, 233);
+    line1.frame = CGRectMake(0, 0, WIDTH_, 0.5);
+    [self.view addSubview:line1];
+    UIView * line2 = [UIView new];
+    line2.backgroundColor = RGBColor(233, 233, 233);
+    line2.frame = CGRectMake(0, 55, WIDTH_, 0.5);
+    [self.view addSubview:line2];
     
-    self.tbv.frame = CGRectMake(0, 0, WIDTH_, HEIGHT_ - 108);
+    
+    self.search.frame = CGRectMake(20, 10, WIDTH_ - 40, 36);
+    [self.view addSubview:self.search];
+    
+    self.tbv.frame = CGRectMake(0,56, WIDTH_, HEIGHT_ - 108 - 56);
     [self.view addSubview:self.tbv];
     
     WS(ws);
@@ -40,6 +55,11 @@
     }];
 }
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    self.page = 0;
+    [self getData];
+}
 -(void)getData{
     WS(ws);
     [SVProgressHUD showWithStatus:@"加载中..."];
@@ -119,4 +139,18 @@
     return _dataArr;
 }
 
+
+- (UISearchBar *)search {
+    if (!_search) {
+        _search = [UISearchBar new];
+        [_search setBackgroundImage:[UIImage getImageWithColor:[UIColor clearColor] andSize:CGSizeMake(WIDTH_ - 72, 36)]];
+        [_search setSearchFieldBackgroundImage:[[UIImage getImageWithColor:RGBColor(221, 221, 221) andSize:CGSizeMake(WIDTH_ - 72, 36)] createRadius:5] forState:UIControlStateNormal];
+        _search.placeholder = @"搜索";
+        _search.delegate = self;
+        //一下代码为修改placeholder字体的颜色和大小
+        UITextField * searchField = [_search valueForKey:@"_searchField"];
+        [searchField setValue:[UIFont systemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
+    }
+    return _search;
+}
 @end

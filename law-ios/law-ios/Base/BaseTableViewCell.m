@@ -9,10 +9,10 @@
 #import "BaseTableViewCell.h"
 
 @implementation BaseTableViewCell
--(void)loadUIWithmodel:(id)model
-{
+-(void)loadUIWithmodel:(id)model {
     
 }
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     
@@ -37,7 +37,6 @@
  *  加载视图
  */
 - (void)bindView {}
-
 /**
  *  加载模型
  */

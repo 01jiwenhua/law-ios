@@ -43,6 +43,10 @@
     [[self.btnLogin rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         [ws Login];
     }];
+    
+    [[self.btnRegist rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        [ws.navigationController pushViewController:[NSClassFromString(@"RegisterVC") new] animated:YES];
+    }];
 }
 
 
@@ -53,11 +57,6 @@
     [mdict setValue:self.tfPhone.text forKey:@"phone"];
     [self POSTurl:GET_VERIFYCODE parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
         if ([responseObject[@"messageCode"] intValue] == 10000) {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(60 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                if (ws) {
-                    
-                }
-            });
         }
         [SVProgressHUD dismiss];
     } failure:^(id responseObject) {
@@ -75,6 +74,7 @@
     [self POSTurl:LOGIN parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
         if ([responseObject[@"messageCode"] intValue] == 10000) {
             [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"login"];
+            [ws onBackAction];
         }
         [[Toast shareToast]makeText:[NSString stringWithFormat:@"%@",responseObject[@"message"]] aDuration:2];
         [SVProgressHUD dismiss];
