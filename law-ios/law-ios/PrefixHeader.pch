@@ -30,4 +30,12 @@
 #define GET_UNKNOWPARAMS [NSString stringWithFormat:@"%@/chemicals/getUnknowParams",BASE_URL]
 #define GET_UNKNOWPARAMS_DETAILS [NSString stringWithFormat:@"%@/chemicals/getUnknowParamsDetails",BASE_URL]
 
+#define GET_COMPANY_LIST [NSString stringWithFormat:@"%@/user/getCompanyList",BASE_URL]
+#define GET_DEPARTMENT_LIST [NSString stringWithFormat:@"%@/user/getDepartmentList",BASE_URL]
+#define GET_JOB_LIST [NSString stringWithFormat:@"%@/user/getJobList",BASE_URL]
+#define CHECK_REGIST [NSString stringWithFormat:@"%@/user/checkRegist",BASE_URL]
+#define GET_VERIFYCODE [NSString stringWithFormat:@"%@/user/getVerifyCode",BASE_URL]
+#define REGIST [NSString stringWithFormat:@"%@/user/regist",BASE_URL]
+#define LOGIN [NSString stringWithFormat:@"%@/user/login",BASE_URL]
+#define GET_LEVELLIST [NSString stringWithFormat:@"%@/law/getLevelList",BASE_URL]
 #endif /* PrefixHeader_pch */

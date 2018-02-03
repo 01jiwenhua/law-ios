@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="btnLogin" destination="Fx2-Oq-VQt" id="VXb-Ap-6bQ"/>
                 <outlet property="btnRegist" destination="vPV-L8-TOV" id="tTY-1U-iiY"/>
+                <outlet property="codeBtn" destination="bKT-L5-UUA" id="xsY-1h-VBM"/>
                 <outlet property="findPhone" destination="nKQ-qd-t6E" id="whK-xh-fEg"/>
                 <outlet property="tfCode" destination="9Wm-oR-par" id="j8a-QP-0vf"/>
                 <outlet property="tfPhone" destination="QuK-fX-VFX" id="J8D-zV-O3q"/>

@@ -126,7 +126,6 @@
         [ws.navigationController pushViewController:[ChemistryVC new] animated:YES];
     }];
     [[self.fireBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        [self.navigationController pushViewController:[NSClassFromString(@"LoginVC") new] animated:YES];
 
     }];
 }
