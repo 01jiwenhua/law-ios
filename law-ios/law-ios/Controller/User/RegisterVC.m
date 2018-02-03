@@ -23,7 +23,7 @@
 }
 
 -(void)bindView {
-    self.btnNext.layer.borderWidth = 0.7;
+    self.btnNext.layer.cornerRadius = 7;
     self.btnNext.layer.masksToBounds = YES;
     self.title = @"注册";
 }

@@ -96,10 +96,10 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khu-b2-phE">
-                    <rect key="frame" x="21.5" y="219" width="332" height="46"/>
+                    <rect key="frame" x="47.5" y="219" width="280" height="46"/>
                     <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="332" id="93v-Ut-Tcn"/>
+                        <constraint firstAttribute="width" constant="280" id="93v-Ut-Tcn"/>
                         <constraint firstAttribute="height" constant="46" id="dEb-jd-BAC"/>
                     </constraints>
                     <state key="normal" title="下一步">
