@@ -24,6 +24,11 @@
 		4222E2042022291800CB8C6C /* MyInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4222E2022022291800CB8C6C /* MyInfoCell.m */; };
 		4222E2052022291800CB8C6C /* MyInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4222E2032022291800CB8C6C /* MyInfoCell.xib */; };
 		4222E20920222A3D00CB8C6C /* UserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4222E20820222A3D00CB8C6C /* UserVC.m */; };
+		425D74D1202583120061FEFC /* perfectUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D74D0202583120061FEFC /* perfectUserVC.m */; };
+		425D74D5202583910061FEFC /* UserHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D74D3202583910061FEFC /* UserHeadCell.m */; };
+		425D74D6202583910061FEFC /* UserHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425D74D4202583910061FEFC /* UserHeadCell.xib */; };
+		425D74DA202583BA0061FEFC /* UserPerfectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D74D8202583BA0061FEFC /* UserPerfectCell.m */; };
+		425D74DB202583BA0061FEFC /* UserPerfectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425D74D9202583BA0061FEFC /* UserPerfectCell.xib */; };
 		42FCAEC720235F480044545D /* 登录注册手机号icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEB620235F200044545D /* 登录注册手机号icon@2x.png */; };
 		42FCAEC820235F480044545D /* 登录注册验证码icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEBD20235F220044545D /* 登录注册验证码icon@2x.png */; };
 		42FCAEC920235F480044545D /* 文章收藏icon_未收藏@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEB920235F210044545D /* 文章收藏icon_未收藏@2x.png */; };
@@ -240,6 +245,14 @@
 		4222E2032022291800CB8C6C /* MyInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyInfoCell.xib; sourceTree = "<group>"; };
 		4222E20720222A3D00CB8C6C /* UserVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserVC.h; sourceTree = "<group>"; };
 		4222E20820222A3D00CB8C6C /* UserVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserVC.m; sourceTree = "<group>"; };
+		425D74CF202583120061FEFC /* perfectUserVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = perfectUserVC.h; sourceTree = "<group>"; };
+		425D74D0202583120061FEFC /* perfectUserVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = perfectUserVC.m; sourceTree = "<group>"; };
+		425D74D2202583910061FEFC /* UserHeadCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserHeadCell.h; sourceTree = "<group>"; };
+		425D74D3202583910061FEFC /* UserHeadCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserHeadCell.m; sourceTree = "<group>"; };
+		425D74D4202583910061FEFC /* UserHeadCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserHeadCell.xib; sourceTree = "<group>"; };
+		425D74D7202583BA0061FEFC /* UserPerfectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserPerfectCell.h; sourceTree = "<group>"; };
+		425D74D8202583BA0061FEFC /* UserPerfectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserPerfectCell.m; sourceTree = "<group>"; };
+		425D74D9202583BA0061FEFC /* UserPerfectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPerfectCell.xib; sourceTree = "<group>"; };
 		42FCAEB520235F200044545D /* 文章收藏icon_已收藏@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "文章收藏icon_已收藏@2x.png"; sourceTree = "<group>"; };
 		42FCAEB620235F200044545D /* 登录注册手机号icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录注册手机号icon@2x.png"; sourceTree = "<group>"; };
 		42FCAEB720235F210044545D /* app logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app logo@2x.png"; sourceTree = "<group>"; };
@@ -574,6 +587,8 @@
 				42FCAEE820257CEE0044545D /* RegisterVC.h */,
 				42FCAEE920257CEE0044545D /* RegisterVC.m */,
 				42FCAEEA20257CEE0044545D /* RegisterVC.xib */,
+				425D74CF202583120061FEFC /* perfectUserVC.h */,
+				425D74D0202583120061FEFC /* perfectUserVC.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -809,6 +824,12 @@
 				8F5135462023577C002517D7 /* ListTableViewCell.m */,
 				8F5135DF2024BBD8002517D7 /* LoginTableViewCell.h */,
 				8F5135E02024BBD8002517D7 /* LoginTableViewCell.m */,
+				425D74D2202583910061FEFC /* UserHeadCell.h */,
+				425D74D3202583910061FEFC /* UserHeadCell.m */,
+				425D74D4202583910061FEFC /* UserHeadCell.xib */,
+				425D74D7202583BA0061FEFC /* UserPerfectCell.h */,
+				425D74D8202583BA0061FEFC /* UserPerfectCell.m */,
+				425D74D9202583BA0061FEFC /* UserPerfectCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1027,6 +1048,7 @@
 				8F20813220220DF20035528C /* 删除图片icon@2x.png in Resources */,
 				420491A5201B6ED6005D61B9 /* LaunchScreen.storyboard in Resources */,
 				8FBA82D5201DE51C0056D8E8 /* img_banner1.png in Resources */,
+				425D74DB202583BA0061FEFC /* UserPerfectCell.xib in Resources */,
 				8F20814E20220DF20035528C /* 关于我们@3x.png in Resources */,
 				8F20815620220DF20035528C /* 默认头像_大@3x.png in Resources */,
 				8F20815120220DF20035528C /* 常见问题与帮助@3x.png in Resources */,
@@ -1064,6 +1086,7 @@
 				8F20813E20220DF20035528C /* home_btn_icon_危化品查询@3x.png in Resources */,
 				8F20812120220DF20035528C /* home_btn_icon_危化品查询@2x.png in Resources */,
 				8F20811F20220DF20035528C /* home-btn@2x.png in Resources */,
+				425D74D6202583910061FEFC /* UserHeadCell.xib in Resources */,
 				8F20814B20220DF20035528C /* tab_me_normal@3x.png in Resources */,
 				8F20814520220DF20035528C /* nav_无消息通知@3x.png in Resources */,
 				8F20814720220DF20035528C /* tab_collect_normal@3x.png in Resources */,
@@ -1241,6 +1264,7 @@
 				8FBA8278201C32CF0056D8E8 /* NSString+Password.m in Sources */,
 				8F5135472023577C002517D7 /* ListTableViewCell.m in Sources */,
 				4207CFBE201DA115003650D3 /* ConditionChooseVC.m in Sources */,
+				425D74DA202583BA0061FEFC /* UserPerfectCell.m in Sources */,
 				8FBA827D201C32CF0056D8E8 /* UIColor+Addtion.m in Sources */,
 				8FBA8279201C32CF0056D8E8 /* NSString+RemoveEmoji.m in Sources */,
 				8FBA8277201C32CF0056D8E8 /* NSString+InOrderSubstring.m in Sources */,
@@ -1260,10 +1284,12 @@
 				8FBA82C7201D92870056D8E8 /* ZWMSegmentView.m in Sources */,
 				8FBA82A5201D7A790056D8E8 /* GudePageVi.m in Sources */,
 				8FBA8288201C32CF0056D8E8 /* UIView+Frame.m in Sources */,
+				425D74D1202583120061FEFC /* perfectUserVC.m in Sources */,
 				8FBA8276201C32CF0056D8E8 /* NSString+Extension.m in Sources */,
 				4220D74F2020B260001B9A7A /* ChemistryModel.m in Sources */,
 				8FBA8283201C32CF0056D8E8 /* UIImage+Utility.m in Sources */,
 				8FBA8285201C32CF0056D8E8 /* UINavigationController+StackManager.m in Sources */,
+				425D74D5202583910061FEFC /* UserHeadCell.m in Sources */,
 				4207CFB4201CCF60003650D3 /* TypeButtonView.m in Sources */,
 				8F2080DE20220CCE0035528C /* SecurityViewController.m in Sources */,
 				8FBA8286201C32CF0056D8E8 /* UITableViewCell+ReuseIdentifier.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "LoginVC.h"
+#import "RegisterVC.h"
 
 @interface LoginVC ()
 
@@ -31,6 +32,10 @@
     self.btnRegist.layer.cornerRadius = 7;
     [self.btnLogin setBackgroundColor:BLUE];
     self.btnLogin.layer.cornerRadius = 7;
+}
+
+- (IBAction)findPhoneAction:(id)sender {
+    [self.navigationController pushViewController:[RegisterVC new] animated:YES];
 }
 
 @end
