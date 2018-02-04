@@ -13,6 +13,7 @@
 #import "LoginVC.h"
 #import "SettingVC.h"
 #import "NewsVC.h"
+#import "UserInfoVC.h"
 
 @interface UserVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong )UITableView *tvList;
@@ -133,8 +134,15 @@
     if (indexPath.section == 3) {
         [self.navigationController pushViewController:[SettingVC new] animated:YES];
     }
+    
     if (indexPath.section == 1&&indexPath.row == 1) {
         [self.navigationController pushViewController:[NewsVC new] animated:YES];
+    }
+    
+    if (indexPath.section == 1&&indexPath.row == 0) {
+        UserInfoVC *vc = [UserInfoVC new];
+        vc.dicUser = self.dicUser;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
