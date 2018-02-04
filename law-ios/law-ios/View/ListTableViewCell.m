@@ -17,11 +17,18 @@
     self.TitlrLab.textColor = RGBColor(42, 42, 48);
     [self addSubview:self.TitlrLab];
     
-    self.timeLab = [UILabel new];
-    self.timeLab.frame = CGRectMake(20, 91, WIDTH_ - 40, 18);
-    self.timeLab.font = [UIFont systemFontOfSize:14];
-    self.timeLab.textColor = RGBColor(168, 168, 168);
-    [self addSubview:self.timeLab];
+    self.mLab = [UILabel new];
+    self.mLab.frame = CGRectMake(20, 91, WIDTH_ - 130, 18);
+    self.mLab.font = [UIFont systemFontOfSize:14];
+    self.mLab.textColor = RGBColor(168, 168, 168);
+    [self addSubview:self.mLab];
+    
+    self.timeNewLab = [UILabel new];
+    self.timeNewLab.textAlignment = NSTextAlignmentRight;
+    self.timeNewLab.frame = CGRectMake(self.mLab.right, 91, 90, 18);
+    self.timeNewLab.font = [UIFont systemFontOfSize:14];
+    self.timeNewLab.textColor = RGBColor(168, 168, 168);
+    [self addSubview:self.timeNewLab];
     
     self.DLab = [UILabel new];
     self.DLab.frame = CGRectMake(20, 40, WIDTH_ - 40, 40);

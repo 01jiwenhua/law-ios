@@ -12,7 +12,8 @@
 @interface ListTableViewCell : BaseTableViewCell
 
 @property (nonatomic,strong)UILabel * TitlrLab;
-@property (nonatomic,strong)UILabel * timeLab;
+@property (nonatomic,strong)UILabel * mLab;
+@property (nonatomic,strong)UILabel * timeNewLab;
 @property (nonatomic,strong)UILabel * DLab;
 @property (nonatomic,strong)UIView * line;
 @end
