@@ -24,6 +24,7 @@
 }
 
 -(void)bindView{
+    self.title = @"个人资料";
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.tvList = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,WIDTH_ ,HEIGHT_ ) style:UITableViewStyleGrouped];
     self.tvList.delegate = self;
@@ -74,7 +75,9 @@
     
         NSString *key = self.arrKey[indexPath.section][indexPath.row];
     if ([self.dicUser[key] isKindOfClass:[NSString class]]) {
-        cell.detailTextLabel.text = self.dicUser[key];
+        if (self.dicUser[key]) {
+            cell.detailTextLabel.text = self.dicUser[key];
+        }
     }
     if (indexPath.section==0  && indexPath.row == 2) {
         cell.detailTextLabel.text = @"身份证";
