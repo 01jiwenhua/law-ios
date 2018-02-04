@@ -65,6 +65,7 @@
                 [arr removeObjectAtIndex:count - 3];
             }
             self.navigationController.viewControllers = arr;
+            [[NSUserDefaults standardUserDefaults]setObject:ws.tfPhone.text forKey:@"phone"];
         }
         [[Toast shareToast]makeText:[NSString stringWithFormat:@"%@",responseObject[@"message"]] aDuration:2];
         [SVProgressHUD dismiss];

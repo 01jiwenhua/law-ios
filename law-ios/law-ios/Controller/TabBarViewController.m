@@ -8,7 +8,7 @@
 
 #import "TabBarViewController.h"
 
-@interface TabBarViewController ()
+@interface TabBarViewController ()<UITabBarControllerDelegate>
 
 @end
 
@@ -34,10 +34,18 @@
             vc.tabBarItem = [[UITabBarItem alloc]initWithTitle:titles[i] image:[UIImage imageNamed:images[i]] selectedImage:[UIImage imageNamed:selectedImages[i]]];
             [self addChildViewController:vc];
         }
+        self.delegate = self;
     }
     return self;
 }
 
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController NS_AVAILABLE_IOS(3_0) {
+    if ([viewController isKindOfClass:NSClassFromString(@"UserVC")] && ![[NSUserDefaults standardUserDefaults] valueForKey:@"login"]) {
+        [self.navigationController pushViewController:[NSClassFromString(@"LoginVC") new] animated:YES];
+        return NO;
+    }
+    return YES;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

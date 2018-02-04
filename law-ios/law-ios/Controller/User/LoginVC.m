@@ -74,6 +74,8 @@
     [self POSTurl:LOGIN parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
         if ([responseObject[@"messageCode"] intValue] == 10000) {
             [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"login"];
+            [[NSUserDefaults standardUserDefaults]setObject:ws.tfPhone.text forKey:@"phone"];
+
             [ws onBackAction];
         }
         [[Toast shareToast]makeText:[NSString stringWithFormat:@"%@",responseObject[@"message"]] aDuration:2];
