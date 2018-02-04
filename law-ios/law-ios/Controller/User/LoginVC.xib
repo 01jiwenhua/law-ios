@@ -100,9 +100,6 @@
                     <state key="normal" title="获取验证码">
                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                     </state>
-                    <connections>
-                        <action selector="getCodeAction:" destination="-1" eventType="touchUpInside" id="oHm-53-nW0"/>
-                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRw-a8-CID">
                     <rect key="frame" x="24" y="294" width="328" height="1"/>
