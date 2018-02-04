@@ -16,7 +16,7 @@
 #import "perfectUserVC.h"
 
 
-@interface HomeViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface HomeViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
 
 @property (nonatomic, strong)UIView * titleVi;
 @property (nonatomic, strong)UISearchBar * search;
@@ -131,6 +131,12 @@
     }];
 }
 
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    [self.navigationController pushViewController:[NSClassFromString(@"SEARCHVC") new] animated:YES];
+
+    return NO;
+}
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
     return cell;
@@ -164,6 +170,7 @@
         [_search setBackgroundImage:[UIImage getImageWithColor:[UIColor clearColor] andSize:CGSizeMake(WIDTH_ - 72, 36)]];
         [_search setSearchFieldBackgroundImage:[[UIImage getImageWithColor:RGBColor(221, 221, 221) andSize:CGSizeMake(WIDTH_ - 72, 36)] createRadius:5] forState:UIControlStateNormal];
         _search.placeholder = @"搜索";
+        _search.delegate = self;
         //一下代码为修改placeholder字体的颜色和大小
         UITextField * searchField = [_search valueForKey:@"_searchField"];
         [searchField setValue:[UIFont systemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];

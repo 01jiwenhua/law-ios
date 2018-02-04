@@ -194,6 +194,10 @@
 		8FBA82E9201DF04C0056D8E8 /* img_yh.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA82E7201DF04B0056D8E8 /* img_yh.png */; };
 		8FBA82EB201DF5A00056D8E8 /* ic_search.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA82EA201DF59F0056D8E8 /* ic_search.png */; };
 		8FEBDAAE2026BC98008E91B9 /* THScrollChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEBDAAC2026BC98008E91B9 /* THScrollChooseView.m */; };
+		8FEBDAB12026E3EE008E91B9 /* SEARCHVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEBDAB02026E3EE008E91B9 /* SEARCHVC.m */; };
+		8FEBDAB42026E45B008E91B9 /* SEARCHLISTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEBDAB32026E45B008E91B9 /* SEARCHLISTVC.m */; };
+		8FEBDAB72026F2B7008E91B9 /* EnshrineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEBDAB62026F2B7008E91B9 /* EnshrineVC.m */; };
+		8FEBDABA2026F5F7008E91B9 /* EnshrineListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEBDAB92026F5F7008E91B9 /* EnshrineListVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -479,6 +483,14 @@
 		8FBA82EA201DF59F0056D8E8 /* ic_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_search.png; sourceTree = "<group>"; };
 		8FEBDAAC2026BC98008E91B9 /* THScrollChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THScrollChooseView.m; sourceTree = "<group>"; };
 		8FEBDAAD2026BC98008E91B9 /* THScrollChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THScrollChooseView.h; sourceTree = "<group>"; };
+		8FEBDAAF2026E3EE008E91B9 /* SEARCHVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEARCHVC.h; sourceTree = "<group>"; };
+		8FEBDAB02026E3EE008E91B9 /* SEARCHVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEARCHVC.m; sourceTree = "<group>"; };
+		8FEBDAB22026E45B008E91B9 /* SEARCHLISTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SEARCHLISTVC.h; sourceTree = "<group>"; };
+		8FEBDAB32026E45B008E91B9 /* SEARCHLISTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEARCHLISTVC.m; sourceTree = "<group>"; };
+		8FEBDAB52026F2B7008E91B9 /* EnshrineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnshrineVC.h; sourceTree = "<group>"; };
+		8FEBDAB62026F2B7008E91B9 /* EnshrineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnshrineVC.m; sourceTree = "<group>"; };
+		8FEBDAB82026F5F7008E91B9 /* EnshrineListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnshrineListVC.h; sourceTree = "<group>"; };
+		8FEBDAB92026F5F7008E91B9 /* EnshrineListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnshrineListVC.m; sourceTree = "<group>"; };
 		A44F44D8565854D668CF80E1 /* libPods-law-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-law-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA54DE6D6643C91FB445DCE /* Pods-law-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-law-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-law-ios/Pods-law-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -642,12 +654,20 @@
 				8F2080D320220CCE0035528C /* LawsViewController.m */,
 				8F2080D420220CCE0035528C /* SearchTypeViewController.h */,
 				8F2080D520220CCE0035528C /* SearchTypeViewController.m */,
+				8F513542202356A5002517D7 /* ListViewController.h */,
+				8F513543202356A5002517D7 /* ListViewController.m */,
+				8FEBDAAF2026E3EE008E91B9 /* SEARCHVC.h */,
+				8FEBDAB02026E3EE008E91B9 /* SEARCHVC.m */,
+				8FEBDAB22026E45B008E91B9 /* SEARCHLISTVC.h */,
+				8FEBDAB32026E45B008E91B9 /* SEARCHLISTVC.m */,
+				8FEBDAB52026F2B7008E91B9 /* EnshrineVC.h */,
+				8FEBDAB62026F2B7008E91B9 /* EnshrineVC.m */,
+				8FEBDAB82026F5F7008E91B9 /* EnshrineListVC.h */,
+				8FEBDAB92026F5F7008E91B9 /* EnshrineListVC.m */,
 				8F2080D620220CCE0035528C /* SearchViewController.h */,
 				8F2080D720220CCE0035528C /* SearchViewController.m */,
 				8F2080D820220CCE0035528C /* SecurityViewController.h */,
 				8F2080D920220CCE0035528C /* SecurityViewController.m */,
-				8F513542202356A5002517D7 /* ListViewController.h */,
-				8F513543202356A5002517D7 /* ListViewController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1317,17 +1337,21 @@
 				4222E20920222A3D00CB8C6C /* UserVC.m in Sources */,
 				8FBA827B201C32CF0056D8E8 /* UIBarButtonItem+Action.m in Sources */,
 				4207CFBB201CD96D003650D3 /* KeyboardToolBar.m in Sources */,
+				8FEBDAB72026F2B7008E91B9 /* EnshrineVC.m in Sources */,
 				8FEBDAAE2026BC98008E91B9 /* THScrollChooseView.m in Sources */,
 				8FBA82C6201D92870056D8E8 /* ZWMSegmentController.m in Sources */,
 				8F5135E12024BBD8002517D7 /* LoginTableViewCell.m in Sources */,
 				4222E1FF2022290500CB8C6C /* MyHeadCell.m in Sources */,
+				8FEBDAB12026E3EE008E91B9 /* SEARCHVC.m in Sources */,
 				8FBA8275201C32CF0056D8E8 /* NSString+Color.m in Sources */,
+				8FEBDAB42026E45B008E91B9 /* SEARCHLISTVC.m in Sources */,
 				425D74E62026272E0061FEFC /* NewsVC.m in Sources */,
 				8FBA827A201C32CF0056D8E8 /* UIAlertView+Block.m in Sources */,
 				8FBA8299201C3A9A0056D8E8 /* HttpsManager.m in Sources */,
 				8FBA8239201C323E0056D8E8 /* BaseViewController.m in Sources */,
 				8F2080DB20220CCE0035528C /* LawsViewController.m in Sources */,
 				8FBA82C7201D92870056D8E8 /* ZWMSegmentView.m in Sources */,
+				8FEBDABA2026F5F7008E91B9 /* EnshrineListVC.m in Sources */,
 				8FBA82A5201D7A790056D8E8 /* GudePageVi.m in Sources */,
 				8FBA8288201C32CF0056D8E8 /* UIView+Frame.m in Sources */,
 				425D74D1202583120061FEFC /* perfectUserVC.m in Sources */,
