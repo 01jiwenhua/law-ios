@@ -27,9 +27,6 @@
         for (int i = 0; i < classStrings.count ; i ++)
         {
             vc = [NSClassFromString(classStrings[i]) new];
-            if (i == 1) {
-                vc = [[UINavigationController alloc]initWithRootViewController:vc];
-            }
             vc.tabBarItem = [[UITabBarItem alloc]initWithTitle:titles[i] image:[UIImage imageNamed:images[i]] selectedImage:[UIImage imageNamed:selectedImages[i]]];
             [self addChildViewController:vc];
         }
