@@ -1050,7 +1050,7 @@
 				TargetAttributes = {
 					42049194201B6ED6005D61B9 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					420491AC201B6ED7005D61B9 = {
 						CreatedOnToolsVersion = 9.0;
@@ -1533,8 +1533,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 854DEH8T28;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/law-ios/PrefixHeader.pch";
 				INFOPLIST_FILE = "law-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1551,17 +1551,17 @@
 			baseConfigurationReference = DDA54DE6D6643C91FB445DCE /* Pods-law-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 854DEH8T28;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = Y6W892798M;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/law-ios/PrefixHeader.pch";
 				INFOPLIST_FILE = "law-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.app.law-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "c2d43279-fa5b-486a-8d0a-08414ce7ae79";
+				PROVISIONING_PROFILE_SPECIFIER = Low;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
