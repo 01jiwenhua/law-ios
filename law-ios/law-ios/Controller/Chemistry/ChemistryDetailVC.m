@@ -69,7 +69,8 @@
     }
     NSArray *arrList = self.arrData[indexPath.section][@"list"];
     NSDictionary *dic= arrList[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@:",dic[@"key"]];
+    NSString *st = [NSString stringWithFormat:@"%@:",dic[@"key"]];
+    cell.textLabel.text = [st substringFromIndex:2];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.detailTextLabel.text =dic[@"value"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
