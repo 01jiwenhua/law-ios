@@ -13,17 +13,13 @@
 @end
 
 @implementation TabBarViewController
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = YES;
-}
 
 -(instancetype)init {
     
     self = [super init];
     if (self)
     {
-        NSArray * classStrings = @[@"HomeViewController",@"CollectionViewController",@"UserVC"];
+        NSArray * classStrings = @[@"HomeViewController",@"EnshrineVC",@"UserVC"];
         NSArray * titles = @[@"首页",@"收藏",@"我的"];
         NSArray * images = @[@"tab_home_normal",@"tab_collect_normal",@"tab_me_normal"];
         NSArray * selectedImages = @[@"tab_home_sel",@"tab_collect_sel",@"tab_me_sel"];
@@ -31,6 +27,9 @@
         for (int i = 0; i < classStrings.count ; i ++)
         {
             vc = [NSClassFromString(classStrings[i]) new];
+            if (i == 1) {
+                vc = [[UINavigationController alloc]initWithRootViewController:vc];
+            }
             vc.tabBarItem = [[UITabBarItem alloc]initWithTitle:titles[i] image:[UIImage imageNamed:images[i]] selectedImage:[UIImage imageNamed:selectedImages[i]]];
             [self addChildViewController:vc];
         }
