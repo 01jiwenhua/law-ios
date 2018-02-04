@@ -24,6 +24,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tvList reloadData];
+}
 
 -(void)bindModel {
     self.arrData = @[@[@"我的"],@[@"个人资料",@"消息通知"],@[@"检查更新",@"关于我们",@"常见问题与帮助"],@[@"设置"]];

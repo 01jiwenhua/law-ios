@@ -120,6 +120,7 @@
 		8F20815620220DF20035528C /* 默认头像_大@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F20811C20220DF20035528C /* 默认头像_大@3x.png */; };
 		8F20815720220DF20035528C /* 默认头像_小@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F20811D20220DF20035528C /* 默认头像_小@3x.png */; };
 		8F3F15C62025F09B0041D18B /* banner@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F3F15C52025F09B0041D18B /* banner@3x.png */; };
+		8F3F15C82026B4A10041D18B /* 启动页@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F3F15C72026B4A10041D18B /* 启动页@2x.png */; };
 		8F513544202356A5002517D7 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F513543202356A5002517D7 /* ListViewController.m */; };
 		8F5135472023577C002517D7 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5135462023577C002517D7 /* ListTableViewCell.m */; };
 		8F51354B20235F3B002517D7 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51354A20235F3B002517D7 /* CollectionViewController.m */; };
@@ -352,6 +353,7 @@
 		8F20811C20220DF20035528C /* 默认头像_大@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "默认头像_大@3x.png"; sourceTree = "<group>"; };
 		8F20811D20220DF20035528C /* 默认头像_小@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "默认头像_小@3x.png"; sourceTree = "<group>"; };
 		8F3F15C52025F09B0041D18B /* banner@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner@3x.png"; sourceTree = "<group>"; };
+		8F3F15C72026B4A10041D18B /* 启动页@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "启动页@2x.png"; sourceTree = "<group>"; };
 		8F513542202356A5002517D7 /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		8F513543202356A5002517D7 /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		8F5135452023577C002517D7 /* ListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListTableViewCell.h; sourceTree = "<group>"; };
@@ -781,6 +783,7 @@
 				8FBA82A9201D7BEB0056D8E8 /* GudePageVi_3.png */,
 				8FBA828D201C33870056D8E8 /* fnahui@2x.png */,
 				8FBA828C201C33870056D8E8 /* fnahui@3x.png */,
+				8F3F15C72026B4A10041D18B /* 启动页@2x.png */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -1094,6 +1097,7 @@
 				8F20814B20220DF20035528C /* tab_me_normal@3x.png in Resources */,
 				8F20814520220DF20035528C /* nav_无消息通知@3x.png in Resources */,
 				8F20814720220DF20035528C /* tab_collect_normal@3x.png in Resources */,
+				8F3F15C82026B4A10041D18B /* 启动页@2x.png in Resources */,
 				8F20812920220DF20035528C /* nav_有消息通知@2x.png in Resources */,
 				8FBA82B4201D850A0056D8E8 /* Back Chevron Copy 4@3x.png in Resources */,
 				8FBA82AC201D7BEB0056D8E8 /* GudePageVi_1.png in Resources */,
@@ -1454,7 +1458,6 @@
 			baseConfigurationReference = 8449870E72FC7864B279328A /* Pods-law-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/law-ios/PrefixHeader.pch";
@@ -1473,7 +1476,6 @@
 			baseConfigurationReference = DDA54DE6D6643C91FB445DCE /* Pods-law-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Y6W892798M;

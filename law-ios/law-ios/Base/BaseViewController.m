@@ -54,7 +54,7 @@
     self.btnRight = [UIButton buttonWithType:UIButtonTypeCustom];
     [_btnRight setFrame:CGRectMake(0, 0, 44, 30)];
     [_btnRight addTarget:self action:@selector(onRightAction) forControlEvents:UIControlEventTouchUpInside];
-
+    _btnRight.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     _btnRight.titleLabel.textAlignment = NSTextAlignmentRight;
     _btnRight.titleLabel.font = [UIFont systemFontOfSize:15];
     UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc]initWithCustomView:_btnRight];
@@ -64,6 +64,7 @@
     self.btnLeft = [UIButton buttonWithType:UIButtonTypeCustom];
     [_btnLeft setFrame:CGRectMake(0, 0, 44, 30)];
     [_btnLeft addTarget:self action:@selector(onBackAction) forControlEvents:UIControlEventTouchUpInside];
+    _btnLeft.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
 
     [_btnLeft setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
     _btnLeft.highlighted = NO;
