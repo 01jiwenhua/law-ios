@@ -11,6 +11,8 @@
 #import "MyInfoCell.h"
 #import "LoginTableViewCell.h"
 #import "LoginVC.h"
+#import "SettingVC.h"
+#import "NewsVC.h"
 
 @interface UserVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong )UITableView *tvList;
@@ -19,6 +21,11 @@
 @end
 
 @implementation UserVC
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -102,6 +109,13 @@
         if (![[NSUserDefaults standardUserDefaults] valueForKey:@"login"]) {
             [self.navigationController pushViewController:[LoginVC new] animated:YES];
         }
+    }
+    
+    if (indexPath.section == 3) {
+        [self.navigationController pushViewController:[SettingVC new] animated:YES];
+    }
+    if (indexPath.section == 1&&indexPath.row == 1) {
+        [self.navigationController pushViewController:[NewsVC new] animated:YES];
     }
 }
 
