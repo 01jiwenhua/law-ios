@@ -73,7 +73,19 @@
         cell.detailTextLabel.textColor = [UIColor darkGrayColor];
     
         NSString *key = self.arrKey[indexPath.section][indexPath.row];
+    if ([self.dicUser[key] isKindOfClass:[NSString class]]) {
         cell.detailTextLabel.text = self.dicUser[key];
+    }
+    if (indexPath.section==0  && indexPath.row == 2) {
+        cell.detailTextLabel.text = @"身份证";
+    }
+    if (indexPath.section==0  && indexPath.row == 4) {
+        if ([self.dicUser[@"sex"]intValue] == 1) {
+            cell.detailTextLabel.text = @"男";
+        }else{
+            cell.detailTextLabel.text = @"女";
+        }
+    }
         return cell;
 
 }
