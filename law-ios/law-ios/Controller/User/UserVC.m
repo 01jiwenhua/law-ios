@@ -17,27 +17,46 @@
 @interface UserVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong )UITableView *tvList;
 @property (nonatomic, strong )NSArray *arrData;
+@property (nonatomic, strong )NSDictionary *dicUser;
 
 @end
 
 @implementation UserVC
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self.tvList reloadData];
+}
+
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    self.navigationController.navigationBar.hidden = NO;
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.tvList reloadData];
-}
 
 -(void)bindModel {
     self.arrData = @[@[@"我的"],@[@"个人资料",@"消息通知"],@[@"检查更新",@"关于我们",@"常见问题与帮助"],@[@"设置"]];
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:@"login"]) {
+        [SVProgressHUD showWithStatus:@"加载中..."];
+        NSMutableDictionary * mdict = [NSMutableDictionary new];
+        [mdict setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"login"] forKey:@"userId"];
+        WS(ws);
+        [self POSTurl:USER_URL parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
+            NSString *st = responseObject[@"data"][@"userInfo"];
+            ws.dicUser = [self arrayWithJsonString:st];
+            [ws.tvList reloadData];
+            [SVProgressHUD dismiss];
+        } failure:^(id responseObject) {
+            [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+            [SVProgressHUD dismiss];
+        }];
+    }
 }
 
 -(void)bindView {
@@ -76,8 +95,8 @@
             NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"MyHeadCell" owner:self options:nil];
             cell = [array objectAtIndex:0];
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-            cell.lbName.text = @"哈哈哈";
-            cell.lbShow.text = @"局长";
+            cell.lbShow.text = self.dicUser[@"jobNmae"];
+            cell.lbName.text = self.dicUser[@"real_name"];
             return cell;
         }else {
             LoginTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoginTableViewCell" forIndexPath:indexPath];

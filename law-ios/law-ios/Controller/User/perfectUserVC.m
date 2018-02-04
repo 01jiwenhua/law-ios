@@ -81,6 +81,8 @@
     [self POSTurl:REGIST parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
         if ([responseObject[@"messageCode"] intValue] == 10000) {
             [self onBackAction];
+        }else{
+            [[Toast shareToast]makeText:@"信息不完整" aDuration:1];
         }
         [SVProgressHUD dismiss];
     } failure:^(id responseObject) {

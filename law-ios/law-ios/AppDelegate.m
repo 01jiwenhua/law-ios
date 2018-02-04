@@ -19,8 +19,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [[NSUserDefaults standardUserDefaults]setValue:nil forKey:@"login"];
-
     //初始化图片适配后缀
     _window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     

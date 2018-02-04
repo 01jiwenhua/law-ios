@@ -62,7 +62,6 @@
             NSInteger count = arr.count;
             if (count > 2) {
                 [arr removeObjectAtIndex:count - 2];
-                [arr removeObjectAtIndex:count - 3];
             }
             self.navigationController.viewControllers = arr;
             [[NSUserDefaults standardUserDefaults]setObject:ws.tfPhone.text forKey:@"phone"];

@@ -16,7 +16,7 @@
 @implementation LoginVC
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = NO;
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)viewDidLoad {
@@ -57,6 +57,7 @@
     [mdict setValue:self.tfPhone.text forKey:@"phone"];
     [self POSTurl:GET_VERIFYCODE parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
         if ([responseObject[@"messageCode"] intValue] == 10000) {
+            [[Toast shareToast]makeText:@"验证码发送成功" aDuration:1];
         }
         [SVProgressHUD dismiss];
     } failure:^(id responseObject) {
@@ -73,7 +74,9 @@
     [mdict setValue:self.tfCode.text forKey:@"verifyCode"];
     [self POSTurl:LOGIN parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
         if ([responseObject[@"messageCode"] intValue] == 10000) {
-            [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"login"];
+            NSString *st = responseObject[@"data"][@"userInfo"];
+            NSDictionary *dic = [self arrayWithJsonString:st];
+            [[NSUserDefaults standardUserDefaults]setObject:dic[@"id"] forKey:@"login"];
             [[NSUserDefaults standardUserDefaults]setObject:ws.tfPhone.text forKey:@"phone"];
 
             [ws onBackAction];

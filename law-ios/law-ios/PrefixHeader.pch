@@ -39,4 +39,5 @@
 #define REGIST [NSString stringWithFormat:@"%@/user/regist",BASE_URL]
 #define LOGIN [NSString stringWithFormat:@"%@/user/login",BASE_URL]
 #define GET_LEVELLIST [NSString stringWithFormat:@"%@/law/getLevelList",BASE_URL]
+#define USER_URL [NSString stringWithFormat:@"%@/user/getUserInfo",BASE_URL]
 #endif /* PrefixHeader_pch */
