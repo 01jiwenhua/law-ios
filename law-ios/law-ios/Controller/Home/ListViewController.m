@@ -124,7 +124,10 @@
         
     }
     cell.DLab.attributedText = mStr;
-    
+    if(mStr.length <=0) {
+        cell.DLab.text = @"暂无摘要";
+
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }

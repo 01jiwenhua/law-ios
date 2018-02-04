@@ -38,14 +38,14 @@
     [_window makeKeyAndVisible];
     
     //引导页
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstOpenGudePageVi"]) {
-        
-        NSUserDefaults * appdict = [NSUserDefaults standardUserDefaults];
-        [appdict setObject:@YES forKey:@"isFirstOpenGudePageVi"];
-        GudePageVi * vi = [GudePageVi new];
-        vi.frame = [UIScreen mainScreen].bounds;
-        [self.window addSubview:vi];
-    }
+//    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"isFirstOpenGudePageVi"]) {
+//
+//        NSUserDefaults * appdict = [NSUserDefaults standardUserDefaults];
+//        [appdict setObject:@YES forKey:@"isFirstOpenGudePageVi"];
+//        GudePageVi * vi = [GudePageVi new];
+//        vi.frame = [UIScreen mainScreen].bounds;
+//        [self.window addSubview:vi];
+//    }
     return YES;
 }
 
