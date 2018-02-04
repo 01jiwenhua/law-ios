@@ -292,6 +292,7 @@ BOOL AX_WEB_VIEW_CONTROLLER_iOS10_0_AVAILABLE() { return AX_WEB_VIEW_CONTROLLER_
     return self;
 }
 
+
 #if AX_WEB_VIEW_CONTROLLER_USING_WEBKIT
 - (instancetype)initWithURL:(NSURL *)URL configuration:(WKWebViewConfiguration *)configuration {
     if (self = [self initWithURL:URL]) {
@@ -384,7 +385,6 @@ BOOL AX_WEB_VIEW_CONTROLLER_iOS10_0_AVAILABLE() { return AX_WEB_VIEW_CONTROLLER_
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     if (self.navigationController) {
         [self updateFrameOfProgressView];
         [self.navigationController.navigationBar addSubview:self.progressView];
@@ -422,6 +422,8 @@ BOOL AX_WEB_VIEW_CONTROLLER_iOS10_0_AVAILABLE() { return AX_WEB_VIEW_CONTROLLER_
     UIDevice *device = [UIDevice currentDevice]; //Get the device object
     [device beginGeneratingDeviceOrientationNotifications]; //Tell it to start monitoring the accelerometer for orientation
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification  object:device];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

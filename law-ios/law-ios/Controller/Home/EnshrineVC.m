@@ -13,13 +13,14 @@
 @interface EnshrineVC ()
 @property (nonatomic, strong) ZWMSegmentController *segmentVC;
 
-
+@property (nonatomic, strong)UILabel * titleLab;
 @end
 
 @implementation EnshrineVC
--(void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = NO;
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -31,6 +32,13 @@
     // Do any additional setup after loading the view.
     self.title = @"收藏";
     self.btnLeft.hidden = YES;
+    
+    UIView * vi = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH_, self.navigationController.navigationBar.height + 20)];
+    vi.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:vi];
+    
+    self.titleLab.frame = CGRectMake(0, vi.bottom - 44, WIDTH_ , 36);
+    [vi addSubview:self.titleLab];
 }
 
 
@@ -67,4 +75,18 @@
     [self.segmentVC  setSelectedAtIndex:0];
 }
 
+
+-(UILabel *)titleLab {
+    if (!_titleLab) {
+        UILabel * lab = [UILabel new];
+        lab.font = [UIFont systemFontOfSize:18.f];
+        lab.text = @"收藏";
+        lab.textColor = RGBColor(73, 73, 73);
+        lab.textAlignment = NSTextAlignmentCenter;
+        lab.frame = CGRectMake(50, 0, WIDTH_ - 100, 40);
+        
+        _titleLab = lab ;
+    }
+    return _titleLab;
+}
 @end

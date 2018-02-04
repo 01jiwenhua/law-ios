@@ -54,7 +54,7 @@
         [mdict setValue:self.level forKey:@"level"];
         
     }
-
+    [mdict setValue:[[NSUserDefaults standardUserDefaults]valueForKey:@"login"] forKey:@"userId"];
     [mdict setValue:[NSNumber numberWithInt:self.page + 1] forKey:@"page"];
     [mdict setValue:@10 forKey:@"pageSize"];
     
