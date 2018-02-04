@@ -35,6 +35,7 @@
 		425D74E62026272E0061FEFC /* NewsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D74E52026272E0061FEFC /* NewsVC.m */; };
 		425D74EA202628B90061FEFC /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D74E8202628B90061FEFC /* NewsCell.m */; };
 		425D74EB202628B90061FEFC /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425D74E9202628B90061FEFC /* NewsCell.xib */; };
+		425D74EE2026EF670061FEFC /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D74ED2026EF670061FEFC /* UserInfo.m */; };
 		42FCAEC720235F480044545D /* 登录注册手机号icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEB620235F200044545D /* 登录注册手机号icon@2x.png */; };
 		42FCAEC820235F480044545D /* 登录注册验证码icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEBD20235F220044545D /* 登录注册验证码icon@2x.png */; };
 		42FCAEC920235F480044545D /* 文章收藏icon_未收藏@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEB920235F210044545D /* 文章收藏icon_未收藏@2x.png */; };
@@ -272,6 +273,8 @@
 		425D74E7202628B90061FEFC /* NewsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
 		425D74E8202628B90061FEFC /* NewsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
 		425D74E9202628B90061FEFC /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
+		425D74EC2026EF670061FEFC /* UserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		425D74ED2026EF670061FEFC /* UserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		42FCAEB520235F200044545D /* 文章收藏icon_已收藏@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "文章收藏icon_已收藏@2x.png"; sourceTree = "<group>"; };
 		42FCAEB620235F200044545D /* 登录注册手机号icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录注册手机号icon@2x.png"; sourceTree = "<group>"; };
 		42FCAEB720235F210044545D /* app logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app logo@2x.png"; sourceTree = "<group>"; };
@@ -823,6 +826,8 @@
 				8FBA829E201C42E90056D8E8 /* My.m */,
 				4220D74D2020B260001B9A7A /* ChemistryModel.h */,
 				4220D74E2020B260001B9A7A /* ChemistryModel.m */,
+				425D74EC2026EF670061FEFC /* UserInfo.h */,
+				425D74ED2026EF670061FEFC /* UserInfo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1276,6 +1281,7 @@
 				42FCAEE72024C3450044545D /* UserVC.h in Sources */,
 				8FBA829C201C42CF0056D8E8 /* MyVi.m in Sources */,
 				8FBA8292201C33C30056D8E8 /* BaseTableViewCell.m in Sources */,
+				425D74EE2026EF670061FEFC /* UserInfo.m in Sources */,
 				425D74E22026226B0061FEFC /* NotificationVC.m in Sources */,
 				8FBA8280201C32CF0056D8E8 /* UIImage+BlurredFrame.m in Sources */,
 				8FBA828A201C32CF0056D8E8 /* UIView+Screenshot.m in Sources */,

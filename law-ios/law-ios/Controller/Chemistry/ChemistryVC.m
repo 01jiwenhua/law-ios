@@ -12,12 +12,11 @@
 #import "ChemistryModel.h"
 #import "ChemistySelectData.h"
 #import "ChemistryDetailVC.h"
+#import "AXWebViewController.h"
 
-@interface ChemistryVC ()<TypeButtonActionDelegate,UITableViewDelegate,UITableViewDataSource,SelectedDelegate>
+@interface ChemistryVC ()<UIPickerViewDataSource,UIPickerViewDelegate,TypeButtonActionDelegate,UITableViewDelegate,UITableViewDataSource,SelectedDelegate,UISearchBarDelegate>
 @property (nonatomic, strong ) UIView *viKnow;
 @property (nonatomic, strong ) UIView *viUnKnow;
-@property (nonatomic, strong ) UITextField *tfName;
-@property (nonatomic, strong ) UIButton *btnSelect;
 @property (nonatomic, strong ) UITableView *tvList;
 @property (nonatomic, strong ) UITableView *tvListUnKnow;
 @property (nonatomic, strong ) NSArray *arrPorCPro;
@@ -28,6 +27,11 @@
 @property (nonatomic, assign) int currentPage;
 @property (nonatomic, strong )NSMutableDictionary *dicRequest;
 @property (nonatomic, strong )UITableViewCell *cellCurrent;
+@property (nonatomic, strong)UISearchBar * search;
+@property (nonatomic, strong )UIView *viSelect;
+@property (nonatomic, strong )UIPickerView *pickerView;
+@property (nonatomic, strong )NSArray *arrData;
+@property (nonatomic, strong ) NSString *code;
 @end
 
 @implementation ChemistryVC
@@ -35,6 +39,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 - (void)viewDidLoad {
@@ -67,8 +72,79 @@
     self.viKnow.frame = CGRectMake(0, typeBtnView.bottom, WIDTH_, HEIGHT_ - typeBtnView.bottom);
     [self.view addSubview:self.viKnow];
     [self setViKonw];
-//    [self setViUnKonw];
-    
+    self.viSelect = [UIView new];
+    self.viSelect.frame = CGRectMake(0, HEIGHT_ - 264, WIDTH_, 200);
+    self.viSelect.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    UIButton *btn = [UIButton new];
+    [btn setTitle:@"取消" forState:UIControlStateNormal];
+    btn.frame = CGRectMake(WIDTH_ - 80, 10, 70, 40);
+    [btn addTarget:self action:@selector(finishSelectAction) forControlEvents:UIControlEventTouchUpInside];
+    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [self.viSelect addSubview:btn];
+    self.pickerView = [UIPickerView new];
+    self.pickerView.frame = CGRectMake(0, btn.bottom + 5 , WIDTH_, 155);
+    self.pickerView.dataSource =self;
+    self.pickerView.delegate = self;
+    [self.viSelect addSubview:self.pickerView];
+    self.viSelect.hidden = YES;
+    [self.view addSubview:self.viSelect];
+}
+
+-(void)finishSelectAction{
+    self.viSelect.hidden = YES;
+    NSInteger row1 = [self.pickerView selectedRowInComponent:0];
+    NSDictionary *dicIndex = [self.arrData objectAtIndex:row1];
+    NSDictionary *dic;
+    if ([self.code isEqualToString:@"B_STATUS"]) {
+        dic = @{@"status":dicIndex[@"name"]};
+    }
+    if ([self.code isEqualToString:@"B_COLOR"]) {
+        dic = @{@"color":dicIndex[@"name"]};
+    }
+    if ([self.code isEqualToString:@"B_SMELL"]) {
+        dic = @{@"smell":dicIndex[@"name"]};
+    }
+    if ([self.code isEqualToString:@"B_TASTE"]) {
+        dic = @{@"taste":dicIndex[@"name"]};
+    }
+    if ([self.code isEqualToString:@"B_SPECIFIC_AIR"]) {
+        dic = @{@"specific_air":dicIndex[@"name"]};
+    }
+    if ([self.code isEqualToString:@"B_SPECIFIC_WATER"]) {
+        dic = @{@"specific_water":dicIndex[@"name"]};
+    }
+    if ([self.code isEqualToString:@"B_PH"]) {
+        dic = @{@"ph":dicIndex[@"name"]};
+    }
+    if ([self.code isEqualToString:@"B_TRANSPARENCY"]) {
+        dic = @{@"transparency":dicIndex[@"name"]};
+    }
+    if ([self.code isEqualToString:@"B_NERVOUS"]) {
+        dic = @{@"nervous":dicIndex[@"name"]};
+    }
+    if ([self.code isEqualToString:@"B_EYE"]) {
+        dic = @{@"eye":dicIndex[@"name"]};
+    }
+    if ([self.code isEqualToString:@"B_EAR"]) {
+        dic = @{@"ear":dicIndex[@"name"]};
+    }
+    if ([self.code isEqualToString:@"B_MOUTH_THROAT"]) {
+        dic = @{@"mouth_throat":dicIndex[@"name"]};
+    }
+    if ([self.code isEqualToString:@"B_CARDIOVASCULAR"]) {
+        dic = @{@"cardiovascular":dicIndex[@"name"]};
+    }
+    if ([self.code isEqualToString:@"B_RESPIRATORY"]) {
+        dic = @{@"respiratory":dicIndex[@"name"]};
+    }
+    if ([self.code isEqualToString:@"B_GASTRO_URINARY"]) {
+        dic = @{@"gastro_urinary":dicIndex[@"name"]};
+    }
+    if ([self.code isEqualToString:@"B_SKIN"]) {
+        dic = @{@"skin":dicIndex[@"name"]};
+    }
+    [self.dicRequest addEntriesFromDictionary:dic];
+    self.cellCurrent.detailTextLabel.text =dic.allValues[0];
 }
 
 -(void)getData{
@@ -77,7 +153,7 @@
     NSMutableDictionary * mdict = [NSMutableDictionary new];
     [mdict setValue:[NSString stringWithFormat:@"%i",self.currentPage + 1] forKey:@"page"];
     [mdict setValue:@"10" forKey:@"pageSize"];
-    [mdict setValue:self.tfName.text forKey:@"name"];
+    [mdict setValue:self.search.text forKey:@"name"];
 
   
     [self POSTurl:GET_KNOWNLIST parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
@@ -112,25 +188,14 @@
 }
 
 -(void)setViKonw{
-    if (!self.tfName) {
-         self.tfName = [UITextField new];
-    }
-    self.tfName.frame = CGRectMake(10, 10, WIDTH_ - 60, 30);
-    self.tfName.placeholder = @" 请输入危化品名称进行搜索";
-    self.tfName.layer.borderWidth = 0.5;
-    self.tfName.layer.borderColor = [UIColor darkGrayColor].CGColor;
-    [self.viKnow addSubview:self.tfName];
     
-    if (!self.btnSelect) {
-        self.btnSelect = [UIButton new];
-    }
-    self.btnSelect.frame = CGRectMake(self.tfName.right + 5, 10, 30, 30);
-    [self.btnSelect setImage:[UIImage imageNamed:@"ic_search"] forState:UIControlStateNormal];
-    [self.btnSelect addTarget:self action:@selector(selectWithName) forControlEvents:UIControlEventTouchUpInside];
-    [self.viKnow addSubview:self.btnSelect];
+    self.search.frame = CGRectMake(15, 10, WIDTH_ - 30, 36);
+    self.search.layer.masksToBounds = YES;
+    self.search.layer.cornerRadius = 7;
+    [self.viKnow addSubview:self.search];
     
     if (!self.tvList) {
-        self.tvList = [[UITableView alloc]initWithFrame:CGRectMake(0, self.tfName.bottom + 5, WIDTH_, self.viKnow.height - self.tfName.bottom - 5)];
+        self.tvList = [[UITableView alloc]initWithFrame:CGRectMake(0, self.search.bottom + 5, WIDTH_, self.viKnow.height - self.search.bottom - 5)];
     }
     self.tvList.delegate = self;
     self.tvList.dataSource = self;
@@ -142,7 +207,6 @@
 -(void)selectWithName{
     self.currentPage = 0;
     [self getData];
-    [self.tfName resignFirstResponder];
 }
 
 -(void)setViUnKonw{
@@ -246,8 +310,23 @@
         }else{
             dic= _arrDanHealth[indexPath.row];
         }
-        vc.code = dic[@"categoryCode"];
-        [self.navigationController pushViewController:vc animated:YES];
+        WS(ws);
+        [SVProgressHUD showWithStatus:@"加载中..."];
+        NSMutableDictionary * mdict = [NSMutableDictionary new];
+        
+        [mdict setValue:dic[@"categoryCode"] forKey:@"code"];
+        self.code = dic[@"categoryCode"];
+        [self POSTurl:GET_UNKNOWPARAMS_DETAILS parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
+            NSString *st = responseObject[@"data"][@"list"];
+            ws.arrData = [self arrayWithJsonString:st];
+            [ws.pickerView reloadAllComponents];
+            ws.viSelect.hidden = NO;
+            [SVProgressHUD dismiss];
+        } failure:^(id responseObject) {
+            [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+            [SVProgressHUD dismiss];
+        }];
+        
     }else{
         ChemistryModel *model = _arrKnow[indexPath.row];
         ChemistryDetailVC *vc =[ChemistryDetailVC new];
@@ -287,11 +366,28 @@
     return [UIView new];
 }
 
--(void)select:(NSDictionary *)dic{
-    [self.dicRequest addEntriesFromDictionary:dic];
-    self.cellCurrent.detailTextLabel.text =dic.allValues[0];
+#pragma mark - pickerView数据源协议方法
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1; //拨盘数量
 }
 
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return self.arrData.count;
+}
+
+#pragma mark - pickerView代理协议方法
+- (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return [self.arrData objectAtIndex:row][@"name"];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    
+}
+
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    [self selectWithName];
+}
 
 -(MJRefreshNormalHeader *)refreshHeader {
     if (!_refreshHeader) {
@@ -316,4 +412,17 @@
     return _refreshFooter;
 }
 
+- (UISearchBar *)search {
+    if (!_search) {
+        _search = [UISearchBar new];
+        [_search setBackgroundImage:[UIImage getImageWithColor:[UIColor clearColor] andSize:CGSizeMake(WIDTH_ - 72, 36)]];
+        [_search setSearchFieldBackgroundImage:[[UIImage getImageWithColor:RGBColor(221, 221, 221) andSize:CGSizeMake(WIDTH_ - 72, 36)] createRadius:5] forState:UIControlStateNormal];
+        _search.placeholder = @"搜索";
+        _search.delegate = self;
+        //一下代码为修改placeholder字体的颜色和大小
+        UITextField * searchField = [_search valueForKey:@"_searchField"];
+        [searchField setValue:[UIFont systemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
+    }
+    return _search;
+}
 @end

@@ -14,6 +14,7 @@
 #import "SecurityViewController.h"
 #import "SearchTypeViewController.h"
 #import "perfectUserVC.h"
+#import "LoginVC.h"
 
 
 @interface HomeViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
@@ -39,14 +40,23 @@
 
 @implementation HomeViewController
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
+     [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if (![[NSUserDefaults standardUserDefaults] valueForKey:@"login"]) {
+        [self.navigationController pushViewController:[LoginVC new] animated:YES];
+    }
 }
 
 -(void)bindView {
