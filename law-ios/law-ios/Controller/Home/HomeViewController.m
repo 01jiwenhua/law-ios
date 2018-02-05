@@ -40,16 +40,11 @@
 
 @implementation HomeViewController
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    self.navigationController.navigationBar.hidden = YES;
-     [self.navigationController setNavigationBarHidden:YES animated:NO];
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -119,16 +114,19 @@
     [[self.guifanBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         SearchTypeViewController * vc = [SearchTypeViewController new];
         vc.title = @"标准规范";
+        [ws.navigationController setNavigationBarHidden:NO animated:NO];
         [ws.navigationController pushViewController:vc animated:YES];
     }];
     [[self.lawsBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         SearchTypeViewController * vc = [SearchTypeViewController new];
         vc.title = @"法律法规";
+        [ws.navigationController setNavigationBarHidden:NO animated:NO];
         [ws.navigationController pushViewController:vc animated:YES];
     }];
     [[self.securityBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         SearchTypeViewController * vc = [SearchTypeViewController new];
         vc.title = @"政策文件";
+        [ws.navigationController setNavigationBarHidden:NO animated:NO];
         [ws.navigationController pushViewController:vc animated:YES];
     }];
     [[self.chemicalBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {

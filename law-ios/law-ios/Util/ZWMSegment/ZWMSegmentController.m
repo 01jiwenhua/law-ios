@@ -53,6 +53,7 @@ typedef void(^ZWMViewControllerIndexBlock)(NSUInteger, UIButton *, UIViewControl
     return self;
 }
 
+
 - (void)segmentPageSetting {
     _segmentView = [[ZWMSegmentView alloc] initWithFrame:CGRectMake(0, 0, _size.width, 36) titles:_titles];
     _segmentView.backgroundColor=[UIColor whiteColor];

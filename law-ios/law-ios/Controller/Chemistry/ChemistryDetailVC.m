@@ -70,7 +70,8 @@
     return arrList.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    static NSString *CellIdentifier = @"Cell";
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *CellIdentifier = [NSString stringWithFormat:@"%li===%li",(long)indexPath.section,(long)indexPath.row ];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
@@ -80,11 +81,20 @@
     NSString *st = [NSString stringWithFormat:@"%@:",dic[@"key"]];
     cell.textLabel.text = [st substringFromIndex:2];
     cell.detailTextLabel.text =dic[@"value"];
+    cell.detailTextLabel.numberOfLines = 0;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 50;
+    
+    NSArray *arrList = self.arrData[indexPath.section][@"list"];
+    NSDictionary *dic= arrList[indexPath.row];
+    NSString *st = [NSString stringWithFormat:@"%@:",dic[@"key"]];
+    CGSize textSize = [dic[@"value"] boundingRectWithSize:CGSizeMake(WIDTH_ - 150, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]} context:nil].size;
+    if (textSize.height >60) {
+        return textSize.height + 30;
+    }
+    return 60;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

@@ -24,16 +24,9 @@
 
 @implementation UserVC
 
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    self.navigationController.navigationBar.hidden = YES;
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-    [self.tvList reloadData];
-}
-
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)viewDidLoad {

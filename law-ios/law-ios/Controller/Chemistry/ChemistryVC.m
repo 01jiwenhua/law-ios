@@ -81,6 +81,13 @@
     [btn addTarget:self action:@selector(finishSelectAction) forControlEvents:UIControlEventTouchUpInside];
     [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [self.viSelect addSubview:btn];
+    UIButton *btn1= [UIButton new];
+    [btn1 setTitle:@"取消" forState:UIControlStateNormal];
+    btn1.frame = CGRectMake(20, 10, 70, 40);
+    [btn1 addTarget:self action:@selector(cancleSelectAction) forControlEvents:UIControlEventTouchUpInside];
+    [btn1 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [self.viSelect addSubview:btn1];
+    
     self.pickerView = [UIPickerView new];
     self.pickerView.frame = CGRectMake(0, btn.bottom + 5 , WIDTH_, 155);
     self.pickerView.dataSource =self;
@@ -88,6 +95,10 @@
     [self.viSelect addSubview:self.pickerView];
     self.viSelect.hidden = YES;
     [self.view addSubview:self.viSelect];
+}
+
+-(void)cancleSelectAction{
+     self.viSelect.hidden = YES;
 }
 
 -(void)finishSelectAction{
