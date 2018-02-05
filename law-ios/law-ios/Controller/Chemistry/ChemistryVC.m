@@ -76,7 +76,7 @@
     self.viSelect.frame = CGRectMake(0, HEIGHT_ - 264, WIDTH_, 200);
     self.viSelect.backgroundColor = [UIColor groupTableViewBackgroundColor];
     UIButton *btn = [UIButton new];
-    [btn setTitle:@"取消" forState:UIControlStateNormal];
+    [btn setTitle:@"确定" forState:UIControlStateNormal];
     btn.frame = CGRectMake(WIDTH_ - 80, 10, 70, 40);
     [btn addTarget:self action:@selector(finishSelectAction) forControlEvents:UIControlEventTouchUpInside];
     [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];

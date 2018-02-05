@@ -26,6 +26,14 @@
     self.tvList.delegate = self;
     self.tvList.dataSource = self;
     [self.view addSubview:self.tvList];
+    self.btnRight.hidden = NO;
+    [self.btnRight setImage:[UIImage imageNamed:@"文章收藏icon_未收藏"] forState:UIControlStateNormal];
+}
+
+-(void)onRightAction{
+    
+     [self.btnRight setImage:[UIImage imageNamed:@"文章收藏icon_已收藏"] forState:UIControlStateNormal];
+    [[Toast shareToast]makeText:@"收藏成功" aDuration:1];
 }
 
 -(void)getData {
@@ -37,8 +45,8 @@
     
     [self POSTurl:GET_CHEMICALSDETAILS parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
         NSString *st = responseObject[@"data"][@"chemicalsDetails"];
-        NSArray *arr = [self arrayWithJsonString:st];
-        ws.arrData = arr;
+        NSDictionary *dic = [self arrayWithJsonString:st];
+        ws.arrData = dic[@"details"];
         [ws.tvList reloadData];
         [SVProgressHUD dismiss];
     } failure:^(id responseObject) {
@@ -71,7 +79,6 @@
     NSDictionary *dic= arrList[indexPath.row];
     NSString *st = [NSString stringWithFormat:@"%@:",dic[@"key"]];
     cell.textLabel.text = [st substringFromIndex:2];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.detailTextLabel.text =dic[@"value"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

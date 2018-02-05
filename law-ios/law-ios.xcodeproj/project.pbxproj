@@ -37,6 +37,7 @@
 		425D74EB202628B90061FEFC /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425D74E9202628B90061FEFC /* NewsCell.xib */; };
 		425D74EE2026EF670061FEFC /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D74ED2026EF670061FEFC /* UserInfo.m */; };
 		425D74F12026FAD90061FEFC /* UserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D74F02026FAD90061FEFC /* UserInfoVC.m */; };
+		425D74F520289E260061FEFC /* preventFireVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D74F420289E260061FEFC /* preventFireVC.m */; };
 		42FCAEC720235F480044545D /* 登录注册手机号icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEB620235F200044545D /* 登录注册手机号icon@2x.png */; };
 		42FCAEC820235F480044545D /* 登录注册验证码icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEBD20235F220044545D /* 登录注册验证码icon@2x.png */; };
 		42FCAEC920235F480044545D /* 文章收藏icon_未收藏@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEB920235F210044545D /* 文章收藏icon_未收藏@2x.png */; };
@@ -282,6 +283,8 @@
 		425D74ED2026EF670061FEFC /* UserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		425D74EF2026FAD90061FEFC /* UserInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoVC.h; sourceTree = "<group>"; };
 		425D74F02026FAD90061FEFC /* UserInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoVC.m; sourceTree = "<group>"; };
+		425D74F320289E260061FEFC /* preventFireVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = preventFireVC.h; sourceTree = "<group>"; };
+		425D74F420289E260061FEFC /* preventFireVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = preventFireVC.m; sourceTree = "<group>"; };
 		42FCAEB520235F200044545D /* 文章收藏icon_已收藏@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "文章收藏icon_已收藏@2x.png"; sourceTree = "<group>"; };
 		42FCAEB620235F200044545D /* 登录注册手机号icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录注册手机号icon@2x.png"; sourceTree = "<group>"; };
 		42FCAEB720235F210044545D /* app logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app logo@2x.png"; sourceTree = "<group>"; };
@@ -645,6 +648,15 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		425D74F220289E020061FEFC /* preventFire */ = {
+			isa = PBXGroup;
+			children = (
+				425D74F320289E260061FEFC /* preventFireVC.h */,
+				425D74F420289E260061FEFC /* preventFireVC.m */,
+			);
+			path = preventFire;
+			sourceTree = "<group>";
+		};
 		7917D5B8FE8006CB18A8514A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -862,6 +874,7 @@
 			children = (
 				8F2080DF20220D090035528C /* TabBarViewController.h */,
 				8F2080E020220D090035528C /* TabBarViewController.m */,
+				425D74F220289E020061FEFC /* preventFire */,
 				8F51354820235F17002517D7 /* collection */,
 				4222E20620222A0F00CB8C6C /* User */,
 				8F2080CF20220CCE0035528C /* Home */,
@@ -1050,7 +1063,7 @@
 				TargetAttributes = {
 					42049194201B6ED6005D61B9 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					420491AC201B6ED7005D61B9 = {
 						CreatedOnToolsVersion = 9.0;
@@ -1338,6 +1351,7 @@
 				8F2080DD20220CCE0035528C /* SearchViewController.m in Sources */,
 				8FBA8278201C32CF0056D8E8 /* NSString+Password.m in Sources */,
 				8F5135472023577C002517D7 /* ListTableViewCell.m in Sources */,
+				425D74F520289E260061FEFC /* preventFireVC.m in Sources */,
 				4207CFBE201DA115003650D3 /* ConditionChooseVC.m in Sources */,
 				425D74DA202583BA0061FEFC /* UserPerfectCell.m in Sources */,
 				8FBA827D201C32CF0056D8E8 /* UIColor+Addtion.m in Sources */,
@@ -1534,8 +1548,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = Y6W892798M;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/law-ios/PrefixHeader.pch";
 				INFOPLIST_FILE = "law-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1554,9 +1567,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Y6W892798M;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/law-ios/PrefixHeader.pch";
 				INFOPLIST_FILE = "law-ios/Info.plist";
@@ -1564,8 +1574,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.app.law-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "eeac38e4-b9ff-4e21-8610-b180fc8857aa";
-				PROVISIONING_PROFILE_SPECIFIER = Low;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

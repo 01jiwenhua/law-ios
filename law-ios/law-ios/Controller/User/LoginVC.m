@@ -16,7 +16,7 @@
 @implementation LoginVC
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = YES;
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)viewDidLoad {
@@ -78,7 +78,6 @@
             NSDictionary *dic = [self arrayWithJsonString:st];
             [[NSUserDefaults standardUserDefaults]setObject:dic[@"id"] forKey:@"login"];
             [[NSUserDefaults standardUserDefaults]setObject:ws.tfPhone.text forKey:@"phone"];
-
             [ws onBackAction];
         }
         [[Toast shareToast]makeText:[NSString stringWithFormat:@"%@",responseObject[@"message"]] aDuration:2];

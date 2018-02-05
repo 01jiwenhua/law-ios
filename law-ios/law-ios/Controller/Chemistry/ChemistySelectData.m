@@ -8,6 +8,7 @@
 
 #import "ChemistySelectData.h"
 #import "ChemistryModel.h"
+#import "ChemistryDetailVC.h"
 
 @interface ChemistySelectData ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong )UITableView *tvList;
@@ -94,6 +95,11 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    ChemistryModel *model = _arrKnow[indexPath.row];
+    ChemistryDetailVC *vc =[ChemistryDetailVC new];
+    vc.ID = model.id;
+    vc.name = model.nameCn;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(MJRefreshNormalHeader *)refreshHeader {
