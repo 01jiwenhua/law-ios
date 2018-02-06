@@ -15,6 +15,7 @@
 #import "SearchTypeViewController.h"
 #import "perfectUserVC.h"
 #import "LoginVC.h"
+#import "ChemistySCVC.h"
 
 
 @interface HomeViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
@@ -131,8 +132,6 @@
     }];
     [[self.chemicalBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         [ws.navigationController pushViewController:[ChemistryVC new] animated:YES];
-
-    
     }];
     [[self.fireBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         
