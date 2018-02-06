@@ -28,6 +28,11 @@
     }
     
 }
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -66,9 +71,8 @@
     [mdict setValue:[[NSUserDefaults standardUserDefaults]valueForKey:@"login"] forKey:@"userId"];
     [mdict setValue:[NSNumber numberWithInt:self.page + 1] forKey:@"page"];
     [mdict setValue:@10 forKey:@"pageSize"];
-    
     [self POSTurl:GET_FavoriteList parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
-        NSString *st = responseObject[@"data"][@"lawList"];
+        NSString *st = responseObject[@"data"][@"favoriteList"];
         NSArray *arr = [self arrayWithJsonString:st];
         if (ws.page == 0) {
             [ws.dataArr removeAllObjects];

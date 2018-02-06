@@ -49,9 +49,13 @@
         [ws.arrDate addObjectsFromArray:[self arrayWithJsonString:st]];
         [ws.tvList reloadData];
         [SVProgressHUD dismiss];
+        [ws.tvList.mj_header endRefreshing];
+        [ws.tvList.mj_footer endRefreshing];
     } failure:^(id responseObject) {
         [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
         [SVProgressHUD dismiss];
+        [ws.tvList.mj_header endRefreshing];
+        [ws.tvList.mj_footer endRefreshing];
     }];
 }
 

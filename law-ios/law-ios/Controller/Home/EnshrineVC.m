@@ -26,9 +26,7 @@
 
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"收藏";
-    self.btnLeft.hidden = YES;
-    
+
     UIView * vi = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH_, self.navigationController.navigationBar.height + 20)];
     vi.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:vi];
@@ -55,8 +53,11 @@
         listVC = [EnshrineListVC new];
         listVC.level = @"";
         listVC.typeCode = obj;
+        
         [array addObject:listVC];
     }
+    
+    [array replaceObjectAtIndex:array.count - 1 withObject:[NSClassFromString(@"ChemistySCVC") new]];
     
     self.segmentVC = [[ZWMSegmentController alloc] initWithFrame:CGRectMake(0, self.navigationController.navigationBar.frame.size.height + 20, WIDTH_, HEIGHT_ - 64) titles:arr];
     self.segmentVC.segmentView.showSeparateLine = YES;
