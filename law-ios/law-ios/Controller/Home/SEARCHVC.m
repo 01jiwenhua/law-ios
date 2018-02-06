@@ -68,6 +68,13 @@
     }
     [self addSegmentController:self.segmentVC];
     [self.segmentVC  setSelectedAtIndex:0];
+    WS(ws);
+    [self.segmentVC selectedAtIndex:^(NSUInteger index, UIButton * _Nonnull button, UIViewController * _Nonnull viewController) {
+        SEARCHLISTVC * vc = (SEARCHLISTVC *)viewController;
+        vc.searchStr = ws.search.text;
+        vc.page = 0;
+        [vc getData];
+    }];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
@@ -83,7 +90,7 @@
     if (!_search) {
         _search = [UISearchBar new];
         [_search setBackgroundImage:[UIImage getImageWithColor:[UIColor clearColor] andSize:CGSizeMake(WIDTH_ - 72, 36)]];
-        [_search setSearchFieldBackgroundImage:[[UIImage getImageWithColor:RGBColor(221, 221, 221) andSize:CGSizeMake(WIDTH_ - 72, 36)] createRadius:5] forState:UIControlStateNormal];
+        [_search setSearchFieldBackgroundImage:[[UIImage getImageWithColor:RGBColor(238, 238, 238) andSize:CGSizeMake(WIDTH_ - 72, 36)] createRadius:8] forState:UIControlStateNormal];
         _search.placeholder = @"搜索";
         _search.delegate = self;
         //一下代码为修改placeholder字体的颜色和大小

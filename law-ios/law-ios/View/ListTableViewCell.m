@@ -38,8 +38,8 @@
     [self addSubview:self.DLab];
     
     self.line = [UIView new];
-    self.line.frame = CGRectMake(20, 111, WIDTH_ - 40, 0.5);
-    self.line.backgroundColor = RGBColor(103, 103, 103);
+    self.line.frame = CGRectMake(0, 111, WIDTH_ , 0.5);
+    self.line.backgroundColor = RGBColor(233, 233, 233);
     [self addSubview:self.line];
 }
 @end

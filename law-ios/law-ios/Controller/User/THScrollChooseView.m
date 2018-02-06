@@ -73,7 +73,6 @@ static NSInteger recordRowOfQuestion;
         //创建取消 确定按钮
         UIButton *cannel = [UIButton buttonWithType:UIButtonTypeCustom];
         cannel.frame = CGRectMake(THfloat(20), 0, THfloat(50), THfloat(45));
-        cannel.frame = CGRectMake(THScreenW - THfloat(70), 0, THfloat(50), THfloat(45));
         [cannel setTitle:@"取消" forState:0];
         cannel.titleLabel.font = [UIFont systemFontOfSize:THfloat(16)];
         [cannel setTitleColor:RGBColor(41, 130, 192) forState:UIControlStateNormal];
@@ -82,11 +81,10 @@ static NSInteger recordRowOfQuestion;
         [viewBg addSubview:cannel];
         
         UIButton *confirm = [UIButton buttonWithType:UIButtonTypeCustom];
-        confirm = nil;
         confirm.frame = CGRectMake(THScreenW - THfloat(70), 0, THfloat(50), THfloat(45));
         [confirm setTitle:@"确定" forState:0];
         confirm.titleLabel.font = [UIFont systemFontOfSize:THfloat(16)];
-        [confirm setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+        [confirm setTitleColor:RGBColor(41, 130, 192) forState:UIControlStateNormal];
         confirm.tag = 2;
         [confirm addTarget:self action:@selector(confirmButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [viewBg addSubview:confirm];
@@ -171,7 +169,6 @@ static NSInteger recordRowOfQuestion;
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
     self.selectedValue = row;
-    self.confirmBlock(self.selectedValue);
 }
 
 
