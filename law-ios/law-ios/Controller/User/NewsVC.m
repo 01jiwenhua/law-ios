@@ -21,6 +21,20 @@
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
+-(void)getData {
+    NSMutableDictionary * mdict = [NSMutableDictionary new];
+    //[mdict setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"login"] forKey:@"userId"];
+    [mdict setValue:@"1" forKey:@"type"];
+    
+    [self POSTurl:GET_MESSAGE parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
+        
+        [SVProgressHUD dismiss];
+    } failure:^(id responseObject) {
+        [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+        [SVProgressHUD dismiss];
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
