@@ -75,6 +75,7 @@
     [mdict setValue:self.level forKey:@"level"];
     [mdict setValue:[NSNumber numberWithInt:self.page + 1] forKey:@"page"];
     [mdict setValue:@10 forKey:@"pageSize"];
+    [mdict setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"login"] forKey:@"userId"];
     if (self.searchStr.length > 0) {
         [mdict setValue:self.searchStr forKey:@"description"];
         [mdict setValue:self.searchStr forKey:@"name"];
@@ -146,6 +147,22 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:@"http://www.bjsafety.gov.cn/art/2018/2/1/art_612_3641.html"];
+    NSDictionary *dic= self.dataArr[indexPath.row];
+    
+    NSMutableDictionary * mdict = [NSMutableDictionary new];
+    [mdict setValue:self.typeCode forKey:@"typeCode"];
+    [mdict setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"login"] forKey:@"userId"];
+    [mdict setValue:dic[@"id"] forKey:@"lawId"];
+    [self POSTurl:ADD_FAVORITE parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
+        
+       
+        [[Toast shareToast]makeText:@"收藏成功" aDuration:1];
+        
+        [SVProgressHUD dismiss];
+    } failure:^(id responseObject) {
+        [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+        [SVProgressHUD dismiss];
+    }];
 //    webVC.showsToolBar = NO;
 //    webVC.navigationController.navigationBar.translucent = NO;
 //    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.100f green:0.100f blue:0.100f alpha:0.800f];
