@@ -26,6 +26,8 @@
 
 #define GET_LAWLIST [NSString stringWithFormat:@"%@/law/list",BASE_URL]
 #define GET_FavoriteList [NSString stringWithFormat:@"%@/law/getFavoriteList",BASE_URL]
+#define ADD_FAVORITE [NSString stringWithFormat:@"%@/law/addFavorite",BASE_URL]
+#define CANCEL_FAVORITE [NSString stringWithFormat:@"%@/law/cancelFavorite",BASE_URL]
 #define GET_KNOWNLIST [NSString stringWithFormat:@"%@/chemicals/getKnownList",BASE_URL]
 #define GET_CHEMICALSDETAILS [NSString stringWithFormat:@"%@/chemicals/getChemicalsDetails",BASE_URL]
 #define GET_UNKNOWPARAMS [NSString stringWithFormat:@"%@/chemicals/getUnknowParams",BASE_URL]

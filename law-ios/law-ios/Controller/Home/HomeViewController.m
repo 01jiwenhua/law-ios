@@ -74,11 +74,11 @@
     [self.headerVi addSubview:self.cycleScrollView];
     
     CGFloat f = (WIDTH_ - 285) / 4;
-    self.guifanBtn.frame = CGRectMake(f, self.cycleScrollView.bottom + 20 ,95, 95);
-    [self.headerVi addSubview:self.guifanBtn];
-    self.lawsBtn.frame = CGRectMake(self.guifanBtn.right + f, self.cycleScrollView.bottom + 20 ,95, 95);
+    self.lawsBtn.frame = CGRectMake(f, self.cycleScrollView.bottom + 20 ,95, 95);
     [self.headerVi addSubview:self.lawsBtn];
-    self.securityBtn.frame = CGRectMake(self.lawsBtn.right + f, self.cycleScrollView.bottom + 20,95, 95);
+    self.guifanBtn.frame = CGRectMake(self.lawsBtn.right + f, self.cycleScrollView.bottom + 20 ,95, 95);
+    [self.headerVi addSubview:self.guifanBtn];
+    self.securityBtn.frame = CGRectMake(self.guifanBtn                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  .right + f, self.cycleScrollView.bottom + 20,95, 95);
     [self.headerVi addSubview:self.securityBtn];
     
     
@@ -141,6 +141,7 @@
 
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
     [self.navigationController pushViewController:[NSClassFromString(@"SEARCHVC") new] animated:YES];
 
     return NO;

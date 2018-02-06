@@ -31,6 +31,24 @@
 }
 
 -(void)onRightAction{
+    WS(ws);
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    NSMutableDictionary * mdict = [NSMutableDictionary new];
+    [mdict setValue:@"wxhxp" forKey:@"typeCode"];
+    [mdict setValue:self.ID forKey:@"userId"];
+    [mdict setValue:self.ID forKey:@"lawId"];
+    
+    
+    [self POSTurl:GET_CHEMICALSDETAILS parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
+        NSString *st = responseObject[@"data"][@"chemicalsDetails"];
+        NSDictionary *dic = [self arrayWithJsonString:st];
+        ws.arrData = dic[@"details"];
+        [ws.tvList reloadData];
+        [SVProgressHUD dismiss];
+    } failure:^(id responseObject) {
+        [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+        [SVProgressHUD dismiss];
+    }];
     
      [self.btnRight setImage:[UIImage imageNamed:@"文章收藏icon_已收藏"] forState:UIControlStateNormal];
     [[Toast shareToast]makeText:@"收藏成功" aDuration:1];

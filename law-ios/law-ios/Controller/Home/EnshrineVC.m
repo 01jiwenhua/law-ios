@@ -45,8 +45,8 @@
 
 -(void)getData {
     
-    NSArray * arr  = @[@"标准规范",@"法律法规",@"政策文件",@"危险化学品"];
-    NSArray * typeCode = @[@"bzgf",@"flfg",@"zcwj",@"wxhxp"];
+    NSArray * arr  = @[@"法律法规",@"标准规范",@"政策文件",@"危险化学品"];
+    NSArray * typeCode = @[@"flfg",@"bzgf",@"zcwj",@"wxhxp"];
     NSMutableArray * array = [NSMutableArray new];
     
     EnshrineListVC * listVC;

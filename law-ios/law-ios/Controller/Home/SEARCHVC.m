@@ -44,8 +44,8 @@
 
 -(void)getData {
     
-    NSArray * arr  = @[@"综合",@"标准规范",@"法律法规",@"政策文件",@"危险化学品",@"防火间距"];
-    NSArray * typeCode = @[@"",@"bzgf",@"flfg",@"zcwj",@"wxhxp",@"fhjj"];
+    NSArray * arr  = @[@"综合",@"法律法规",@"标准规范",@"政策文件",@"危险化学品",@"防火间距"];
+    NSArray * typeCode = @[@"",@"flfg",@"bzgf",@"zcwj",@"wxhxp",@"fhjj"];
     NSMutableArray * array = [NSMutableArray new];
 
     SEARCHLISTVC * listVC;
