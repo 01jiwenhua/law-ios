@@ -38,6 +38,7 @@
 		425D74EE2026EF670061FEFC /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D74ED2026EF670061FEFC /* UserInfo.m */; };
 		425D74F12026FAD90061FEFC /* UserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D74F02026FAD90061FEFC /* UserInfoVC.m */; };
 		425D74F520289E260061FEFC /* preventFireVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D74F420289E260061FEFC /* preventFireVC.m */; };
+		425D74F8202A02A20061FEFC /* ChemistySCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 425D74F7202A02A20061FEFC /* ChemistySCVC.m */; };
 		42FCAEC720235F480044545D /* 登录注册手机号icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEB620235F200044545D /* 登录注册手机号icon@2x.png */; };
 		42FCAEC820235F480044545D /* 登录注册验证码icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEBD20235F220044545D /* 登录注册验证码icon@2x.png */; };
 		42FCAEC920235F480044545D /* 文章收藏icon_未收藏@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42FCAEB920235F210044545D /* 文章收藏icon_未收藏@2x.png */; };
@@ -286,6 +287,8 @@
 		425D74F02026FAD90061FEFC /* UserInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoVC.m; sourceTree = "<group>"; };
 		425D74F320289E260061FEFC /* preventFireVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = preventFireVC.h; sourceTree = "<group>"; };
 		425D74F420289E260061FEFC /* preventFireVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = preventFireVC.m; sourceTree = "<group>"; };
+		425D74F6202A02A20061FEFC /* ChemistySCVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChemistySCVC.h; sourceTree = "<group>"; };
+		425D74F7202A02A20061FEFC /* ChemistySCVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChemistySCVC.m; sourceTree = "<group>"; };
 		42FCAEB520235F200044545D /* 文章收藏icon_已收藏@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "文章收藏icon_已收藏@2x.png"; sourceTree = "<group>"; };
 		42FCAEB620235F200044545D /* 登录注册手机号icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录注册手机号icon@2x.png"; sourceTree = "<group>"; };
 		42FCAEB720235F210044545D /* app logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app logo@2x.png"; sourceTree = "<group>"; };
@@ -619,6 +622,8 @@
 				4222E1F820221EC300CB8C6C /* ChemistySelectData.m */,
 				42FCAED920235F8A0044545D /* ChemistryDetailVC.h */,
 				42FCAEDA20235F8A0044545D /* ChemistryDetailVC.m */,
+				425D74F6202A02A20061FEFC /* ChemistySCVC.h */,
+				425D74F7202A02A20061FEFC /* ChemistySCVC.m */,
 			);
 			path = Chemistry;
 			sourceTree = "<group>";
@@ -1376,6 +1381,7 @@
 				8FEBDAB42026E45B008E91B9 /* SEARCHLISTVC.m in Sources */,
 				425D74E62026272E0061FEFC /* NewsVC.m in Sources */,
 				8FBA827A201C32CF0056D8E8 /* UIAlertView+Block.m in Sources */,
+				425D74F8202A02A20061FEFC /* ChemistySCVC.m in Sources */,
 				8FBA8299201C3A9A0056D8E8 /* HttpsManager.m in Sources */,
 				8FBA8239201C323E0056D8E8 /* BaseViewController.m in Sources */,
 				8F2080DB20220CCE0035528C /* LawsViewController.m in Sources */,

@@ -20,55 +20,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "law-ios/Controller/Home/ListViewController.m"
-            timestampString = "539623396.8412811"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "-getData"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ListViewController getData]"
-                  moduleName = "law-ios"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lixueyang/Desktop/gitios/law-ios/law-ios/Controller/Home/ListViewController.m"
-                  timestampString = "539623509.768363"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "1404">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__29-[ListViewController getData]_block_invoke"
-                  moduleName = "law-ios"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lixueyang/Desktop/gitios/law-ios/law-ios/Controller/Home/ListViewController.m"
-                  timestampString = "539623509.773034"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "39">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "law-ios/Controller/Home/ListViewController.m"
-            timestampString = "539623396.841381"
+            timestampString = "539625724.617197"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "99"
@@ -84,7 +36,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "law-ios/Controller/User/NewsVC.m"
-            timestampString = "539623509.462238"
+            timestampString = "539625724.617867"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
@@ -100,7 +52,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "law-ios/Controller/User/NewsVC.m"
-            timestampString = "539623509.4642119"
+            timestampString = "539625724.618371"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
@@ -116,7 +68,7 @@
                   moduleName = "law-ios"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lixueyang/Desktop/gitios/law-ios/law-ios/Controller/User/NewsVC.m"
-                  timestampString = "539623509.808416"
+                  timestampString = "539625724.9594851"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "29"
@@ -131,7 +83,7 @@
                   moduleName = "law-ios"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lixueyang/Desktop/gitios/law-ios/law-ios/Controller/User/NewsVC.m"
-                  timestampString = "539623509.8167011"
+                  timestampString = "539625724.96463"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
