@@ -130,6 +130,7 @@
 		8F20815720220DF20035528C /* 默认头像_小@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F20811D20220DF20035528C /* 默认头像_小@3x.png */; };
 		8F3F15C62025F09B0041D18B /* banner@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F3F15C52025F09B0041D18B /* banner@3x.png */; };
 		8F3F15C82026B4A10041D18B /* 启动页@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F3F15C72026B4A10041D18B /* 启动页@2x.png */; };
+		8F4271732029ED64006C9B58 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F4271722029ED64006C9B58 /* Images.xcassets */; };
 		8F513544202356A5002517D7 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F513543202356A5002517D7 /* ListViewController.m */; };
 		8F5135472023577C002517D7 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5135462023577C002517D7 /* ListTableViewCell.m */; };
 		8F51354B20235F3B002517D7 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51354A20235F3B002517D7 /* CollectionViewController.m */; };
@@ -384,6 +385,7 @@
 		8F20811D20220DF20035528C /* 默认头像_小@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "默认头像_小@3x.png"; sourceTree = "<group>"; };
 		8F3F15C52025F09B0041D18B /* banner@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner@3x.png"; sourceTree = "<group>"; };
 		8F3F15C72026B4A10041D18B /* 启动页@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "启动页@2x.png"; sourceTree = "<group>"; };
+		8F4271722029ED64006C9B58 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8F513542202356A5002517D7 /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		8F513543202356A5002517D7 /* ListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		8F5135452023577C002517D7 /* ListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListTableViewCell.h; sourceTree = "<group>"; };
@@ -569,6 +571,7 @@
 				420491A3201B6ED6005D61B9 /* LaunchScreen.storyboard */,
 				8F5135DD2023705D002517D7 /* Main.storyboard */,
 				420491A7201B6ED6005D61B9 /* main.m */,
+				8F4271722029ED64006C9B58 /* Images.xcassets */,
 			);
 			path = "law-ios";
 			sourceTree = "<group>";
@@ -1105,6 +1108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42FCAEC720235F480044545D /* 登录注册手机号icon@2x.png in Resources */,
+				8F4271732029ED64006C9B58 /* Images.xcassets in Resources */,
 				42FCAEC820235F480044545D /* 登录注册验证码icon@2x.png in Resources */,
 				42FCAEC920235F480044545D /* 文章收藏icon_未收藏@2x.png in Resources */,
 				425D74E32026226B0061FEFC /* NotificationVC.xib in Resources */,
@@ -1546,6 +1550,7 @@
 			baseConfigurationReference = 8449870E72FC7864B279328A /* Pods-law-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y6W892798M;
@@ -1556,7 +1561,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.app.law-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1565,6 +1570,7 @@
 			baseConfigurationReference = DDA54DE6D6643C91FB445DCE /* Pods-law-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y6W892798M;
@@ -1576,7 +1582,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

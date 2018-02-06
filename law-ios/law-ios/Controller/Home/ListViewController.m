@@ -159,7 +159,8 @@
         [tbv registerClass:[ListTableViewCell class] forCellReuseIdentifier:NSStringFromClass([ListTableViewCell class])];
         tbv.delegate = self;
         tbv.dataSource = self;
-        
+        tbv.separatorStyle = UITableViewCellSeparatorStyleNone;
+
         _tbv = tbv;
     }
     return _tbv;
@@ -177,7 +178,7 @@
     if (!_search) {
         _search = [UISearchBar new];
         [_search setBackgroundImage:[UIImage getImageWithColor:[UIColor clearColor] andSize:CGSizeMake(WIDTH_ - 72, 36)]];
-        [_search setSearchFieldBackgroundImage:[[UIImage getImageWithColor:RGBColor(221, 221, 221) andSize:CGSizeMake(WIDTH_ - 72, 36)] createRadius:5] forState:UIControlStateNormal];
+        [_search setSearchFieldBackgroundImage:[[UIImage getImageWithColor:RGBColor(238, 238, 238) andSize:CGSizeMake(WIDTH_ - 72, 36)] createRadius:8] forState:UIControlStateNormal];
         _search.placeholder = @"搜索";
         _search.delegate = self;
         //一下代码为修改placeholder字体的颜色和大小

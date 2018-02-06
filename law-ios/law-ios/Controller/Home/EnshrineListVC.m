@@ -115,7 +115,8 @@
         [tbv registerClass:[ListTableViewCell class] forCellReuseIdentifier:NSStringFromClass([ListTableViewCell class])];
         tbv.delegate = self;
         tbv.dataSource = self;
-        
+        tbv.separatorStyle = UITableViewCellSeparatorStyleNone;
+
         _tbv = tbv;
     }
     return _tbv;

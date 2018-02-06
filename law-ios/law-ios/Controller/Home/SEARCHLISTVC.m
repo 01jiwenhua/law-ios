@@ -40,7 +40,6 @@
 
 -(void)getData{
     WS(ws);
-    [SVProgressHUD showWithStatus:@"加载中..."];
     NSMutableDictionary * mdict = [NSMutableDictionary new];
     
     if (self.typeCode.length > 0) {
@@ -55,9 +54,15 @@
         [mdict setValue:self.searchStr forKey:@"description"];
         [mdict setValue:self.searchStr forKey:@"name"];
     }
+    else {
+        [ws.dataArr removeAllObjects];
+        [ws.tbv reloadData];
+        return ;
+    }
     [mdict setValue:[NSNumber numberWithInt:self.page + 1] forKey:@"page"];
     [mdict setValue:@10 forKey:@"pageSize"];
-    
+    [SVProgressHUD showWithStatus:@"加载中..."];
+
     [self POSTurl:GET_LAWLIST parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
         NSString *st = responseObject[@"data"][@"lawList"];
         NSArray *arr = [self arrayWithJsonString:st];
@@ -135,7 +140,8 @@
         [tbv registerClass:[ListTableViewCell class] forCellReuseIdentifier:NSStringFromClass([ListTableViewCell class])];
         tbv.delegate = self;
         tbv.dataSource = self;
-        
+        tbv.separatorStyle = UITableViewCellSeparatorStyleNone;
+
         _tbv = tbv;
     }
     return _tbv;

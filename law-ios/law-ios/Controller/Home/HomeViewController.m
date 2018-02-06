@@ -73,20 +73,20 @@
     
     [self.headerVi addSubview:self.cycleScrollView];
     
-    CGFloat f = (WIDTH_ - 285) / 4;
-    self.lawsBtn.frame = CGRectMake(f, self.cycleScrollView.bottom + 20 ,95, 95);
+    CGFloat f = (WIDTH_ - 315) / 4;
+    self.lawsBtn.frame = CGRectMake(f, self.cycleScrollView.bottom + 20 ,105, 105);
     [self.headerVi addSubview:self.lawsBtn];
-    self.guifanBtn.frame = CGRectMake(self.lawsBtn.right + f, self.cycleScrollView.bottom + 20 ,95, 95);
+    self.guifanBtn.frame = CGRectMake(self.lawsBtn.right + f, self.cycleScrollView.bottom + 20 ,105, 105);
     [self.headerVi addSubview:self.guifanBtn];
-    self.securityBtn.frame = CGRectMake(self.guifanBtn                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  .right + f, self.cycleScrollView.bottom + 20,95, 95);
+    self.securityBtn.frame = CGRectMake(self.guifanBtn                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  .right + f, self.cycleScrollView.bottom + 20,105, 105);
     [self.headerVi addSubview:self.securityBtn];
     
     
-    self.chemicalBtn.frame = CGRectMake(f, self.lawsBtn.bottom + 20,95, 95);
+    self.chemicalBtn.frame = CGRectMake(f, self.lawsBtn.bottom + 20,105, 105);
     [self.headerVi addSubview:self.chemicalBtn];
-    self.fireBtn.frame = CGRectMake(f + self.chemicalBtn.right, self.lawsBtn.bottom + 20,95, 95);
+    self.fireBtn.frame = CGRectMake(f + self.chemicalBtn.right, self.lawsBtn.bottom + 20,105, 105);
     [self.headerVi addSubview:self.fireBtn];
-    self.moreBtn.frame = CGRectMake(f + self.fireBtn.right - 5, self.lawsBtn.bottom + 20 - 5,105, 105);
+    self.moreBtn.frame = CGRectMake(f + self.fireBtn.right + 5, self.lawsBtn.bottom + 20 +5,95, 95);
     [self.headerVi addSubview:self.moreBtn];
     
     [self makeButton:self.securityBtn];
@@ -177,7 +177,7 @@
     if (!_search) {
         _search = [UISearchBar new];
         [_search setBackgroundImage:[UIImage getImageWithColor:[UIColor clearColor] andSize:CGSizeMake(WIDTH_ - 72, 36)]];
-        [_search setSearchFieldBackgroundImage:[[UIImage getImageWithColor:RGBColor(221, 221, 221) andSize:CGSizeMake(WIDTH_ - 72, 36)] createRadius:5] forState:UIControlStateNormal];
+        [_search setSearchFieldBackgroundImage:[[UIImage getImageWithColor:RGBColor(238, 238, 238) andSize:CGSizeMake(WIDTH_ - 72, 36)] createRadius:8] forState:UIControlStateNormal];
         _search.placeholder = @"搜索";
         _search.delegate = self;
         //一下代码为修改placeholder字体的颜色和大小
@@ -203,7 +203,7 @@
         [btn setTitle:@"标准规范\n查询" forState:UIControlStateNormal];
         [btn setImage:[UIImage imageNamed:@"home_btn_icon_标准查询"] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:14.f];
-        [btn setBackgroundImage:[UIImage imageNamed:@"通用btn"] forState:UIControlStateNormal];
+        [btn setBackgroundImage:[UIImage imageNamed:@"home-btn"] forState:UIControlStateNormal];
         btn.titleLabel.numberOfLines = 0;
         btn.titleLabel.textAlignment = NSTextAlignmentCenter;
         _guifanBtn = btn;
@@ -218,7 +218,7 @@
         [btn setTitle:@"法律法规\n查询" forState:UIControlStateNormal];
         [btn setImage:[UIImage imageNamed:@"home_btn_icon_法律法规查询"] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:14.f];
-        [btn setBackgroundImage:[UIImage imageNamed:@"通用btn"] forState:UIControlStateNormal];
+        [btn setBackgroundImage:[UIImage imageNamed:@"home-btn"] forState:UIControlStateNormal];
         btn.titleLabel.numberOfLines = 0;
         btn.titleLabel.textAlignment = NSTextAlignmentCenter;
 
@@ -235,7 +235,7 @@
         [btn setTitle:@"政策文件\n查询" forState:UIControlStateNormal];
         [btn setImage:[UIImage imageNamed:@"home_btn_icon_政策查询"] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:14.f];
-        [btn setBackgroundImage:[UIImage imageNamed:@"通用btn"] forState:UIControlStateNormal];
+        [btn setBackgroundImage:[UIImage imageNamed:@"home-btn"] forState:UIControlStateNormal];
         btn.titleLabel.numberOfLines = 0;
         btn.titleLabel.textAlignment = NSTextAlignmentCenter;
 
@@ -253,7 +253,7 @@
         btn.titleLabel.textAlignment = NSTextAlignmentCenter;
 
         btn.titleLabel.font = [UIFont systemFontOfSize:14.f];
-        [btn setBackgroundImage:[UIImage imageNamed:@"通用btn"] forState:UIControlStateNormal];
+        [btn setBackgroundImage:[UIImage imageNamed:@"home-btn"] forState:UIControlStateNormal];
         btn.titleLabel.numberOfLines = 0;
 
         _chemicalBtn = btn;
@@ -270,7 +270,7 @@
         btn.titleLabel.font = [UIFont systemFontOfSize:14.f];
         btn.titleLabel.textAlignment = NSTextAlignmentCenter;
 
-        [btn setBackgroundImage:[UIImage imageNamed:@"通用btn"] forState:UIControlStateNormal];
+        [btn setBackgroundImage:[UIImage imageNamed:@"home-btn"] forState:UIControlStateNormal];
         btn.titleLabel.numberOfLines = 0;
 
         _fireBtn = btn;
@@ -315,7 +315,7 @@
 
 -(void)makeButton:(UIButton *)btn {
     btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    [btn setTitleEdgeInsets:UIEdgeInsetsMake(btn.imageView.frame.size.height  + 25,-btn.imageView.frame.size.width, 5,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
-    [btn setImageEdgeInsets:UIEdgeInsetsMake(- 10.0, 0.0,10.0, -btn.titleLabel.bounds.size.width)];//图片距离右边框距离减少图片的宽度，其它不边
+    [btn setTitleEdgeInsets:UIEdgeInsetsMake(btn.imageView.frame.size.height  + 20,-btn.imageView.frame.size.width, 5,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
+    [btn setImageEdgeInsets:UIEdgeInsetsMake(- 15.0, 0.0,15.0, -btn.titleLabel.bounds.size.width)];//图片距离右边框距离减少图片的宽度，其它不边
 }
 @end
