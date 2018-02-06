@@ -37,7 +37,16 @@
     }];
 }
 
-
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.page = 0;
+    [self getData];
+    UIView * vi = [[UIApplication sharedApplication].delegate.window viewWithTag:11111];
+    if (vi) {
+        [vi removeFromSuperview];
+    }
+    
+}
 -(void)getData{
     WS(ws);
     NSMutableDictionary * mdict = [NSMutableDictionary new];
@@ -127,11 +136,54 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:@"http://www.bjsafety.gov.cn/art/2018/2/1/art_612_3641.html"];
-    //    webVC.showsToolBar = NO;
-    //    webVC.navigationController.navigationBar.translucent = NO;
-    //    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.100f green:0.100f blue:0.100f alpha:0.800f];
-    //    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.996f green:0.867f blue:0.522f alpha:1.00f];
+    NSDictionary *dic= self.dataArr[indexPath.row];
     [self.navigationController pushViewController:webVC animated:YES];
+    
+    
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.tag = 11111;
+    [btn setFrame:CGRectMake(WIDTH_ - 44, 27, 44, 30)];
+    btn.titleLabel.textAlignment = NSTextAlignmentRight;
+    btn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [[UIApplication sharedApplication].delegate.window addSubview:btn];
+    
+    if([dic[@"is_favorite"]intValue] == 1){
+        //已收藏
+        [btn setImage:[UIImage imageNamed:@"文章收藏icon_已收藏"] forState:UIControlStateNormal];
+    } else {
+        [btn setImage:[UIImage imageNamed:@"文章收藏icon_未收藏"] forState:UIControlStateNormal];
+    }
+    WS(ws);
+    [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        NSMutableDictionary * mdict = [NSMutableDictionary new];
+        [mdict setValue:ws.typeCode forKey:@"typeCode"];
+        [mdict setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"login"] forKey:@"userId"];
+        [mdict setValue:dic[@"id"] forKey:@"lawId"];
+        if([dic[@"is_favorite"]intValue] == 1) {
+            [ws POSTurl:CANCEL_FAVORITE parameters:@{@"data":[ws dictionaryToJson:mdict]} success:^(id responseObject) {
+                
+                [btn setImage:[UIImage imageNamed:@"文章收藏icon_未收藏"] forState:UIControlStateNormal];
+                
+                [[Toast shareToast]makeText:@"取消收藏成功" aDuration:1];
+                
+                [SVProgressHUD dismiss];
+            } failure:^(id responseObject) {
+                [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+                [SVProgressHUD dismiss];
+            }];
+        }else {
+            [ws POSTurl:ADD_FAVORITE parameters:@{@"data":[ws dictionaryToJson:mdict]} success:^(id responseObject) {
+                [btn setImage:[UIImage imageNamed:@"文章收藏icon_已收藏"] forState:UIControlStateNormal];
+                [[Toast shareToast]makeText:@"收藏成功" aDuration:1];
+                [SVProgressHUD dismiss];
+            } failure:^(id responseObject) {
+                [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+                [SVProgressHUD dismiss];
+            }];
+        }
+        
+    }];
+    
 }
 
 -(UITableView *)tbv {
