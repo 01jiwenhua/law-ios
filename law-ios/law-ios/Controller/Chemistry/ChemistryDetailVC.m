@@ -11,6 +11,8 @@
 @interface ChemistryDetailVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UITableView *tvList;
 @property (nonatomic, strong)NSArray *arrData;
+@property (nonatomic, assign)bool isSC;//是否收藏
+
 @end
 
 @implementation ChemistryDetailVC
@@ -35,23 +37,34 @@
     [SVProgressHUD showWithStatus:@"加载中..."];
     NSMutableDictionary * mdict = [NSMutableDictionary new];
     [mdict setValue:@"wxhxp" forKey:@"typeCode"];
-    [mdict setValue:self.ID forKey:@"userId"];
+    [mdict setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"login"] forKey:@"userId"];
     [mdict setValue:self.ID forKey:@"lawId"];
     
-    
-    [self POSTurl:GET_CHEMICALSDETAILS parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
-        NSString *st = responseObject[@"data"][@"chemicalsDetails"];
-        NSDictionary *dic = [self arrayWithJsonString:st];
-        ws.arrData = dic[@"details"];
-        [ws.tvList reloadData];
-        [SVProgressHUD dismiss];
-    } failure:^(id responseObject) {
-        [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
-        [SVProgressHUD dismiss];
-    }];
-    
-     [self.btnRight setImage:[UIImage imageNamed:@"文章收藏icon_已收藏"] forState:UIControlStateNormal];
-    [[Toast shareToast]makeText:@"收藏成功" aDuration:1];
+    if (!self.isSC) {
+        [self POSTurl:ADD_FAVORITE parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
+            
+            [ws.btnRight setImage:[UIImage imageNamed:@"文章收藏icon_已收藏"] forState:UIControlStateNormal];
+            ws.isSC = YES;
+            [[Toast shareToast]makeText:@"收藏成功" aDuration:1];
+            
+            [SVProgressHUD dismiss];
+        } failure:^(id responseObject) {
+            [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+            [SVProgressHUD dismiss];
+        }];
+    }else{
+        [self POSTurl:CANCEL_FAVORITE parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
+            
+            [ws.btnRight setImage:[UIImage imageNamed:@"文章收藏icon_未收藏"] forState:UIControlStateNormal];
+            ws.isSC = NO;
+            [[Toast shareToast]makeText:@"取消收藏成功" aDuration:1];
+            
+            [SVProgressHUD dismiss];
+        } failure:^(id responseObject) {
+            [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+            [SVProgressHUD dismiss];
+        }];
+    }
 }
 
 -(void)getData {
@@ -59,11 +72,16 @@
     [SVProgressHUD showWithStatus:@"加载中..."];
     NSMutableDictionary * mdict = [NSMutableDictionary new];
     [mdict setValue:self.ID forKey:@"id"];
-    
+    [mdict setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"login"] forKey:@"userId"];
+    [mdict setValue:@"wxhxp" forKey:@"typeCode"];
     
     [self POSTurl:GET_CHEMICALSDETAILS parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
         NSString *st = responseObject[@"data"][@"chemicalsDetails"];
         NSDictionary *dic = [self arrayWithJsonString:st];
+        if([dic[@"is_favorite"]intValue] == 1){
+            [ws.btnRight setImage:[UIImage imageNamed:@"文章收藏icon_已收藏"] forState:UIControlStateNormal];
+            ws.isSC = YES;
+        }
         ws.arrData = dic[@"details"];
         [ws.tvList reloadData];
         [SVProgressHUD dismiss];
