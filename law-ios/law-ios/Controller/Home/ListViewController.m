@@ -148,7 +148,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:@"http://www.bjsafety.gov.cn/art/2018/2/1/art_612_3641.html"];
     NSDictionary *dic= self.dataArr[indexPath.row];
-    
+    if([dic[@"is_favorite"]intValue] == 1){
+        //已收藏
+    }
     NSMutableDictionary * mdict = [NSMutableDictionary new];
     [mdict setValue:self.typeCode forKey:@"typeCode"];
     [mdict setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"login"] forKey:@"userId"];
@@ -157,6 +159,16 @@
         
        
         [[Toast shareToast]makeText:@"收藏成功" aDuration:1];
+        
+        [SVProgressHUD dismiss];
+    } failure:^(id responseObject) {
+        [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+        [SVProgressHUD dismiss];
+    }];
+    [self POSTurl:CANCEL_FAVORITE parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
+        
+        
+        [[Toast shareToast]makeText:@"取消收藏成功" aDuration:1];
         
         [SVProgressHUD dismiss];
     } failure:^(id responseObject) {
