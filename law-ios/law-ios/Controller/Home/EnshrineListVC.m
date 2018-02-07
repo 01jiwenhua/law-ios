@@ -40,6 +40,9 @@
     
     self.tbv.frame = CGRectMake(0,0, WIDTH_, HEIGHT_ - 108);
     [self.view addSubview:self.tbv];
+    UIView * line = [[UIView alloc]initWithFrame:CGRectMake(0, 0, WIDTH_, 0.5)];
+    line.backgroundColor = LINE;
+    [self.view addSubview:line];
     
     WS(ws);
     self.tbv.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{

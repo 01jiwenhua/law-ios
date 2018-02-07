@@ -33,6 +33,14 @@
 }
 
 - (void)viewDidLoad {
+    NSString * phone = [[NSUserDefaults standardUserDefaults]valueForKey:@"phone"];
+    if(![[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"Document_Type_%@",phone]]) {
+        [[NSUserDefaults standardUserDefaults]setObject:@"身份证" forKey:[NSString stringWithFormat:@"Document_Type_%@",phone]];
+    }
+    if(![[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"gender_Type_%@",phone]]) {
+        [[NSUserDefaults standardUserDefaults]setObject:@"男" forKey:[NSString stringWithFormat:@"gender_Type_%@",phone]];
+    }
+
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }

@@ -138,6 +138,13 @@
         [ws.navigationController setNavigationBarHidden:NO animated:NO];
         [ws.navigationController pushViewController:[NSClassFromString(@"FireSeparationVC") new] animated:YES];
     }];
+    [[self.msgBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        
+        [ws.navigationController setNavigationBarHidden:NO animated:NO];
+        [ws.navigationController pushViewController:[NSClassFromString(@"NewsVC") new] animated:YES];
+
+    }];
+
 }
 
 
@@ -299,7 +306,8 @@
         tbv.delegate = self;
         tbv.dataSource = self;
         [tbv registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
-        
+        tbv.separatorStyle = UITableViewCellSeparatorStyleNone;
+
         _tbv = tbv;
     }
     return _tbv;

@@ -40,7 +40,7 @@
     self.tvList.mj_header = self.refreshHeader;
     self.tvList.mj_footer = self.refreshFooter;
     [self.view addSubview:self.tvList];
-    
+
     
     self.viHead = [UIView new];
     self.viHead.frame = CGRectMake(0, 0, WIDTH_, 260);
