@@ -141,6 +141,7 @@
 		8F52AAF0202B444B0021936F /* FireListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F52AAEF202B444B0021936F /* FireListVC.m */; };
 		8F52AAF3202B489A0021936F /* FireSeachListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F52AAF2202B489A0021936F /* FireSeachListVC.m */; };
 		8F52AAF6202B4A050021936F /* FireSeachVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F52AAF5202B4A050021936F /* FireSeachVC.m */; };
+		8F52AAF9202B6F440021936F /* DISTANCEVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F52AAF8202B6F440021936F /* DISTANCEVC.m */; };
 		8FBA8239201C323E0056D8E8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA8238201C323D0056D8E8 /* BaseViewController.m */; };
 		8FBA823C201C32970056D8E8 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA823B201C32960056D8E8 /* Toast.m */; };
 		8FBA8272201C32CF0056D8E8 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA823F201C32CF0056D8E8 /* NSObject+Runtime.m */; };
@@ -410,6 +411,8 @@
 		8F52AAF2202B489A0021936F /* FireSeachListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FireSeachListVC.m; sourceTree = "<group>"; };
 		8F52AAF4202B4A050021936F /* FireSeachVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FireSeachVC.h; sourceTree = "<group>"; };
 		8F52AAF5202B4A050021936F /* FireSeachVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FireSeachVC.m; sourceTree = "<group>"; };
+		8F52AAF7202B6F440021936F /* DISTANCEVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DISTANCEVC.h; sourceTree = "<group>"; };
+		8F52AAF8202B6F440021936F /* DISTANCEVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DISTANCEVC.m; sourceTree = "<group>"; };
 		8FBA8236201C31A60056D8E8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8FBA8237201C323D0056D8E8 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		8FBA8238201C323D0056D8E8 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
@@ -822,6 +825,8 @@
 				8F52AAF5202B4A050021936F /* FireSeachVC.m */,
 				8F52AAF1202B489A0021936F /* FireSeachListVC.h */,
 				8F52AAF2202B489A0021936F /* FireSeachListVC.m */,
+				8F52AAF7202B6F440021936F /* DISTANCEVC.h */,
+				8F52AAF8202B6F440021936F /* DISTANCEVC.m */,
 			);
 			path = fireSeparation;
 			sourceTree = "<group>";
@@ -1382,6 +1387,7 @@
 				8F2080DA20220CCE0035528C /* HomeViewController.m in Sources */,
 				8FBA8272201C32CF0056D8E8 /* NSObject+Runtime.m in Sources */,
 				8FBA8274201C32CF0056D8E8 /* NSString+Analytics.m in Sources */,
+				8F52AAF9202B6F440021936F /* DISTANCEVC.m in Sources */,
 				8FBA82C5201D92870056D8E8 /* UIView+ZWMBadge.m in Sources */,
 				8FBA8287201C32CF0056D8E8 /* UIView+findViewController.m in Sources */,
 				8FBA823C201C32970056D8E8 /* Toast.m in Sources */,

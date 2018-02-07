@@ -16,7 +16,8 @@
 #import "perfectUserVC.h"
 #import "LoginVC.h"
 #import "ChemistySCVC.h"
-
+#import "ListTableViewCell.h"
+#import "AXWebViewController.h"
 
 @interface HomeViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
 
@@ -26,7 +27,6 @@
 
 
 @property (nonatomic, strong)UITableView * tbv;
-@property (nonatomic, strong)NSMutableArray * mArr;
 @property (nonatomic, strong)UIView * headerVi;
 
 @property (nonatomic, strong)SDCycleScrollView * cycleScrollView;
@@ -37,6 +37,8 @@
 @property (nonatomic,strong)UIButton * chemicalBtn;
 @property (nonatomic,strong)UIButton * fireBtn;
 @property (nonatomic,strong)UIButton * moreBtn;
+
+@property (nonatomic, strong)NSMutableArray * dataArr;
 @end
 
 @implementation HomeViewController
@@ -44,10 +46,16 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self getData];
+    UIView * vi = [[UIApplication sharedApplication].delegate.window viewWithTag:11111];
+    if (vi) {
+        [vi removeFromSuperview];
+    }
 }
 
 
 - (void)viewDidLoad {
+    self.dataArr = [NSMutableArray new];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     if (![[NSUserDefaults standardUserDefaults] valueForKey:@"login"]) {
@@ -100,7 +108,7 @@
     lab.font = [UIFont systemFontOfSize:18.f];
     lab.textColor = RGBColor(94, 94, 94);
     lab.frame = CGRectMake(20, self.moreBtn.bottom + 30, WIDTH_, 18);
-    lab.text = @"最近查询记录";
+    lab.text = @"最近更新记录";
     [self.headerVi addSubview:lab];
     
     self.tbv.tableHeaderView = self.headerVi;
@@ -155,18 +163,118 @@
     return NO;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+    ListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ListTableViewCell" forIndexPath:indexPath];
+    
+    NSMutableAttributedString * mStr0 = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@",[self.dataArr[indexPath.row]  valueForKey:@"lawName"]]];
+    NSRange range0 = [mStr0.string rangeOfString:@"sgdkjhasgfdkajsgfhvkabdj"];
+    if (range0.length > 0) {
+        [mStr0 addAttribute:NSForegroundColorAttributeName value:RGBColor(114, 177, 245) range:range0];
+        
+    }
+    cell.TitlrLab.attributedText = mStr0;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
+    
+    cell.mLab.text = [NSString stringWithFormat:@"%@",[self.dataArr[indexPath.row]  valueForKey:@"issueNo"]];
+    cell.timeNewLab.text = [formatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:[[self.dataArr[indexPath.row]  valueForKey:@"publishTime"] doubleValue]/ 1000]];
+    
+    cell.DLab.text = [NSString stringWithFormat:@"%@",[self.dataArr[indexPath.row]  valueForKey:@"description"]];
+    
+    
+    NSMutableAttributedString * mStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@",[self.dataArr[indexPath.row]  valueForKey:@"description"]]];
+    NSRange range = [mStr.string rangeOfString:@"sdjhbhkjgvjkvgjk"];
+    if (range.length > 0) {
+        [mStr addAttribute:NSForegroundColorAttributeName value:RGBColor(114, 177, 245) range:range];
+        
+    }
+    cell.DLab.attributedText = mStr;
+    if(mStr.length <=0) {
+        cell.DLab.text = @"暂无摘要";
+        
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 112;
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.mArr.count;
+    return self.dataArr.count;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSDictionary *dic= self.dataArr[indexPath.row];
+    AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:[NSString stringWithFormat:@"%@/files/%@.%@",BASE_URL,dic[@"filePath"],dic[@"fileFrom"]]];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    [self.navigationController pushViewController:webVC animated:YES];
+    
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.tag = 11111;
+    [btn setFrame:CGRectMake(WIDTH_ - 44, 27, 44, 30)];
+    btn.titleLabel.textAlignment = NSTextAlignmentRight;
+    btn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [[UIApplication sharedApplication].delegate.window addSubview:btn];
+    
+    if([dic[@"is_favorite"]intValue] == 1){
+        //已收藏
+        [btn setImage:[UIImage imageNamed:@"文章收藏icon_已收藏"] forState:UIControlStateNormal];
+    } else {
+        [btn setImage:[UIImage imageNamed:@"文章收藏icon_未收藏"] forState:UIControlStateNormal];
+    }
+    WS(ws);
+    [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        NSMutableDictionary * mdict = [NSMutableDictionary new];
+        [mdict setValue:@"flfg" forKey:@"typeCode"];
+        [mdict setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"login"] forKey:@"userId"];
+        [mdict setValue:dic[@"id"] forKey:@"lawId"];
+        if([dic[@"is_favorite"]intValue] == 1) {
+            [ws POSTurl:CANCEL_FAVORITE parameters:@{@"data":[ws dictionaryToJson:mdict]} success:^(id responseObject) {
+                
+                [btn setImage:[UIImage imageNamed:@"文章收藏icon_未收藏"] forState:UIControlStateNormal];
+                
+                [[Toast shareToast]makeText:@"取消收藏成功" aDuration:1];
+                
+                [SVProgressHUD dismiss];
+            } failure:^(id responseObject) {
+                [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+                [SVProgressHUD dismiss];
+            }];
+        }else {
+            [ws POSTurl:ADD_FAVORITE parameters:@{@"data":[ws dictionaryToJson:mdict]} success:^(id responseObject) {
+                [btn setImage:[UIImage imageNamed:@"文章收藏icon_已收藏"] forState:UIControlStateNormal];
+                [[Toast shareToast]makeText:@"收藏成功" aDuration:1];
+                [SVProgressHUD dismiss];
+            } failure:^(id responseObject) {
+                [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+                [SVProgressHUD dismiss];
+            }];
+        }
+        
+    }];
+    
 }
 #pragma mark - 加载数据
 -(void)getData {
-    [self POSTurl:@"http://baidu.com" parameters:nil success:^(id responseObject) {
-        
+    [SVProgressHUD showWithStatus:@"加载中..."];
+    NSMutableDictionary * mdict = [NSMutableDictionary new];
+    [mdict setValue:[[NSUserDefaults standardUserDefaults]valueForKey:@"login"] forKey:@"userId"];
+    WS(ws);
+    [self POSTurl:get_NewLawList parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
+        NSString *st = responseObject[@"data"][@"newList"];
+        NSArray *arr = [self arrayWithJsonString:st];
+        [ws.dataArr removeAllObjects];
+        for (NSDictionary *dic in arr) {
+            [ws.dataArr addObject:dic];
+        }
+        [ws.tbv reloadData];
+        [ws.tbv.mj_header endRefreshing];
+        [SVProgressHUD dismiss];
     } failure:^(id responseObject) {
-        
+        [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+        [ws.tbv.mj_header endRefreshing];
+        [SVProgressHUD dismiss];
     }];
 }
 
@@ -303,11 +411,14 @@
 -(UITableView *)tbv {
     if (!_tbv) {
         UITableView * tbv = [UITableView new];
+        [tbv registerClass:[ListTableViewCell class] forCellReuseIdentifier:NSStringFromClass([ListTableViewCell class])];
         tbv.delegate = self;
         tbv.dataSource = self;
-        [tbv registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
         tbv.separatorStyle = UITableViewCellSeparatorStyleNone;
-
+        WS(ws);
+        tbv.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [ws getData];
+        }];
         _tbv = tbv;
     }
     return _tbv;
@@ -327,4 +438,5 @@
     [btn setTitleEdgeInsets:UIEdgeInsetsMake(btn.imageView.frame.size.height  + 20,-btn.imageView.frame.size.width, 5,0.0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
     [btn setImageEdgeInsets:UIEdgeInsetsMake(- 15.0, 0.0,15.0, -btn.titleLabel.bounds.size.width)];//图片距离右边框距离减少图片的宽度，其它不边
 }
+
 @end

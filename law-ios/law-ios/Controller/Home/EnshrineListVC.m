@@ -117,7 +117,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dic= self.dataArr[indexPath.row];
-    AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:[NSString stringWithFormat:@"%@/%@.%@",BASE_URL,dic[@"filePath"],dic[@"fileFrom"]]];
+    AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:[NSString stringWithFormat:@"%@/files/%@.%@",BASE_URL,dic[@"filePath"],dic[@"fileFrom"]]];
     [self.navigationController pushViewController:webVC animated:YES];
     
     

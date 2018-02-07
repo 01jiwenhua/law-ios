@@ -8,11 +8,10 @@
 
 #import "FireSeachListVC.h"
 #import "THScrollChooseView.h"
+#import "DISTANCEVC.h"
 
 @interface FireModel ()
 
-@property (nonatomic, strong)NSDictionary * dict;
-@property (nonatomic, strong)FireModel * model;
 @end
 
 @interface FireSeachListVC ()
@@ -38,6 +37,16 @@
     
     self.bgScr.frame = CGRectMake(0, 0, WIDTH_, HEIGHT_ - 64);
     [self.view addSubview:self.bgScr];
+}
+
+-(void)bindAction {
+    WS(ws);
+    [[self.queryBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        DISTANCEVC * vc = [DISTANCEVC new];
+        vc.modelArr = ws.dataArr;
+        [ws.navigationController pushViewController:vc animated:YES];
+        
+    }];
 }
 
 -(void)getData {

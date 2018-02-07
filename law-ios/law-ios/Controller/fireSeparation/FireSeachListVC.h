@@ -9,6 +9,9 @@
 #import "BaseViewController.h"
 
 @interface FireModel : NSObject
+
+@property (nonatomic, strong)NSDictionary * dict;
+@property (nonatomic, strong)FireModel * model;
 @end
 @interface FireSeachListVC : BaseViewController
 

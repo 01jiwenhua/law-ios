@@ -62,12 +62,12 @@
     WS(ws);
     self.tbv.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         ws.page = 0;
-        [self getData];
+        [ws getData];
     }];
     
     self.tbv.mj_footer =  [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         ws.page ++;
-        [self getData];
+        [ws getData];
     }];
 }
 
@@ -159,7 +159,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSDictionary *dic= self.dataArr[indexPath.row];
-    AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:[NSString stringWithFormat:@"%@/%@.%@",BASE_URL,dic[@"filePath"],dic[@"fileFrom"]]];
+    AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:[NSString stringWithFormat:@"%@/files/%@.%@",BASE_URL,dic[@"filePath"],dic[@"fileFrom"]]];
     [self.navigationController pushViewController:webVC animated:YES];
 
 

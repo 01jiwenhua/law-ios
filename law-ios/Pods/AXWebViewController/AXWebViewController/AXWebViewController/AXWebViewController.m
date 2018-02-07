@@ -275,6 +275,8 @@ BOOL AX_WEB_VIEW_CONTROLLER_iOS10_0_AVAILABLE() { return AX_WEB_VIEW_CONTROLLER_
 }
 
 - (instancetype)initWithAddress:(NSString *)urlString {
+    
+    urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     return [self initWithURL:[NSURL URLWithString:urlString]];
 }
 
