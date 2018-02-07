@@ -97,11 +97,11 @@
     
     NSDictionary *dic = self.arrDate[indexPath.row];
     ChemistryDetailVC *vc =[ChemistryDetailVC new];
-    vc.ID = dic[@"id"];
-    vc.name = dic[@"nameCn"];
-    vc.molecularFormula = dic[@"molecularFormula"];
-    vc.ename = dic[@"nameEn"];
-    vc.cas = dic[@"cas"];
+    vc.ID = dic[@"id"]?dic[@"id"]:@"";
+    vc.name = dic[@"nameCn"]?dic[@"nameCn"]:@"";
+    vc.molecularFormula = dic[@"molecularFormula"]?dic[@"molecularFormula"]:@"";
+    vc.ename = dic[@"nameEn"]?dic[@"nameEn"]:@"";
+    vc.cas = dic[@"cas"]?dic[@"cas"]:@"";
     [self.navigationController pushViewController:vc animated:YES];
     
 }
