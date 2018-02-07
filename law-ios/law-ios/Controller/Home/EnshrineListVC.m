@@ -126,41 +126,25 @@
     btn.titleLabel.font = [UIFont systemFontOfSize:15];
     [[UIApplication sharedApplication].delegate.window addSubview:btn];
     
-    if([dic[@"is_favorite"]intValue] == 1){
-        //已收藏
-        [btn setImage:[UIImage imageNamed:@"文章收藏icon_已收藏"] forState:UIControlStateNormal];
-    } else {
-        [btn setImage:[UIImage imageNamed:@"文章收藏icon_未收藏"] forState:UIControlStateNormal];
-    }
+    [btn setImage:[UIImage imageNamed:@"文章收藏icon_已收藏"] forState:UIControlStateNormal];
+    
     WS(ws);
     [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         NSMutableDictionary * mdict = [NSMutableDictionary new];
         [mdict setValue:ws.typeCode forKey:@"typeCode"];
         [mdict setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"login"] forKey:@"userId"];
         [mdict setValue:dic[@"id"] forKey:@"lawId"];
-        if([dic[@"is_favorite"]intValue] == 1) {
-            [ws POSTurl:CANCEL_FAVORITE parameters:@{@"data":[ws dictionaryToJson:mdict]} success:^(id responseObject) {
-                
-                [btn setImage:[UIImage imageNamed:@"文章收藏icon_未收藏"] forState:UIControlStateNormal];
-                
-                [[Toast shareToast]makeText:@"取消收藏成功" aDuration:1];
-                
-                [SVProgressHUD dismiss];
-            } failure:^(id responseObject) {
-                [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
-                [SVProgressHUD dismiss];
-            }];
-        }else {
-            [ws POSTurl:ADD_FAVORITE parameters:@{@"data":[ws dictionaryToJson:mdict]} success:^(id responseObject) {
-                [btn setImage:[UIImage imageNamed:@"文章收藏icon_已收藏"] forState:UIControlStateNormal];
-                [[Toast shareToast]makeText:@"收藏成功" aDuration:1];
-                [SVProgressHUD dismiss];
-            } failure:^(id responseObject) {
-                [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
-                [SVProgressHUD dismiss];
-            }];
-        }
-        
+        [ws POSTurl:CANCEL_FAVORITE parameters:@{@"data":[ws dictionaryToJson:mdict]} success:^(id responseObject) {
+            
+            [btn setImage:[UIImage imageNamed:@"文章收藏icon_未收藏"] forState:UIControlStateNormal];
+            
+            [[Toast shareToast]makeText:@"取消收藏成功" aDuration:1];
+            
+            [SVProgressHUD dismiss];
+        } failure:^(id responseObject) {
+            [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+            [SVProgressHUD dismiss];
+        }];
     }];
     
 }

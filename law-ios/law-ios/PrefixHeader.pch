@@ -43,6 +43,5 @@
 #define GET_LEVELLIST [NSString stringWithFormat:@"%@/law/getLevelList",BASE_URL]
 #define GET_MESSAGE [NSString stringWithFormat:@"%@/user//getMessage",BASE_URL]
 #define USER_URL [NSString stringWithFormat:@"%@/user/getUserInfo",BASE_URL]
-
-
+#define GET_ARCHITECTURE [NSString stringWithFormat:@"%@/distance/getArchitecture",BASE_URL]
 #endif /* PrefixHeader_pch */

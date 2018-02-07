@@ -137,6 +137,10 @@
 		8F51354B20235F3B002517D7 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F51354A20235F3B002517D7 /* CollectionViewController.m */; };
 		8F5135DE2023705D002517D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F5135DD2023705D002517D7 /* Main.storyboard */; };
 		8F5135E12024BBD8002517D7 /* LoginTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5135E02024BBD8002517D7 /* LoginTableViewCell.m */; };
+		8F52AAED202B41BD0021936F /* FireSeparationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F52AAEC202B41BD0021936F /* FireSeparationVC.m */; };
+		8F52AAF0202B444B0021936F /* FireListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F52AAEF202B444B0021936F /* FireListVC.m */; };
+		8F52AAF3202B489A0021936F /* FireSeachListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F52AAF2202B489A0021936F /* FireSeachListVC.m */; };
+		8F52AAF6202B4A050021936F /* FireSeachVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F52AAF5202B4A050021936F /* FireSeachVC.m */; };
 		8FBA8239201C323E0056D8E8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA8238201C323D0056D8E8 /* BaseViewController.m */; };
 		8FBA823C201C32970056D8E8 /* Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA823B201C32960056D8E8 /* Toast.m */; };
 		8FBA8272201C32CF0056D8E8 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA823F201C32CF0056D8E8 /* NSObject+Runtime.m */; };
@@ -398,6 +402,14 @@
 		8F5135DD2023705D002517D7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8F5135DF2024BBD8002517D7 /* LoginTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginTableViewCell.h; sourceTree = "<group>"; };
 		8F5135E02024BBD8002517D7 /* LoginTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewCell.m; sourceTree = "<group>"; };
+		8F52AAEB202B41BD0021936F /* FireSeparationVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FireSeparationVC.h; sourceTree = "<group>"; };
+		8F52AAEC202B41BD0021936F /* FireSeparationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FireSeparationVC.m; sourceTree = "<group>"; };
+		8F52AAEE202B444B0021936F /* FireListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FireListVC.h; sourceTree = "<group>"; };
+		8F52AAEF202B444B0021936F /* FireListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FireListVC.m; sourceTree = "<group>"; };
+		8F52AAF1202B489A0021936F /* FireSeachListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FireSeachListVC.h; sourceTree = "<group>"; };
+		8F52AAF2202B489A0021936F /* FireSeachListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FireSeachListVC.m; sourceTree = "<group>"; };
+		8F52AAF4202B4A050021936F /* FireSeachVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FireSeachVC.h; sourceTree = "<group>"; };
+		8F52AAF5202B4A050021936F /* FireSeachVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FireSeachVC.m; sourceTree = "<group>"; };
 		8FBA8236201C31A60056D8E8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8FBA8237201C323D0056D8E8 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		8FBA8238201C323D0056D8E8 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
@@ -799,6 +811,21 @@
 			path = collection;
 			sourceTree = "<group>";
 		};
+		8F52AAEA202B41550021936F /* fireSeparation */ = {
+			isa = PBXGroup;
+			children = (
+				8F52AAEB202B41BD0021936F /* FireSeparationVC.h */,
+				8F52AAEC202B41BD0021936F /* FireSeparationVC.m */,
+				8F52AAEE202B444B0021936F /* FireListVC.h */,
+				8F52AAEF202B444B0021936F /* FireListVC.m */,
+				8F52AAF4202B4A050021936F /* FireSeachVC.h */,
+				8F52AAF5202B4A050021936F /* FireSeachVC.m */,
+				8F52AAF1202B489A0021936F /* FireSeachListVC.h */,
+				8F52AAF2202B489A0021936F /* FireSeachListVC.m */,
+			);
+			path = fireSeparation;
+			sourceTree = "<group>";
+		};
 		8FBA8230201C31510056D8E8 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -882,6 +909,7 @@
 			children = (
 				8F2080DF20220D090035528C /* TabBarViewController.h */,
 				8F2080E020220D090035528C /* TabBarViewController.m */,
+				8F52AAEA202B41550021936F /* fireSeparation */,
 				425D74F220289E020061FEFC /* preventFire */,
 				8F51354820235F17002517D7 /* collection */,
 				4222E20620222A0F00CB8C6C /* User */,
@@ -1325,6 +1353,7 @@
 			files = (
 				42FCAEE52024C3450044545D /* LoginVC.h in Sources */,
 				42FCAEE62024C3450044545D /* LoginVC.xib in Sources */,
+				8F52AAF0202B444B0021936F /* FireListVC.m in Sources */,
 				42FCAEE72024C3450044545D /* UserVC.h in Sources */,
 				8FBA829C201C42CF0056D8E8 /* MyVi.m in Sources */,
 				8FBA8292201C33C30056D8E8 /* BaseTableViewCell.m in Sources */,
@@ -1347,6 +1376,7 @@
 				42FCAEE42024C3340044545D /* LoginVC.m in Sources */,
 				8FBA8281201C32CF0056D8E8 /* UIImage+getImage.m in Sources */,
 				8F513544202356A5002517D7 /* ListViewController.m in Sources */,
+				8F52AAF6202B4A050021936F /* FireSeachVC.m in Sources */,
 				8FBA827E201C32CF0056D8E8 /* UIColor+Random.m in Sources */,
 				4222E2042022291800CB8C6C /* MyInfoCell.m in Sources */,
 				8F2080DA20220CCE0035528C /* HomeViewController.m in Sources */,
@@ -1384,6 +1414,7 @@
 				425D74F8202A02A20061FEFC /* ChemistySCVC.m in Sources */,
 				8FBA8299201C3A9A0056D8E8 /* HttpsManager.m in Sources */,
 				8FBA8239201C323E0056D8E8 /* BaseViewController.m in Sources */,
+				8F52AAED202B41BD0021936F /* FireSeparationVC.m in Sources */,
 				8F2080DB20220CCE0035528C /* LawsViewController.m in Sources */,
 				8FBA82C7201D92870056D8E8 /* ZWMSegmentView.m in Sources */,
 				8FEBDABA2026F5F7008E91B9 /* EnshrineListVC.m in Sources */,
@@ -1396,6 +1427,7 @@
 				8FBA8283201C32CF0056D8E8 /* UIImage+Utility.m in Sources */,
 				8FBA8285201C32CF0056D8E8 /* UINavigationController+StackManager.m in Sources */,
 				425D74D5202583910061FEFC /* UserHeadCell.m in Sources */,
+				8F52AAF3202B489A0021936F /* FireSeachListVC.m in Sources */,
 				4207CFB4201CCF60003650D3 /* TypeButtonView.m in Sources */,
 				8F2080DE20220CCE0035528C /* SecurityViewController.m in Sources */,
 				8FBA8286201C32CF0056D8E8 /* UITableViewCell+ReuseIdentifier.m in Sources */,

@@ -66,6 +66,8 @@
     else {
         [ws.dataArr removeAllObjects];
         [ws.tbv reloadData];
+        [ws.tbv.mj_header endRefreshing];
+        [ws.tbv.mj_footer endRefreshing];
         return ;
     }
     [mdict setValue:[NSNumber numberWithInt:self.page + 1] forKey:@"page"];

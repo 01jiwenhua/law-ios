@@ -135,6 +135,8 @@
     }];
     [[self.fireBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         
+        [ws.navigationController setNavigationBarHidden:NO animated:NO];
+        [ws.navigationController pushViewController:[NSClassFromString(@"FireSeparationVC") new] animated:YES];
     }];
 }
 
