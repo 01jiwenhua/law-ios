@@ -99,6 +99,9 @@
     ChemistryDetailVC *vc =[ChemistryDetailVC new];
     vc.ID = dic[@"id"];
     vc.name = dic[@"nameCn"];
+    vc.molecularFormula = dic[@"molecularFormula"];
+    vc.ename = dic[@"nameEn"];
+    vc.cas = dic[@"cas"];
     [self.navigationController pushViewController:vc animated:YES];
     
 }

@@ -155,6 +155,9 @@
     ChemistryDetailVC *vc =[ChemistryDetailVC new];
     vc.ID = model.id;
     vc.name = model.nameCn;
+    vc.molecularFormula = model.molecularFormula;
+    vc.ename = model.nameEn;
+    vc.cas = model.cas;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
