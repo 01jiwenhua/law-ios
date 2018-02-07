@@ -10,5 +10,6 @@
 
 @interface ChemistySelectData : BaseViewController
 @property (nonatomic, strong )NSDictionary *dic;
-
+@property (nonatomic, strong ) NSMutableArray *arrKeyValue1;
+@property (nonatomic, strong ) NSMutableArray *arrKeyValue2;
 @end

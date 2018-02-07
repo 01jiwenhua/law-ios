@@ -12,14 +12,22 @@
 @property (nonatomic, strong)UITableView *tvList;
 @property (nonatomic, strong)NSArray *arrData;
 @property (nonatomic, assign)bool isSC;//是否收藏
+@property (nonatomic, strong ) NSArray *arrHead;
 
 @end
 
 @implementation ChemistryDetailVC
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.arrHead = @[@{@"中文名字":self.name},@{@"英文名字":self.ename},@{@"CAS编号":self.cas},@{@"分子式":self.molecularFormula}];
 }
 
 -(void)bindView {
@@ -97,12 +105,15 @@
  */
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.arrData.count;
+    return self.arrData.count + 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    NSArray *arrList = self.arrData[section][@"list"];
+    if (section == 0) {
+        return 4;
+    }
+    NSArray *arrList = self.arrData[section-1][@"list"];
     return arrList.count;
 }
 
@@ -112,7 +123,13 @@
     if(cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
-    NSArray *arrList = self.arrData[indexPath.section][@"list"];
+    if (indexPath.section ==0) {
+        NSDictionary *dic = self.arrHead[indexPath.row];
+        cell.textLabel.text = dic.allKeys[0];
+        cell.detailTextLabel.text = dic.allValues[0];
+        return cell;
+    }
+    NSArray *arrList = self.arrData[indexPath.section-1][@"list"];
     NSDictionary *dic= arrList[indexPath.row];
     NSString *st = [NSString stringWithFormat:@"%@:",dic[@"key"]];
     cell.textLabel.text = [st substringFromIndex:2];
@@ -122,8 +139,10 @@
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    NSArray *arrList = self.arrData[indexPath.section][@"list"];
+    if (indexPath.section==0) {
+        return 60;
+    }
+    NSArray *arrList = self.arrData[indexPath.section-1][@"list"];
     NSDictionary *dic= arrList[indexPath.row];
     NSString *st = [NSString stringWithFormat:@"%@:",dic[@"key"]];
     CGSize textSize = [dic[@"value"] boundingRectWithSize:CGSizeMake(WIDTH_ - 150, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]} context:nil].size;
@@ -141,7 +160,10 @@
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    NSString *st = self.arrData[section][@"title"];
+    if (section==0) {
+        return nil;
+    }
+    NSString *st = self.arrData[section-1][@"title"];
     UILabel *lb = [UILabel new];
     lb.text = [NSString stringWithFormat:@"  %@",st];
     return lb;

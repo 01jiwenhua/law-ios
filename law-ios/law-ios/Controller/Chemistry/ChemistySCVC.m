@@ -21,12 +21,6 @@
 
 @implementation ChemistySCVC
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBar.hidden = NO;
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -60,9 +54,11 @@
 }
 
 -(void)bindView {
-    self.tvList = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH_, HEIGHT_ - 108)];
+    self.tvList = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, WIDTH_, HEIGHT_ - 108) style:UITableViewStyleGrouped];
+
     self.tvList.delegate = self;
     self.tvList.dataSource = self;
+    self.tvList.backgroundColor = [UIColor whiteColor];
     self.tvList.mj_header = self.refreshHeader;
     self.tvList.mj_footer = self.refreshFooter;
     [self.view addSubview:self.tvList];

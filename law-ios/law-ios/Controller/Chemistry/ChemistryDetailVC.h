@@ -11,4 +11,7 @@
 @interface ChemistryDetailVC : BaseViewController
 @property (nonatomic, strong) NSString *ID;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *ename;
+@property (nonatomic, strong) NSString *cas;
+@property (nonatomic, strong ) NSString *molecularFormula;
 @end

@@ -16,6 +16,9 @@
 @property (nonatomic, strong ) MJRefreshNormalHeader *refreshHeader;
 @property (nonatomic, strong) MJRefreshBackNormalFooter * refreshFooter;
 @property (nonatomic, assign) int currentPage;
+@property (nonatomic, strong ) UIView *viHead;
+@property (nonatomic, strong ) NSArray *arrName;
+@property (nonatomic, strong ) NSArray *arrValue;
 @end
 
 @implementation ChemistySelectData
@@ -23,6 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.arrKnow = [NSMutableArray array];
+    self.arrName = @[@"状态",@"颜色",@"气味",@"味道",@"比重（水=1）",@"比重（空气=1）",@"PH值",@"透明度"];
+    self.arrValue = @[@"无",@"无色",@"无",@"无",@"无",@"无",@"无",@"无"];
+    
 }
 
 -(void)bindView {
@@ -34,6 +40,56 @@
     self.tvList.mj_header = self.refreshHeader;
     self.tvList.mj_footer = self.refreshFooter;
     [self.view addSubview:self.tvList];
+    
+    
+    self.viHead = [UIView new];
+    self.viHead.frame = CGRectMake(0, 0, WIDTH_, 260);
+    self.viHead.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    self.tvList.tableHeaderView = self.viHead;
+    UILabel *lbT1 = [UILabel new];
+    lbT1.frame = CGRectMake(20, 5, 200, 30);
+    lbT1.text  =@"理化特性";
+    lbT1.font = [UIFont systemFontOfSize:17];
+    [self.viHead addSubview:lbT1];
+    CGFloat y = lbT1.bottom + 5;
+    for (int i=0 ; i<_arrKeyValue1.count; i++) {
+        NSDictionary *dic= _arrKeyValue1[i];
+        UILabel *lb = [UILabel new];
+        lb.font = [UIFont systemFontOfSize:15];
+        lb.textColor = [UIColor grayColor];
+        lb.text = [NSString stringWithFormat:@"%@: %@",dic.allKeys[0],dic.allValues[0]];
+        if (i%2==0) {
+            lb.frame = CGRectMake(20, y, WIDTH_/2 - 20, 20);
+        }else{
+            lb.frame = CGRectMake(WIDTH_/2 +20, y, WIDTH_/2 - 20, 20);
+            y = lb.bottom ;
+        }
+        [self.viHead addSubview:lb];
+    }
+    
+    UILabel *lbT2 = [UILabel new];
+    lbT2.frame = CGRectMake(20, y + 10, 200, 30);
+    lbT2.text  =@"健康危害";
+    lbT2.font = [UIFont systemFontOfSize:17];
+    [self.viHead addSubview:lbT2];
+    
+    y = lbT2.bottom + 5;
+    for (int i=0 ; i<_arrKeyValue2.count; i++) {
+        NSDictionary *dic= _arrKeyValue1[i];
+        UILabel *lb = [UILabel new];
+        lb.font = [UIFont systemFontOfSize:15];
+        lb.textColor = [UIColor grayColor];
+        lb.text = [NSString stringWithFormat:@"%@: %@",dic.allKeys[0],dic.allValues[0]];
+        if (i%2==0) {
+            lb.frame = CGRectMake(20, y, WIDTH_/2 - 20, 20);
+        }else{
+            lb.frame = CGRectMake(WIDTH_/2 +20, y, WIDTH_/2 - 20, 20);
+            y = lb.bottom ;
+        }
+        [self.viHead addSubview:lb];
+    }
+    
+    
 }
 
 -(void)getData{
