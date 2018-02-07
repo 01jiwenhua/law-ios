@@ -31,10 +31,11 @@
 -(void)bindView{
     self.title = @"个人资料";
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    self.tvList = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,WIDTH_ ,HEIGHT_ ) style:UITableViewStyleGrouped];
+    self.tvList = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,WIDTH_ ,HEIGHT_ - 64 ) style:UITableViewStyleGrouped];
     self.tvList.delegate = self;
     self.tvList.dataSource = self;
     [self.view addSubview:self.tvList];
+    
 }
 
 -(void)bindModel {

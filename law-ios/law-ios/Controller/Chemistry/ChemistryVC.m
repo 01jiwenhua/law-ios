@@ -32,6 +32,10 @@
 @property (nonatomic, strong )UIPickerView *pickerView;
 @property (nonatomic, strong )NSArray *arrData;
 @property (nonatomic, strong ) NSString *code;
+@property (nonatomic, strong ) NSMutableArray *arrKeyValue1;
+@property (nonatomic, strong ) NSMutableArray *arrKeyValue2;
+@property (nonatomic, assign )int row;
+@property (nonatomic, assign )int section;
 @end
 
 @implementation ChemistryVC
@@ -52,6 +56,8 @@
     self.arrDanHealth = [NSArray new];
     self.arrKnow = [NSMutableArray array];
     self.dicRequest = [NSMutableDictionary dictionary];
+    self.arrKeyValue1 = [NSMutableArray array];
+    self.arrKeyValue2 = [NSMutableArray array];
 }
 
 -(void)bindView{
@@ -156,6 +162,13 @@
     }
     [self.dicRequest addEntriesFromDictionary:dic];
     self.cellCurrent.detailTextLabel.text =dic.allValues[0];
+    if (self.section == 0) {
+        NSDictionary *dickeyvelue = self.arrKeyValue1[self.row];
+        self.arrKeyValue1[self.row] =@{dickeyvelue.allKeys[0]:dic.allValues[0]};
+    }else{
+        NSDictionary *dic = self.arrKeyValue2[self.row];
+        self.arrKeyValue2[self.row] =@{dic.allKeys[0]:dic.allValues[0]};
+    }
 }
 
 -(void)getData{
@@ -189,6 +202,14 @@
     [self POSTurl:GET_UNKNOWPARAMS parameters:@{} success:^(id responseObject) {
         ws.arrPorCPro = responseObject[@"data"][@"lhList"];
         ws.arrDanHealth = responseObject[@"data"][@"jkwhList"];
+        for (NSDictionary *dic in self.arrPorCPro) {
+            [ws.arrKeyValue1 addObject:@{dic[@"categoryName"]:@"无"}];
+        }
+ 
+        for (NSDictionary *dic in self.arrDanHealth) {
+            [ws.arrKeyValue2 addObject:@{dic[@"categoryName"]:@"无"}];
+        }
+        
         [self setViKonw];
         [self setViUnKonw];
         [SVProgressHUD dismiss];
@@ -256,6 +277,8 @@
 -(void)selectAction{
     ChemistySelectData *vc = [ChemistySelectData new];
     vc.dic = self.dicRequest;
+    vc.arrKeyValue1 = self.arrKeyValue1;
+    vc.arrKeyValue2 = self.arrKeyValue2;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -293,8 +316,10 @@
         cell.textLabel.textColor = [UIColor lightGrayColor];
         if (indexPath.section == 0) {
             cell.textLabel.text = self.arrPorCPro[indexPath.row][@"categoryName"];
+            
         }else{
             cell.textLabel.text = self.arrDanHealth[indexPath.row][@"categoryName"];
+            
         }
         cell.detailTextLabel.textColor = [UIColor darkGrayColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -327,6 +352,8 @@
         
         [mdict setValue:dic[@"categoryCode"] forKey:@"code"];
         self.code = dic[@"categoryCode"];
+        self.section = (int)indexPath.section;
+        self.row = (int)indexPath.row;
         [self POSTurl:GET_UNKNOWPARAMS_DETAILS parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
             NSString *st = responseObject[@"data"][@"list"];
             ws.arrData = [self arrayWithJsonString:st];
@@ -343,6 +370,9 @@
         ChemistryDetailVC *vc =[ChemistryDetailVC new];
         vc.ID = model.id;
         vc.name = model.nameCn;
+        vc.molecularFormula = model.molecularFormula;
+        vc.ename = model.nameEn;
+        vc.cas = model.cas;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
