@@ -14,7 +14,6 @@
 @property (nonatomic,strong)UITableView * tbv;
 @property (nonatomic,strong)NSMutableArray * dataArr;
 @property (nonatomic,assign)int page;
-
 @end
 
 @implementation EnshrineListVC
@@ -114,8 +113,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:@"http://www.bjsafety.gov.cn/art/2018/2/1/art_612_3641.html"];
     NSDictionary *dic= self.dataArr[indexPath.row];
+    AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:[NSString stringWithFormat:@"%@/%@.%@",BASE_URL,dic[@"filePath"],dic[@"fileFrom"]]];
     [self.navigationController pushViewController:webVC animated:YES];
     
     
@@ -127,7 +126,6 @@
     [[UIApplication sharedApplication].delegate.window addSubview:btn];
     
     [btn setImage:[UIImage imageNamed:@"文章收藏icon_已收藏"] forState:UIControlStateNormal];
-    
     WS(ws);
     [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         NSMutableDictionary * mdict = [NSMutableDictionary new];

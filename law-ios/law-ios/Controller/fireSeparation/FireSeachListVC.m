@@ -7,6 +7,7 @@
 //
 
 #import "FireSeachListVC.h"
+#import "THScrollChooseView.h"
 
 @interface FireModel ()
 
@@ -19,6 +20,10 @@
 @property (nonatomic, strong)UIScrollView * bgScr;
 
 @property (nonatomic, strong)NSMutableArray * dataArr;
+
+@property (nonatomic,strong)THScrollChooseView * scrollChooseView;
+
+@property (nonatomic, strong)UIButton * queryBtn;
 @end
 @implementation FireModel
 @end
@@ -53,7 +58,7 @@
             model.dict = obj;
             [ws.dataArr addObject:model];
         }
-        [ws reloadVi];
+        [ws refreshVi];
         [SVProgressHUD dismiss];
     } failure:^(id responseObject) {
         [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
@@ -61,7 +66,7 @@
     }];
 }
 
--(void)reloadVi {
+-(void)refreshVi {
     for (UIView * vi in self.bgScr.subviews) {
         if (vi.tag == 111)
             [vi removeFromSuperview];
@@ -70,11 +75,11 @@
     UIImageView * igv;
     UIView * line;
     UILabel * lab;
-    for (FireModel * model in self.dataArr) {
+    for (FireModel * modelFather in self.dataArr) {
         btn = [[UIButton alloc]initWithFrame:CGRectMake(0,btn.bottom + 20, WIDTH_, 54)];
         btn.backgroundColor = [UIColor whiteColor];
         [btn setTitleColor:RGBColor(71, 71, 71) forState:UIControlStateNormal];
-        [btn setTitle:[NSString stringWithFormat:@" %@",model.dict[@"name"]] forState:UIControlStateNormal];
+        [btn setTitle:[NSString stringWithFormat:@" %@",modelFather.dict[@"name"]] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:17.f];
         [btn setImage:[UIImage getImageWithColor:RGBColor(114, 170, 245) andSize:CGSizeMake(4, 18)] forState:UIControlStateNormal];
         btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -91,25 +96,61 @@
         WS(ws);
         [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
 
-        
+            if (ws.scrollChooseView) {
+                [ws.scrollChooseView removeFromSuperview];
+                ws.scrollChooseView = nil;
+            }
+            NSMutableDictionary * mdict = [NSMutableDictionary new];
+            [mdict setValue:modelFather.dict[@"code"] forKey:@"parentCode"];
+            [mdict setValue:self.standard forKey:@"standard"];
+            [SVProgressHUD showWithStatus:@"加载中..."];
+
+            [self POSTurl:GET_ARCHITECTURE parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
+                [SVProgressHUD dismiss];
+                NSString *st = responseObject[@"data"][@"architecture"];
+                NSArray *arr = [self arrayWithJsonString:st];
+                if (arr.count <= 0) {
+                    return ;
+                }
+                FireModel * model;
+                NSMutableArray * namearr = [NSMutableArray new];
+                NSMutableArray * modelarr = [NSMutableArray new];
+                for (id obj in arr) {
+                    model = [FireModel new];
+                    model.dict = obj;
+                    [modelarr addObject:model];
+                    [namearr addObject:[NSString stringWithFormat:@"%@",obj[@"name"]]];
+                }
+                ws.scrollChooseView = [[THScrollChooseView alloc]initWithQuestionArray:namearr withDefaultDesc:namearr[0]];
+                [ws.scrollChooseView setConfirmBlock:^(NSInteger selectedValue) {
+                    modelFather.model = modelarr[selectedValue];
+                    [ws refreshVi];
+                }];
+                [ws.scrollChooseView showView];
+
+            } failure:^(id responseObject) {
+                [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+                [SVProgressHUD dismiss];
+            }];
         }];
         [self.bgScr addSubview:btn];
         [self makeButton:btn];
+        btn.tag = 111;
 
-        FireModel * subModel = model.model;
+        FireModel * subModel = modelFather.model;
         while (subModel) {
-            subModel = subModel.model;
             lab = [UILabel new];
             lab.textColor = RGBColor(71, 71, 71);
             lab.font = [UIFont systemFontOfSize:17.f];
             lab.textAlignment = NSTextAlignmentRight;
             lab.frame = CGRectMake(100, 19, WIDTH_ - 140, 19);
+            lab.text = [NSString stringWithFormat:@"%@",subModel.dict[@"name"]];
             [btn addSubview:lab];
             
             btn = [[UIButton alloc]initWithFrame:CGRectMake(0,btn.bottom, WIDTH_, 54)];
             btn.backgroundColor = [UIColor whiteColor];
             [btn setTitleColor:RGBColor(168, 168, 168) forState:UIControlStateNormal];
-            [btn setTitle:[NSString stringWithFormat:@" %@",model.dict[@"name"]] forState:UIControlStateNormal];
+            [btn setTitle:[NSString stringWithFormat:@" %@",subModel.dict[@"name"]] forState:UIControlStateNormal];
             btn.titleLabel.font = [UIFont systemFontOfSize:17.f];
             btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
             [self.bgScr addSubview:btn];
@@ -123,14 +164,56 @@
             [btn addSubview:line];
             
             [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-                
+                if (ws.scrollChooseView) {
+                    [ws.scrollChooseView removeFromSuperview];
+                    ws.scrollChooseView = nil;
+                }
+                NSMutableDictionary * mdict = [NSMutableDictionary new];
+                [mdict setValue:subModel.dict[@"code"] forKey:@"parentCode"];
+                [mdict setValue:self.standard forKey:@"standard"];
+                [SVProgressHUD showWithStatus:@"加载中..."];
+
+                [self POSTurl:GET_ARCHITECTURE parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
+                    [SVProgressHUD dismiss];
+
+                    NSString *st = responseObject[@"data"][@"architecture"];
+                    NSArray *arr = [self arrayWithJsonString:st];
+                    if (arr.count <= 0) {
+                        return ;
+                    }
+                    FireModel * model;
+                    NSMutableArray * namearr = [NSMutableArray new];
+                    NSMutableArray * modelarr = [NSMutableArray new];
+                    for (id obj in arr) {
+                        model = [FireModel new];
+                        model.dict = obj;
+                        [modelarr addObject:model];
+                        [namearr addObject:[NSString stringWithFormat:@"%@",obj[@"name"]]];
+                    }
+                    ws.scrollChooseView = [[THScrollChooseView alloc]initWithQuestionArray:namearr withDefaultDesc:namearr[0]];
+                    [ws.scrollChooseView setConfirmBlock:^(NSInteger selectedValue) {
+                        subModel.model = modelarr[selectedValue];
+                        [ws refreshVi];
+                    }];
+                    [ws.scrollChooseView showView];
+
+                } failure:^(id responseObject) {
+                    [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+                    [SVProgressHUD dismiss];
+                }];
                 
             }];
             [self.bgScr addSubview:btn];
             [self makeButton:btn];
+            btn.tag = 111;
+            subModel = subModel.model;
         }
     }
     
+    self.queryBtn.frame = CGRectMake(20, MAX(btn.bottom + 50, HEIGHT_ - 180), WIDTH_ - 40, 54);
+    [self.bgScr addSubview:self.queryBtn];
+
+    self.bgScr.contentSize = CGSizeMake(self.bgScr.width,MAX(self.queryBtn.bottom + 20, HEIGHT_));
 }
 
 -(UIScrollView *)bgScr {
@@ -142,7 +225,18 @@
     return _bgScr;
 }
 
-
+-(UIButton *)queryBtn {
+    if (!_queryBtn) {
+        UIButton * btn = [UIButton new];
+        [btn setTitle:@"查询" forState:UIControlStateNormal];
+        btn.backgroundColor = RGBColor(90, 156, 245);
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        
+        _queryBtn = btn;
+    }
+    return _queryBtn;
+}
 -(void)makeButton:(UIButton *)btn {
     btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [btn setTitleEdgeInsets:UIEdgeInsetsMake(0, 13, 0,0)];//文字距离上边框的距离增加imageView的高度，距离左边框减少imageView的宽度，距离下边框和右边框距离不变
