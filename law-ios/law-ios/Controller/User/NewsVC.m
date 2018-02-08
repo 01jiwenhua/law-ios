@@ -25,7 +25,6 @@
     NSMutableDictionary * mdict = [NSMutableDictionary new];
     //[mdict setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"login"] forKey:@"userId"];
     [mdict setValue:@"1" forKey:@"type"];
-    
     [self POSTurl:GET_MESSAGE parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
         
         [SVProgressHUD dismiss];

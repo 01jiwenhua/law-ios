@@ -24,7 +24,7 @@
     FireSeachListVC * vc;
     NSString * standard = @"";
     if ([self.title isEqualToString:@"汽油加油加气站设计与施工规范"]) {
-        titles = @[@"站址选择",@"站内平面布局"];
+        titles = @[@"站址选择",@"站内平面布置"];
         standard = @"GB 50156-2012";
     }
     

@@ -200,6 +200,8 @@
     }];
     
     [self POSTurl:GET_UNKNOWPARAMS parameters:@{} success:^(id responseObject) {
+        [ws.arrKeyValue1 removeAllObjects];
+        [ws.arrKeyValue2 removeAllObjects];
         ws.arrPorCPro = responseObject[@"data"][@"lhList"];
         ws.arrDanHealth = responseObject[@"data"][@"jkwhList"];
         for (NSDictionary *dic in self.arrPorCPro) {

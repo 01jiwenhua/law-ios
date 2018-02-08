@@ -51,7 +51,6 @@
 
 //下一步
 - (IBAction)nextAction:(id)sender {
-    
     WS(ws);
     [SVProgressHUD showWithStatus:@"加载中..."];
     NSMutableDictionary * mdict = [NSMutableDictionary new];

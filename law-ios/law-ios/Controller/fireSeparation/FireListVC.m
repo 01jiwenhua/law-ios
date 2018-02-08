@@ -43,10 +43,13 @@
         
         lab = [UILabel new];
         lab.text = titles[i];
+        if (i == 2) {
+            lab.text = @"GB50156-2012\n汽油加油加气站设计与施工规范";
+        }
         lab.numberOfLines = 0;
         lab.font = [UIFont systemFontOfSize:18.f];
         lab.textColor = RGBColor(42, 42, 48);
-        lab.frame = CGRectMake(134, 0, WIDTH_ - 134, btn.height);
+        lab.frame = CGRectMake(134, 0, WIDTH_ - 144, btn.height);
         [btn addSubview:lab];
         
         WS(ws);
