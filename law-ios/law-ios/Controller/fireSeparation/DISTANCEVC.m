@@ -40,8 +40,6 @@
     }
     [mdict setValue:model1.dict[@"id"] forKey:@"structureOutId"];
     [mdict setValue:model0.dict[@"id"] forKey:@"deviceInId"];
-    [mdict setValue:@52 forKey:@"structureOutId"];
-    [mdict setValue:@33 forKey:@"deviceInId"];
     [SVProgressHUD showWithStatus:@"加载中..."];
     
     [self POSTurl:GET_DISTANCE
@@ -136,7 +134,7 @@
     [vi addSubview:lab6];
 
     UILabel * lab7 = [UILabel new];
-    lab7.frame = CGRectMake(10, 118, 90, 16);
+    lab7.frame = CGRectMake(10, 128, 90, 16);
     lab7.font = [UIFont systemFontOfSize:16.0];
     lab7.textColor = RGBColor(103, 103, 103);
     lab7.text = [NSString stringWithFormat:@"查询标准："];
@@ -147,40 +145,55 @@
     
     NSDictionary * dic = (NSDictionary *)[self arrayWithJsonString:self.dic[@"data"][@"distance"]];
     
-    
+    if (!dic) {
+        [[Toast shareToast]makeText:@"暂未收录此内容" aDuration:1];
+    }
     UILabel * lab9 = [UILabel new];
     lab9.frame = CGRectMake(90, 72, WIDTH_ - 120, 30);
     lab9.font = [UIFont systemFontOfSize:30.0];
     lab9.textColor = RGBColor(250, 58, 58);
-    lab9.text = [NSString stringWithFormat:@"%@m",dic[@"distance"]];
+    lab9.text = @"0m";
+    if (dic[@"distance"]) {
+        lab9.text = [NSString stringWithFormat:@"%@m",dic[@"distance"]];
+    }
+    
+    
     [vi addSubview:lab9];
     
-    UILabel * lab10 = [UILabel new];
+    UITextView * lab10 = [UITextView new];
+    lab10.scrollEnabled = NO;
     lab10.frame = CGRectMake(90, 118, WIDTH_ - 120, 16);
     lab10.font = [UIFont systemFontOfSize:16];
     lab10.textColor = RGBColor(71, 71, 71);
-    lab10.text = dic[@"standard"];
+    lab10.text = dic[@"standard"]?dic[@"standard"]:@"无";
     NSString *st1 = lab10.text;
-    CGSize textSize = [st1 boundingRectWithSize:CGSizeMake(WIDTH_ - 150, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]} context:nil].size;
+    CGSize textSize = [st1 boundingRectWithSize:CGSizeMake(WIDTH_ - 150, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]} context:nil].size;
+    if (textSize.height<25) {
+        textSize.height = 25;
+    }
     lab10.frame = CGRectMake(90, 118, WIDTH_ - 120, textSize.height);
-    lab10.numberOfLines = 0;
+    lab10.editable = NO;
     [vi addSubview:lab10];
     
     UILabel * lab8 = [UILabel new];
-    lab8.frame = CGRectMake(10, lab10.bottom + 5, 90, 16);
+    lab8.frame = CGRectMake(10, lab10.bottom + 15, 90, 16);
     lab8.font = [UIFont systemFontOfSize:16.0];
     lab8.textColor = RGBColor(103, 103, 103);
     lab8.text = [NSString stringWithFormat:@"相关说明："];
     [vi addSubview:lab8];
     
-    UILabel * lab11 = [UILabel new];
+    UITextView * lab11 = [UITextView new];
+    lab11.scrollEnabled = NO;
     lab11.frame = CGRectMake(90, 152, WIDTH_ - 120, 16);
     lab11.font = [UIFont systemFontOfSize:16];
     lab11.textColor = RGBColor(71, 71, 71);
-    lab11.text = dic[@"instruction"];
+    lab11.text = dic[@"noteContent"]?dic[@"noteContent"]:@"无";
     NSString *st2 = lab11.text;
-    CGSize textSize1 = [st2 boundingRectWithSize:CGSizeMake(WIDTH_ - 150, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]} context:nil].size;
-    lab11.numberOfLines = 0;
+    CGSize textSize1 = [st2 boundingRectWithSize:CGSizeMake(WIDTH_ - 150, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]} context:nil].size;
+    lab11.editable =  NO;
+    if (textSize1.height<30) {
+        textSize1.height = 30;
+    }
     lab11.frame = CGRectMake(90, lab10.bottom + 5, WIDTH_ - 120, textSize1.height);
     [vi addSubview:lab11];
     
