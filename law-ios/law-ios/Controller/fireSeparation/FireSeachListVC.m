@@ -54,15 +54,29 @@
     [mdict setValue:self.title forKey:@"name"];
     [mdict setValue:self.standard forKey:@"standard"];
     if([self.title isEqualToString:@"站内平面布置"]){
-        [self.dataArr removeAllObjects];
-        NSArray *arr = @[@{@"name":@"站内设施A"}, @{@"name":@"站内设施B"}];
-        FireModel * model;
-        for (id obj in arr) {
-            model = [FireModel new];
-            model.dict = obj;
-            [self.dataArr addObject:model];
-        }
-        [self refreshVi];
+        [SVProgressHUD showWithStatus:@"加载中..."];
+        [self POSTurl:GET_ARCHITECTURE parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
+            [ws.dataArr removeAllObjects];
+            NSString *st = responseObject[@"data"][@"architecture"];
+            NSArray *arr = [self arrayWithJsonString:st];
+            FireModel * model;
+            for (id obj in arr) {
+                model = [FireModel new];
+                model.dict = [obj mutableCopy];
+                [model.dict setValue:[NSString stringWithFormat:@"%@ A",[obj valueForKey:@"name"]] forKey:@"name"];
+                [ws.dataArr addObject:model];
+                
+                model = [FireModel new];
+                model.dict = [obj mutableCopy];
+                [model.dict setValue:[NSString stringWithFormat:@"%@ B",[obj valueForKey:@"name"]] forKey:@"name"];
+                [ws.dataArr addObject:model];
+            }
+            [ws refreshVi];
+            [SVProgressHUD dismiss];
+        } failure:^(id responseObject) {
+            [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+            [SVProgressHUD dismiss];
+        }];
     }else{
         [SVProgressHUD showWithStatus:@"加载中..."];
         [self POSTurl:GET_ARCHITECTURE parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
