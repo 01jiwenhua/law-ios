@@ -178,7 +178,10 @@
             lab.textColor = RGBColor(71, 71, 71);
             lab.font = [UIFont systemFontOfSize:17.f];
             lab.textAlignment = NSTextAlignmentRight;
-            lab.frame = CGRectMake(100, 19, WIDTH_ - 140, 19);
+            float width = [btn.titleLabel.text sizeWithAttributes:@{NSFontAttributeName:btn.titleLabel.font}].width;
+            
+            
+            lab.frame = CGRectMake(width + 10, 19, WIDTH_ - width - 40, 19);
             lab.text = [NSString stringWithFormat:@"%@",subModel.dict[@"name"]];
             [btn addSubview:lab];
             
@@ -191,9 +194,29 @@
             [self.bgScr addSubview:btn];
             
             if ([subModel.dict[@"level"]intValue]<6) {
-                igv = [[UIImageView alloc]initWithFrame:CGRectMake(WIDTH_ - 30, 20, 7, 13)];
-                igv.image = [UIImage imageNamed:@"Back Chevron Copy 4"];
-                [btn addSubview:igv];
+                if (subModel.model) {
+                    igv = [[UIImageView alloc]initWithFrame:CGRectMake(WIDTH_ - 30, 20, 7, 13)];
+                    igv.image = [UIImage imageNamed:@"Back Chevron Copy 4"];
+                    [btn addSubview:igv];
+                }else {
+                    NSMutableDictionary * mdict = [NSMutableDictionary new];
+                    [mdict setValue:subModel.dict[@"code"] forKey:@"parentCode"];
+                    [mdict setValue:self.standard forKey:@"standard"];
+                    [self POSTurl:GET_ARCHITECTURE parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
+                        NSString *st = responseObject[@"data"][@"architecture"];
+                        NSArray *arr = [self arrayWithJsonString:st];
+                        if (arr.count <= 0) {
+                            return ;
+                        }
+                        UIImageView * igv = [[UIImageView alloc]initWithFrame:CGRectMake(WIDTH_ - 30, 20, 7, 13)];
+                        igv.image = [UIImage imageNamed:@"Back Chevron Copy 4"];
+                        [btn addSubview:igv];
+                        
+                    } failure:^(id responseObject) {
+                        [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+                    }];
+                }
+
             }
             
             line = [[UIView alloc]initWithFrame:CGRectMake(0, 53, WIDTH_, 0.5)];

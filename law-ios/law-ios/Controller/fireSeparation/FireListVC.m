@@ -55,7 +55,7 @@
         WS(ws);
         [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
             UIViewController * vc = [NSClassFromString(@"FireSeachVC") new];
-            vc.title = titles[i];
+            vc.title = [[titles[i] componentsSeparatedByString:@"\n"] lastObject];
             
             [ws.navigationController pushViewController:vc animated:YES];
         }];

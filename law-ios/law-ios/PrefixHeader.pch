@@ -44,6 +44,7 @@
 #define GET_MESSAGE [NSString stringWithFormat:@"%@/user//getMessage",BASE_URL]
 #define USER_URL [NSString stringWithFormat:@"%@/user/getUserInfo",BASE_URL]
 #define GET_ARCHITECTURE [NSString stringWithFormat:@"%@/distance/getArchitecture",BASE_URL]
+#define GET_TABS [NSString stringWithFormat:@"%@/distance/getTabs",BASE_URL]
 #define GET_DISTANCE [NSString stringWithFormat:@"%@/distance/getDistance",BASE_URL]
 #define Get_NewLawList [NSString stringWithFormat:@"%@/law/getNewLawList",BASE_URL]
 #define Check_Version [NSString stringWithFormat:@"%@/user/getNewVersion",BASE_URL]
