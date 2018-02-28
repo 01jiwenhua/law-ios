@@ -451,6 +451,11 @@
     [self selectWithName];
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+}
+
+
 -(MJRefreshNormalHeader *)refreshHeader {
     if (!_refreshHeader) {
         WS(ws);
