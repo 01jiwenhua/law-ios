@@ -72,6 +72,8 @@
     }
     [mdict setValue:[NSNumber numberWithInt:self.page + 1] forKey:@"page"];
     [mdict setValue:@10 forKey:@"pageSize"];
+    [mdict setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"login"] forKey:@"userId"];
+
     [SVProgressHUD showWithStatus:@"加载中..."];
 
     [self POSTurl:GET_LAWLIST parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
@@ -138,10 +140,13 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dic= self.dataArr[indexPath.row];
+    if([dic[@"status"] integerValue] == -1) {
+        [[Toast shareToast]makeText:@"该文件不存在" aDuration:1];
+        return ;
+    }
     AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:[NSString stringWithFormat:@"%@/files/%@.%@",BASE_URL,dic[@"filePath"],dic[@"fileFrom"]]];
     webVC.title = @"详情页";
     [self.navigationController pushViewController:webVC animated:YES];
-    
     
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.tag = 11111;

@@ -20,6 +20,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    [self.segmentVC  setSelectedAtIndex:0];
 }
 
 - (void)viewDidLoad {

@@ -159,6 +159,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSDictionary *dic= self.dataArr[indexPath.row];
+    if([dic[@"status"] integerValue] == -1) {
+        [[Toast shareToast]makeText:@"该文件不存在" aDuration:1];
+        return ;
+    }
     AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:[NSString stringWithFormat:@"%@/files/%@.%@",BASE_URL,dic[@"filePath"],dic[@"fileFrom"]]];
     webVC.title = @"详情页";
     [self.navigationController pushViewController:webVC animated:YES];

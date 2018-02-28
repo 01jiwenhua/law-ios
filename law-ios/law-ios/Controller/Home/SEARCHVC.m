@@ -23,6 +23,9 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
     [self.navigationController.navigationBar addSubview:self.search];
+    
+    
+    [self.search becomeFirstResponder];
 }
 
 - (void)viewDidLoad {
@@ -31,6 +34,7 @@
     
     self.search.frame = CGRectMake(40, 5, WIDTH_ - 80, 36);
     [self.view addSubview:self.search];
+    self.title = @"";
 }
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];

@@ -37,6 +37,7 @@
         [vi2 removeFromSuperview];
     }
     
+    self.tbv.contentOffset = CGPointZero;
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -140,6 +141,47 @@
     webVC.title = @"详情页";
     [self.navigationController pushViewController:webVC animated:YES];
 
+    
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.tag = 11111;
+    [btn setFrame:CGRectMake(WIDTH_ - 44, 27, 44, 30)];
+    btn.titleLabel.textAlignment = NSTextAlignmentRight;
+    btn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [[UIApplication sharedApplication].delegate.window addSubview:btn];
+    
+    [btn setImage:[UIImage imageNamed:@"文章收藏icon_已收藏"] forState:UIControlStateNormal];
+
+    WS(ws);
+    [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        NSMutableDictionary * mdict = [NSMutableDictionary new];
+        [mdict setValue:@"flfg" forKey:@"typeCode"];
+        [mdict setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"login"] forKey:@"userId"];
+        [mdict setValue:dic[@"id"] forKey:@"lawId"];
+        if([btn.imageView.image isEqual:[UIImage imageNamed:@"文章收藏icon_已收藏"]]) {
+            [ws POSTurl:CANCEL_FAVORITE parameters:@{@"data":[ws dictionaryToJson:mdict]} success:^(id responseObject) {
+                
+                [btn setImage:[UIImage imageNamed:@"文章收藏icon_未收藏"] forState:UIControlStateNormal];
+                
+                [[Toast shareToast]makeText:@"取消收藏成功" aDuration:1];
+                
+                [SVProgressHUD dismiss];
+            } failure:^(id responseObject) {
+                [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+                [SVProgressHUD dismiss];
+            }];
+        }else {
+            [ws POSTurl:ADD_FAVORITE parameters:@{@"data":[ws dictionaryToJson:mdict]} success:^(id responseObject) {
+                [btn setImage:[UIImage imageNamed:@"文章收藏icon_已收藏"] forState:UIControlStateNormal];
+                [[Toast shareToast]makeText:@"收藏成功" aDuration:1];
+                [SVProgressHUD dismiss];
+            } failure:^(id responseObject) {
+                [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+                [SVProgressHUD dismiss];
+            }];
+        }
+        
+    }];
+    
 }
 
 -(UITableView *)tbv {

@@ -27,7 +27,8 @@
 
 -(void)getData {
     
-    self.segmentVC = [[ZWMSegmentController alloc] initWithFrame:self.view.bounds titles:@[@"标准查询",@"模糊查询"]];
+    self.segmentVC = [[ZWMSegmentController alloc] initWithFrame:self.view.bounds titles:@[@"标准查询"]];
+    //@[@"标准查询",@"模糊查询"]
     self.segmentVC.segmentView.showSeparateLine = YES;
     self.segmentVC.segmentView.segmentTintColor = RGBColor(65,162, 240);
     self.segmentVC.viewControllers = @[[NSClassFromString(@"FireListVC") new],[BaseViewController new]];

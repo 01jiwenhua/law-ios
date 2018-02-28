@@ -52,8 +52,8 @@
     if (vi) {
         [vi removeFromSuperview];
     }
+    self.tbv.contentOffset = CGPointZero;
 }
-
 
 - (void)viewDidLoad {
     self.dataArr = [NSMutableArray new];
@@ -193,6 +193,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSDictionary *dic= self.dataArr[indexPath.row];
+    if([dic[@"status"] integerValue] == -1) {
+        [[Toast shareToast]makeText:@"该文件不存在" aDuration:1];
+        return ;
+    }
     NSString *url = [NSString stringWithFormat:@"%@/files/%@.%@",BASE_URL,dic[@"filePath"],dic[@"fileFrom"]];
     url = [url stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

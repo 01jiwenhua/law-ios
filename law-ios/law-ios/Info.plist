@@ -2,18 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleAllowMixedLocalizations</key>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>此 App 需要您的同意才能读取媒体资料库</string>
-    <key>NSCameraUsageDescription</key>
-    <string>cameraDesciption</string>
-    
-    <key>NSContactsUsageDescription</key>
-    <string>contactsDesciption</string>
-    
-    <key>NSMicrophoneUsageDescription</key>
-    <string>microphoneDesciption</string>
 	<key>CFBundleDisplayName</key>
 	<string>北京市危化监管综合查询系统</string>
 	<key>CFBundleExecutable</key>
@@ -37,6 +29,14 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>cameraDesciption</string>
+	<key>NSContactsUsageDescription</key>
+	<string>contactsDesciption</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>microphoneDesciption</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>此 App 需要您的同意才能读取媒体资料库</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
