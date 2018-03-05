@@ -34,6 +34,12 @@
     self.btnRegist.layer.cornerRadius = 7;
     [self.btnLogin setBackgroundColor:BLUE];
     self.btnLogin.layer.cornerRadius = 7;
+    [self.codeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"phone"]) {
+        self.tfPhone.text = [defaults objectForKey:@"phone"];
+    }
 }
 
 -(void)bindAction {
@@ -53,7 +59,6 @@
 
 
 -(void)getCode {
-    WS(ws);
     [SVProgressHUD showWithStatus:@"加载中..."];
     NSMutableDictionary * mdict = [NSMutableDictionary new];
     [mdict setValue:self.tfPhone.text forKey:@"phone"];
@@ -75,6 +80,17 @@
     NSMutableDictionary * mdict = [NSMutableDictionary new];
     [mdict setValue:self.tfPhone.text forKey:@"phone"];
     [mdict setValue:self.tfCode.text forKey:@"verifyCode"];
+    if (self.tfPhone.text.length == 0) {
+        [[Toast shareToast]makeText:@"验证码为空" aDuration:1];
+        [SVProgressHUD dismiss];
+        return;
+    }
+    if (self.tfCode.text.length == 0) {
+        [[Toast shareToast]makeText:@"验证码为空" aDuration:1];
+        [SVProgressHUD dismiss];
+        return;
+    }
+    
     [self POSTurl:LOGIN parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
         if ([responseObject[@"messageCode"] intValue] == 10000) {
             NSString *st = responseObject[@"data"][@"userInfo"];
@@ -95,6 +111,7 @@
     
     self.codeBtn.userInteractionEnabled = NO;
     self.validationSurplusTime = 60;
+    self.codeBtn.titleLabel.text = [NSString stringWithFormat:@"%d秒后重发",self.validationSurplusTime];
     [self.codeBtn setTitle:[NSString stringWithFormat:@"%d秒后重发",self.validationSurplusTime] forState:UIControlStateNormal];
     [_validationTimer invalidate];
     _validationTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateVerificatetime) userInfo:nil repeats:YES];
@@ -107,6 +124,7 @@
 -(void)updateVerificatetime {
     
     self.validationSurplusTime --;
+    self.codeBtn.titleLabel.text = [NSString stringWithFormat:@"%d秒后重发",self.validationSurplusTime];
     [self.codeBtn setTitle:[NSString stringWithFormat:@"%d秒后重发",self.validationSurplusTime] forState:UIControlStateNormal];
     if (self.validationSurplusTime == 0) {
         [self.codeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];

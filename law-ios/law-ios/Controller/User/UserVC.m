@@ -35,6 +35,7 @@
     if ([[NSUserDefaults standardUserDefaults] valueForKey:@"login"]) {
         [self refresh];
     }else{
+        self.tabBarController.selectedIndex = 0;
         [self.navigationController pushViewController:[LoginVC new] animated:YES];
     }
 }
@@ -106,10 +107,13 @@
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             cell.lbShow.text = self.dicUser[@"jobNmae"];
             cell.lbName.text = self.dicUser[@"real_name"];
-            if ([[NSUserDefaults standardUserDefaults] valueForKey:@"imgurl"]) {
+            if (self.dicUser[@"head_icon"]) {
+                NSString *imgurl = self.dicUser[@"head_icon"];
+                imgurl=[imgurl stringByReplacingOccurrencesOfString:@"\\"withString:@"/"];
+                [[NSUserDefaults standardUserDefaults]setObject:[NSString stringWithFormat:@"%@%@",BASE_URL,imgurl] forKey:@"imgurl"];
                 cell.ivHead.layer.masksToBounds = YES;
                 cell.ivHead.layer.cornerRadius = 32.5;
-                NSString *urlString = [[NSUserDefaults standardUserDefaults] valueForKey:@"imgurl"];
+                NSString *urlString = [NSString stringWithFormat:@"%@%@",BASE_URL,imgurl];
                 NSData *data = [NSData dataWithContentsOfURL:[NSURL  URLWithString:urlString]];
                 UIImage *image = [UIImage imageWithData:data]; // 取得图片
                 cell.ivHead.image = image;

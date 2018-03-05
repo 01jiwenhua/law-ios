@@ -61,6 +61,8 @@
     
     self.btnGetCode.userInteractionEnabled = NO;
     self.validationSurplusTime = 60;
+    
+    self.btnGetCode.titleLabel.text = [NSString stringWithFormat:@"%d秒后重发",self.validationSurplusTime];
     [self.btnGetCode setTitle:[NSString stringWithFormat:@"%d秒后重发",self.validationSurplusTime] forState:UIControlStateNormal];
     [_validationTimer invalidate];
     _validationTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateVerificatetime) userInfo:nil repeats:YES];
@@ -73,6 +75,7 @@
 -(void)updateVerificatetime {
     
     self.validationSurplusTime --;
+    self.btnGetCode.titleLabel.text = [NSString stringWithFormat:@"%d秒后重发",self.validationSurplusTime];
     [self.btnGetCode setTitle:[NSString stringWithFormat:@"%d秒后重发",self.validationSurplusTime] forState:UIControlStateNormal];
     if (self.validationSurplusTime == 0) {
         [self.btnGetCode setTitle:@"获取验证码" forState:UIControlStateNormal];
