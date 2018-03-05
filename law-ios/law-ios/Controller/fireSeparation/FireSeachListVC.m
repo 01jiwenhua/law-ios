@@ -107,9 +107,12 @@
     UIImageView * igv;
     UIView * line;
     UILabel * lab;
+    UIButton * superBtn;
     for (FireModel * modelFather in self.dataArr) {
+        
+        superBtn = btn;
         btn = [[UIButton alloc]initWithFrame:CGRectMake(0,btn.bottom + 20, WIDTH_, 54)];
-        btn.backgroundColor = [UIColor whiteColor];
+        [btn setBackgroundColor:LINE];
         [btn setTitleColor:RGBColor(71, 71, 71) forState:UIControlStateNormal];
         [btn setTitle:[NSString stringWithFormat:@" %@",modelFather.dict[@"name"]] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:17.f];
@@ -119,6 +122,7 @@
         
         igv = [[UIImageView alloc]initWithFrame:CGRectMake(WIDTH_ - 30, 20, 7, 13)];
         igv.image = [UIImage imageNamed:@"Back Chevron Copy 4"];
+        igv.tag = 1567;
         [btn addSubview:igv];
         
         line = [[UIView alloc]initWithFrame:CGRectMake(0, 53, WIDTH_, 0.5)];
@@ -173,6 +177,8 @@
         btn.tag = 111;
 
         FireModel * subModel = modelFather.model;
+        int i = 1;
+        NSString * str = @"";
         while (subModel) {
             lab = [UILabel new];
             lab.textColor = RGBColor(71, 71, 71);
@@ -184,11 +190,33 @@
             lab.frame = CGRectMake(width + 10, 19, WIDTH_ - width - 40, 19);
             lab.text = [NSString stringWithFormat:@"%@",subModel.dict[@"name"]];
             [btn addSubview:lab];
-            
+            superBtn = btn;
             btn = [[UIButton alloc]initWithFrame:CGRectMake(0,btn.bottom, WIDTH_, 54)];
             btn.backgroundColor = [UIColor whiteColor];
             [btn setTitleColor:RGBColor(168, 168, 168) forState:UIControlStateNormal];
-            [btn setTitle:[NSString stringWithFormat:@" %@",subModel.dict[@"name"]] forState:UIControlStateNormal];
+//            [btn setTitle:[NSString stringWithFormat:@" %@",subModel.dict[@"name"]] forState:UIControlStateNormal];
+            switch (i) {
+                case 1:
+                    str = @"一级选项";
+                    break;
+                case 2:
+                    str = @"二级选项";
+                    break;
+                case 3:
+                    str = @"三级选项";
+                    break;
+                case 4:
+                    str = @"四级选项";
+                    break;
+                case 5:
+                    str = @"五级选项";
+                    break;
+                default:
+                    break;
+            }
+            
+            
+            [btn setTitle:str forState:UIControlStateNormal];
             btn.titleLabel.font = [UIFont systemFontOfSize:17.f];
             btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
             [self.bgScr addSubview:btn];
@@ -197,7 +225,10 @@
                 if (subModel.model) {
                     igv = [[UIImageView alloc]initWithFrame:CGRectMake(WIDTH_ - 30, 20, 7, 13)];
                     igv.image = [UIImage imageNamed:@"Back Chevron Copy 4"];
+                    igv.tag = 1567;
                     [btn addSubview:igv];
+                    lab.textColor = BLUE;
+
                 }else {
                     NSMutableDictionary * mdict = [NSMutableDictionary new];
                     [mdict setValue:subModel.dict[@"code"] forKey:@"parentCode"];
@@ -206,17 +237,26 @@
                         NSString *st = responseObject[@"data"][@"architecture"];
                         NSArray *arr = [self arrayWithJsonString:st];
                         if (arr.count <= 0) {
+                            btn.height = 0;
+                            btn.hidden = YES;
+                            [[superBtn viewWithTag:1567] removeFromSuperview];
                             return ;
                         }
                         UIImageView * igv = [[UIImageView alloc]initWithFrame:CGRectMake(WIDTH_ - 30, 20, 7, 13)];
+                        igv.tag = 1567;
                         igv.image = [UIImage imageNamed:@"Back Chevron Copy 4"];
                         [btn addSubview:igv];
-                        
+                        lab.textColor = BLUE;
+
                     } failure:^(id responseObject) {
                         [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
                     }];
                 }
 
+            }else {
+                btn.height = 0;
+                btn.hidden = YES;
+                [[superBtn viewWithTag:1567] removeFromSuperview];
             }
             
             line = [[UIView alloc]initWithFrame:CGRectMake(0, 53, WIDTH_, 0.5)];
@@ -267,6 +307,7 @@
             [self makeButton:btn];
             btn.tag = 111;
             subModel = subModel.model;
+            i ++;
         }
     }
     
