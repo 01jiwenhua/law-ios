@@ -132,37 +132,37 @@
     lab6.textColor = RGBColor(103, 103, 103);
     lab6.text = [NSString stringWithFormat:@"安全距离："];
     [vi addSubview:lab6];
-
-    UILabel * lab7 = [UILabel new];
-    lab7.frame = CGRectMake(10, 128, 90, 16);
-    lab7.font = [UIFont systemFontOfSize:16.0];
-    lab7.textColor = RGBColor(103, 103, 103);
-    lab7.text = [NSString stringWithFormat:@"查询标准："];
-    [vi addSubview:lab7];
-    
-   
-    
     
     NSDictionary * dic = (NSDictionary *)[self arrayWithJsonString:self.dic[@"data"][@"distance"]];
     
     if (!dic) {
-        [[Toast shareToast]makeText:@"暂未收录此内容" aDuration:1];
+        [[Toast shareToast]makeText:@"该设施间的间距不存在" aDuration:1];
     }
     UILabel * lab9 = [UILabel new];
     lab9.frame = CGRectMake(90, 72, WIDTH_ - 120, 30);
     lab9.font = [UIFont systemFontOfSize:30.0];
     lab9.textColor = RGBColor(250, 58, 58);
+    lab9.numberOfLines = 0;
     lab9.text = @"0m";
     if (dic[@"distance"]) {
         lab9.text = [NSString stringWithFormat:@"%@m",dic[@"distance"]];
     }
-    
-    
+    CGSize textS= [lab9.text boundingRectWithSize:CGSizeMake(WIDTH_ - 150, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:lab9.font} context:nil].size;
+    CGFloat h = textS.height - lab9.height;
+    h = h <= 0 ? 0 : h;
+    lab9.height = textS.height;
     [vi addSubview:lab9];
+    
+    UILabel * lab7 = [UILabel new];
+    lab7.frame = CGRectMake(10, 123 + h, 90, 16);
+    lab7.font = [UIFont systemFontOfSize:16.0];
+    lab7.textColor = RGBColor(103, 103, 103);
+    lab7.text = [NSString stringWithFormat:@"查询标准："];
+    [vi addSubview:lab7];
     
     UITextView * lab10 = [UITextView new];
     lab10.scrollEnabled = NO;
-    lab10.frame = CGRectMake(90, 118, WIDTH_ - 120, 16);
+    lab10.frame = CGRectMake(90, 113 + h, WIDTH_ - 120, 16);
     lab10.font = [UIFont systemFontOfSize:16];
     lab10.textColor = RGBColor(71, 71, 71);
     lab10.text = dic[@"standard"]?dic[@"standard"]:@"无";
@@ -171,7 +171,7 @@
     if (textSize.height<25) {
         textSize.height = 25;
     }
-    lab10.frame = CGRectMake(90, 118, WIDTH_ - 120, textSize.height);
+    lab10.height = textSize.height;
     lab10.editable = NO;
     [vi addSubview:lab10];
     
@@ -184,7 +184,7 @@
     
     UITextView * lab11 = [UITextView new];
     lab11.scrollEnabled = NO;
-    lab11.frame = CGRectMake(90, 152, WIDTH_ - 120, 16);
+    lab11.frame = CGRectMake(90, 152 + h, WIDTH_ - 120, 16);
     lab11.font = [UIFont systemFontOfSize:16];
     lab11.textColor = RGBColor(71, 71, 71);
     lab11.text = dic[@"noteContent"]?dic[@"noteContent"]:@"无";
