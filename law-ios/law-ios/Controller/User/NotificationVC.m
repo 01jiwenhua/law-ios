@@ -21,11 +21,18 @@
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[NSUserDefaults standardUserDefaults]setBool:self.sw.isOn forKey:@"isON"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     self.title = @"通知管理";
     self.sw.onTintColor = BLUE;
+    [self.sw setOn:[[NSUserDefaults standardUserDefaults]boolForKey:@"isON"]];
+    
     
 }
 
