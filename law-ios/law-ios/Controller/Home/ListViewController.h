@@ -14,4 +14,6 @@
 @property (nonatomic, copy)NSString * level;
 
 @property (nonatomic,copy)NSString * searchStr;
+
+@property (nonatomic, assign)NSString*__strong* searchStrAd;
 @end

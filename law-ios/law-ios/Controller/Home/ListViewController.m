@@ -29,6 +29,8 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.search.text = (*_searchStrAd).copy;
+    self.searchStr = self.search.text;
     self.page = 0;
     [self getData];
     UIView * vi = [[UIApplication sharedApplication].delegate.window viewWithTag:11111];
@@ -73,6 +75,7 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
+    *_searchStrAd = searchBar.text;
     self.searchStr = searchBar.text;
     self.page = 0;
     [self getData];

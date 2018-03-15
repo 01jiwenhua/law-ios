@@ -13,6 +13,7 @@
 @interface SearchTypeViewController ()
 @property (nonatomic, strong) ZWMSegmentController *segmentVC;
 
+@property (nonatomic, strong) NSString * searchStr;
 @end
 
 @implementation SearchTypeViewController
@@ -57,6 +58,7 @@
                 listVC = [ListViewController new];
                 listVC.level = [NSString stringWithFormat:@"%@",obj[@"code"]];
                 listVC.typeCode = typeCode;
+                listVC.searchStrAd = &_searchStr;
                 [array addObject:listVC];
             }
             ws.segmentVC = [[ZWMSegmentController alloc] initWithFrame:ws.view.bounds titles:arr];
