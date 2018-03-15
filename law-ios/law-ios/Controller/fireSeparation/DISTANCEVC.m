@@ -34,7 +34,12 @@
     while (model0.model) {
         model0= model0.model;
     }
-    FireModel * model1 = self.modelArr[1];
+    FireModel * model1;
+    if(self.modelArr.count == 1) {
+        model1 = self.modelArr[0];
+    }else {
+        model1 = self.modelArr[1];
+    }
     while (model1.model) {
         model1= model1.model;
     }
@@ -60,7 +65,13 @@
         model0= model0.model;
         [str0 appendString:[NSString stringWithFormat:@">>%@",model0.dict[@"name"]]];
     }
-    FireModel * model1 = self.modelArr[1];
+    FireModel * model1;
+    if(self.modelArr.count == 1) {
+        model1 = self.modelArr[0];
+    }else {
+        model1 = self.modelArr[1];
+    }
+    
     NSMutableString * str1 = [[NSMutableString alloc]initWithString:[NSString stringWithFormat:@"%@",model0.dict[@"name"]]];
     while (model1.model) {
         model1= model1.model;

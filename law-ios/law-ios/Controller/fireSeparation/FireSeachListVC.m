@@ -41,10 +41,40 @@
 -(void)bindAction {
     WS(ws);
     [[self.queryBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        DISTANCEVC * vc = [DISTANCEVC new];
-        vc.modelArr = ws.dataArr;
-        [ws.navigationController pushViewController:vc animated:YES];
         
+        NSMutableDictionary * mdict = [NSMutableDictionary new];
+        FireModel * model0 = ws.dataArr[0];
+        while (model0.model) {
+            model0= model0.model;
+        }
+        FireModel * model1;
+        if(ws.dataArr.count == 1) {
+             model1 = ws.dataArr[0];
+        }else {
+             model1 = ws.dataArr[1];
+        }
+        while (model1.model) {
+            model1= model1.model;
+        }
+        [mdict setValue:model1.dict[@"id"] forKey:@"structureOutId"];
+        [mdict setValue:model0.dict[@"id"] forKey:@"deviceInId"];
+        [SVProgressHUD showWithStatus:@"加载中..."];
+        
+        [self POSTurl:GET_DISTANCE
+           parameters:@{@"data":[self dictionaryToJson:mdict]} success:^(id responseObject) {
+               [SVProgressHUD dismiss];
+               NSDictionary * dic = (NSDictionary *)[self arrayWithJsonString:responseObject[@"data"][@"distance"]];
+               if (!dic) {
+                   [[Toast shareToast]makeText:@"该设施间的间距不存在" aDuration:1];
+               }else {
+                   DISTANCEVC * vc = [DISTANCEVC new];
+                   vc.modelArr = ws.dataArr;
+                   [ws.navigationController pushViewController:vc animated:YES];
+               }
+           } failure:^(id responseObject) {
+               [[Toast shareToast]makeText:@"服务繁忙" aDuration:1];
+               [SVProgressHUD dismiss];
+           }];
     }];
 }
 
